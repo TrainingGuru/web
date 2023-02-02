@@ -229,7 +229,7 @@ function TrainerClients() {
                 <div>Fat</div>
                 <div>Carbs</div>
             </div>
-            <div style={styles.trainerClients.container.personalBests}>
+            <div style={{...styles.trainerClients.container.personalBests, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Personal Bests</div>
                 <div style={styles.trainerClients.container.personalBests.content}>
                     <div style={styles.trainerClients.container.personalBests.content.entry}>
@@ -276,12 +276,12 @@ function TrainerClients() {
                 <FontAwesomeIcon style={styles.trainerClients.container.calorieSummary.icon.dash} icon={faMinus}/>
 
             </div>
-            <div style={styles.trainerClients.container.steps}>
+            <div style={{...styles.trainerClients.container.steps, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Steps</div>
                 <div>Barchart</div>
                 <div>Goal: 10,000</div>
             </div>
-            <div style={styles.trainerClients.container.goals}>
+            <div style={{...styles.trainerClients.container.goals, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Goals</div>
                 <div style={styles.trainerClients.container.goals.entry}>
                     Lose Weight
@@ -290,7 +290,7 @@ function TrainerClients() {
                     Build Muscle
                 </div>
             </div>
-            <div style={styles.trainerClients.container.schedule}>
+            <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
             </div>
 
