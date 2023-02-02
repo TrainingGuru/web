@@ -57,6 +57,10 @@ const styles = {
                 paddingLeft: "2rem",
                 icon: {
                     paddingRight: "1rem"
+                },
+                a: {
+                    textDecoration: "none",
+                    color: "rgb(0, 0, 0)"
                 }
             }
             
@@ -182,15 +186,15 @@ function TrainerClients() {
         <div style={styles.trainerClients.nav}>
             <div style={styles.trainerClients.nav.link}>
                 <FontAwesomeIcon style={styles.trainerClients.nav.link.icon} icon={faHouseChimney}/>
-                <Link to="/">HOME</Link>
+                <Link to="/" style={styles.trainerClients.nav.link.a}>HOME</Link>
             </div>
             <div style={styles.trainerClients.nav.link}>
                 <FontAwesomeIcon style={styles.trainerClients.nav.link.icon} icon={faPeopleGroup}/>
-                <Link to="/clientstrainer">CLIENTS</Link>
+                <Link to="/clientstrainer" style={styles.trainerClients.nav.link.a}>CLIENTS</Link>
             </div>
             <div style={styles.trainerClients.nav.link}>
                 <FontAwesomeIcon  style={styles.trainerClients.nav.link.icon} icon={faUser}/>
-                <Link to="/profiletrainer">PROFILE</Link>
+                <Link to="/profiletrainer" style={styles.trainerClients.nav.link.a}>PROFILE</Link>
             </div>
         </div>
         <div style={styles.trainerClients.header}>

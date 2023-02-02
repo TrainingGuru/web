@@ -43,6 +43,10 @@ const styles = {
                 paddingLeft: "2rem",
                 icon: {
                     paddingRight: "1rem"
+                },
+                a: {
+                    textDecoration: "none",
+                    color: "rgb(0, 0, 0)"
                 }
             }
             
@@ -58,15 +62,15 @@ function TrainerProfile() {
         <div style={styles.trainerProfile.nav}>
             <div style={styles.trainerProfile.nav.link}>
                 <FontAwesomeIcon style={styles.trainerProfile.nav.link.icon} icon={faHouseChimney}/>
-                <Link to="/">HOME</Link>
+                <Link to="/" style={styles.trainerProfile.nav.link.a}>HOME</Link>
             </div>
             <div style={styles.trainerProfile.nav.link}>
                 <FontAwesomeIcon style={styles.trainerProfile.nav.link.icon} icon={faPeopleGroup}/>
-                <Link to="/clientstrainer">CLIENTS</Link>
+                <Link to="/clientstrainer" style={styles.trainerProfile.nav.link.a}>CLIENTS</Link>
             </div>
             <div style={styles.trainerProfile.nav.link}>
                 <FontAwesomeIcon  style={styles.trainerProfile.nav.link.icon} icon={faUser}/>
-                <Link to="/profiletrainer">PROFILE</Link>
+                <Link to="/profiletrainer" style={styles.trainerProfile.nav.link.a}>PROFILE</Link>
             </div>
         </div>
         <div style={styles.trainerProfile.header}>
