@@ -81,6 +81,11 @@ const styles = {
                 // fontWeight: "700",
                 textTransform: "Uppercase"
             },
+            sections: {
+                background: "rgb(245, 245, 245)",
+                border: "1px solid rgb(236, 239, 241)",
+                borderRadius: "4px"
+            },
             fitbitIcons: {
                 gridColumnStart: "1",
                 gridColumnEnd: "4",
@@ -100,7 +105,7 @@ const styles = {
                     borderBottom: "1px solid black"
                 }
             },
-            macros: {
+            intake: {
                 heading: {
                     textAlign: "center",
                     fontSize: "2em",
@@ -109,9 +114,6 @@ const styles = {
             },
             personalBests: {
                 gridRow: "span 2",
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px",
                 content: {
                     entry: {
                         margin: "10% 5%",
@@ -149,14 +151,10 @@ const styles = {
                 }
             },
             steps: {
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px"
+                
             },
             goals: {
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px",
+                
                 entry: {
                     textAlign: "center",
                     margin: "0 0 5% 0"
@@ -164,10 +162,7 @@ const styles = {
             },
             schedule: {
                 gridColumnStart: "1",
-                gridColumnEnd: "4",
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px"
+                gridColumnEnd: "4"
             }
         }
 
@@ -227,8 +222,8 @@ function TrainerClients() {
             <div style={styles.trainerClients.container.assignWorkouts}>
                 <div style={styles.trainerClients.container.assignWorkouts.name}>Jane McAvoy</div>
             </div>
-            <div style={styles.trainerClients.container.macros}>
-                <div style={styles.trainerClients.container.macros.heading}>Macros</div>
+            <div style={styles.trainerClients.container.intake}>
+                <div style={styles.trainerClients.container.intake.heading}>Intake</div>
                 <div>Calories</div>
                 <div>Protein</div>
                 <div>Fat</div>

@@ -61,12 +61,13 @@ const styles = {
                 // fontWeight: "700",
                 textTransform: "Uppercase"
             },
-            clients: {
-                gridRow: "span 3",
+            sections: {
                 background: "rgb(245, 245, 245)",
                 border: "1px solid rgb(236, 239, 241)",
-                borderRadius: "4px",
-                boxShadow: "rgb(0 0 0 / 10%) 0px 2px 1px",
+                borderRadius: "4px"
+            },
+            clients: {
+                gridRow: "span 3",
                 content: {
                     entry: {
                         margin: "10% 5%",
@@ -79,16 +80,10 @@ const styles = {
                 }
             },
             activity: {
-                gridRow: "span 2",
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px",
+                gridRow: "span 2"
             },
             intake: {
                 gridColumn: "2",
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px",
                 content: {
                     entry: {
                         display: "flex",
@@ -108,9 +103,6 @@ const styles = {
             upcomingWorkouts: {
                 gridColumnStart: "2",
                 gridColumnEnd: "4",
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px",
                 content: {
                     entry: {
                         display: "flex",
@@ -165,7 +157,7 @@ function TrainerHome() {
             </div>
 
             <div style={styles.trainerHome.container}>
-                <div style={styles.trainerHome.container.clients}>
+                <div style={{...styles.trainerHome.container.clients, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Clients</div>
                     <div style={styles.trainerHome.container.clients.content}>
                         <div style={styles.trainerHome.container.clients.content.entry}>
@@ -188,7 +180,7 @@ function TrainerHome() {
                 <div style={styles.trainerHome.container.activeToday}>
                     <div>Active Today: 6</div>
                 </div>
-                <div style={styles.trainerHome.container.activity}>
+                <div style={{...styles.trainerHome.container.activity, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Activity</div>
                     <div>
                         Barchart
@@ -197,7 +189,7 @@ function TrainerHome() {
                         dropdown
                     </div>
                 </div>
-                <div style={styles.trainerHome.container.intake}>
+                <div style={{...styles.trainerHome.container.intake, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Intake</div>
                     <div style={styles.trainerHome.container.intake.content}>
                         <div style={styles.trainerHome.container.intake.content.entry}>
@@ -215,7 +207,7 @@ function TrainerHome() {
                     </div>
                 </div>
 
-                <div style={styles.trainerHome.container.upcomingWorkouts}>
+                <div style={{...styles.trainerHome.container.upcomingWorkouts, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Upcoming Workouts</div>
                     <div style={styles.trainerHome.container.upcomingWorkouts.content}>
                         <div style={styles.trainerHome.container.upcomingWorkouts.content.entry}>

@@ -27,7 +27,7 @@ function SettingsScreen() {
 export default function App() {
   return (
 
-        <Router>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<TrainerHome />}  />
             {/*<Route path="/profile" render={props => <Profile {...props} />} />*/}
@@ -39,6 +39,6 @@ export default function App() {
             {/*<Route exact path="/registerclient" render={props => <RegisterClient {...props} />} />*/}
             {/*<Route exact path="/registertrainer" render={props => <RegisterTrainer {...props} />} />*/}
           </Routes>
-        </Router>
+        </HashRouter>
   );
 }
