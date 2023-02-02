@@ -63,9 +63,10 @@ const styles = {
             },
             clients: {
                 gridRow: "span 3",
-                background: "lightgrey",
-                border: "0px solid lightgrey",
-                borderRadius: "10px",
+                background: "rgb(245, 245, 245)",
+                border: "1px solid rgb(236, 239, 241)",
+                borderRadius: "4px",
+                boxShadow: "rgb(0 0 0 / 10%) 0px 2px 1px",
                 content: {
                     entry: {
                         margin: "10% 5%",
