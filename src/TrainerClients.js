@@ -71,15 +71,20 @@ const styles = {
             gridTemplateColumns: "repeat(3, 1fr)",
             headers: {
                 textAlign: "center",
-                background: "black",
                 width: "60%",
                 margin: "25px auto",
-                color: "white",
-                border: "0px solid lightgrey",
-                borderRadius: "5px",
-                padding: "0.5rem",
-                // fontWeight: "700",
-                textTransform: "Uppercase"
+                backgroundColor: "rgb(0, 0, 0)",
+                color: "rgb(255, 255, 255)",
+                fontFamily: "Roboto",
+                fontWeight: "500",
+                fontSize: "14px",
+                letterSpacing: "1.3px",
+                textTransform: "Uppercase",
+                lineHeight: "18px",
+                border: "0px",
+                borderRadius: "4px",
+                boxShadow: "rgb(0 0 0 / 10%) 0px 3px 1px",
+                padding: "0.5rem"
             },
             sections: {
                 background: "rgb(245, 245, 245)",
