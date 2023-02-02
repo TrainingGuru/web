@@ -4,6 +4,8 @@ import {
 } from "react-router-dom";
 import {Home} from "./Home";
 import TrainerHome from "./TrainerHome";
+import TrainerClients from "./TrainerClients";
+import TrainerProfile from "./TrainerProfile";
 
 
 function HomeScreen() {
@@ -25,18 +27,18 @@ function SettingsScreen() {
 export default function App() {
   return (
 
-        <HashRouter>
+        <Router>
           <Routes>
-            <Route path="/"element={<TrainerHome />}  />
+            <Route path="/" element={<TrainerHome />}  />
             {/*<Route path="/profile" render={props => <Profile {...props} />} />*/}
             {/*<Route exact path="/homeclient" render={props => <ClientHome {...props} />} />*/}
             {/* <Route path="/hometrainer" element={<TrainerHome />}  /> */}
-            <Route exact path="/clientstrainer" render={props => <TrainerClients />} />
-            <Route exact path="/profiletrainer" render={props => <TrainerProfile />} />
+            <Route path="/clientstrainer" element={<TrainerClients />} />
+            <Route path="/profiletrainer" element={<TrainerProfile />} />
             {/*<Route exact path="/login" render={props => <Login {...props} />} />*/}
             {/*<Route exact path="/registerclient" render={props => <RegisterClient {...props} />} />*/}
             {/*<Route exact path="/registertrainer" render={props => <RegisterTrainer {...props} />} />*/}
           </Routes>
-        </HashRouter>
+        </Router>
   );
 }

@@ -1,12 +1,10 @@
 import React from 'react';
-import {formHelperTextClasses, Grid, grid2Classes, TextField} from "@mui/material";
 
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars} from "@fortawesome/free-solid-svg-icons/faBars";
 import {faHouseChimney} from "@fortawesome/free-solid-svg-icons/faHouseChimney";
 import {faPeopleGroup} from "@fortawesome/free-solid-svg-icons/faPeopleGroup";
 import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
-import menu from "native-base/src/theme/components/menu";
 
 import { Link } from "react-router-dom";
 
@@ -56,11 +54,11 @@ const styles = {
 
 function TrainerProfile() {
 
-    return <div style={styles.trainerProfile}>
+    return (<div style={styles.trainerProfile}>
         <div style={styles.trainerProfile.nav}>
             <div style={styles.trainerProfile.nav.link}>
                 <FontAwesomeIcon style={styles.trainerProfile.nav.link.icon} icon={faHouseChimney}/>
-                <Link to="/hometrainer">HOME</Link>
+                <Link to="/">HOME</Link>
             </div>
             <div style={styles.trainerProfile.nav.link}>
                 <FontAwesomeIcon style={styles.trainerProfile.nav.link.icon} icon={faPeopleGroup}/>
@@ -80,6 +78,7 @@ function TrainerProfile() {
             </div> */}
         </div>
     </div>
+    );
 }
 
 export default TrainerProfile;
