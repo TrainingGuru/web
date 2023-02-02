@@ -61,7 +61,7 @@ const styles = {
                 // fontWeight: "700",
                 textTransform: "Uppercase"
             },
-            personalBests: {
+            clients: {
                 gridRow: "span 3",
                 background: "lightgrey",
                 border: "0px solid lightgrey",
@@ -72,20 +72,6 @@ const styles = {
                         name: {
                             margin: "5%",
                             fontWeight: "700"
-                        },
-                        data: {
-                            display: "flex",
-                            margin: "5%",
-                            justifyContent: "space-evenly",
-                            icon: {
-                                color: "green"
-                            },
-                            previous: {
-                                fontWeight: "700"
-                            },
-                            new: {
-                                fontWeight: "700"
-                            }
                         }
 
                     }
@@ -155,7 +141,7 @@ function TrainerHome() {
             <div style={styles.trainerHome.nav}>
                 <div style={styles.trainerHome.nav.link}>
                     <FontAwesomeIcon style={styles.trainerHome.nav.link.icon} icon={faHouseChimney}/>
-                    <Link to="/hometrainer">HOME</Link>
+                    <Link to="/">HOME</Link>
                 </div>
                 <div style={styles.trainerHome.nav.link}>
                     <FontAwesomeIcon style={styles.trainerHome.nav.link.icon} icon={faPeopleGroup}/>
@@ -178,93 +164,23 @@ function TrainerHome() {
             </div>
 
             <div style={styles.trainerHome.container}>
-                <div style={styles.trainerHome.container.personalBests}>
-                    <div style={styles.trainerHome.container.headers}>Personal Bests</div>
-                    <div style={styles.trainerHome.container.personalBests.content}>
-                        <div style={styles.trainerHome.container.personalBests.content.entry}>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.name}>Adam Hobbs</div>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.data}>
-                                <FontAwesomeIcon
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.icon}
-                                    icon={faChevronUp}/>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.previous}>80kg
-                                </div>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.exercise}>Bench
-                                    Press
-                                </div>
-                                <div style={styles.trainerHome.container.personalBests.content.entry.data.new}>100kg
-                                </div>
-                            </div>
+                <div style={styles.trainerHome.container.clients}>
+                    <div style={styles.trainerHome.container.headers}>Clients</div>
+                    <div style={styles.trainerHome.container.clients.content}>
+                        <div style={styles.trainerHome.container.clients.content.entry}>
+                            <div style={styles.trainerHome.container.clients.content.entry.name}>Adam Hobbs</div>
                         </div>
-                        <div style={styles.trainerHome.container.personalBests.content.entry}>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.name}>James Martin
-                            </div>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.data}>
-                                <FontAwesomeIcon
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.icon}
-                                    icon={faChevronUp}/>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.previous}>40kg
-                                </div>
-                                <div style={styles.trainerHome.container.personalBests.content.entry.data.exercise}>Low
-                                    Rows
-                                </div>
-                                <div style={styles.trainerHome.container.personalBests.content.entry.data.new}>45kg
-                                </div>
-                            </div>
+                        <div style={styles.trainerHome.container.clients.content.entry}>
+                            <div style={styles.trainerHome.container.clients.content.entry.name}>James Martin</div>
                         </div>
-                        <div style={styles.trainerHome.container.personalBests.content.entry}>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.name}>Katie Maguire
-                            </div>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.data}>
-                                <FontAwesomeIcon
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.icon}
-                                    icon={faChevronUp}/>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.previous}>60kg
-                                </div>
-                                <div style={styles.trainerHome.container.personalBests.content.entry.data.exercise}>Leg
-                                    Press
-                                </div>
-                                <div style={styles.trainerHome.container.personalBests.content.entry.data.new}>65kg
-                                </div>
-                            </div>
+                        <div style={styles.trainerHome.container.clients.content.entry}>
+                            <div style={styles.trainerHome.container.clients.content.entry.name}>Katie Maguire</div>
                         </div>
-                        <div style={styles.trainerHome.container.personalBests.content.entry}>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.name}>John Doe</div>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.data}>
-                                <FontAwesomeIcon
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.icon}
-                                    icon={faChevronUp}/>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.previous}>20kg
-                                </div>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.exercise}>Shoulder
-                                    Press
-                                </div>
-                                <div style={styles.trainerHome.container.personalBests.content.entry.data.new}>22.5kg
-                                </div>
-                            </div>
+                        <div style={styles.trainerHome.container.clients.content.entry}>
+                            <div style={styles.trainerHome.container.clients.content.entry.name}>John Doe</div>
                         </div>
-                        <div style={styles.trainerHome.container.personalBests.content.entry}>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.name}>Patrick McCann
-                            </div>
-                            <div style={styles.trainerHome.container.personalBests.content.entry.data}>
-                                <FontAwesomeIcon
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.icon}
-                                    icon={faChevronUp}/>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.previous}>120kg
-                                </div>
-                                <div
-                                    style={styles.trainerHome.container.personalBests.content.entry.data.exercise}>Deadlift
-                                </div>
-                                <div style={styles.trainerHome.container.personalBests.content.entry.data.new}>140kg
-                                </div>
-                            </div>
+                        <div style={styles.trainerHome.container.clients.content.entry}>
+                            <div style={styles.trainerHome.container.clients.content.entry.name}>Patrick McCann</div>
                         </div>
                     </div>
                 </div>
