@@ -27,12 +27,12 @@ export default function App() {
 
         <HashRouter>
           <Routes>
-            <Route path="/"element={<Home />}  />
+            <Route path="/"element={<TrainerHome />}  />
             {/*<Route path="/profile" render={props => <Profile {...props} />} />*/}
             {/*<Route exact path="/homeclient" render={props => <ClientHome {...props} />} />*/}
-            <Route path="/hometrainer" element={<TrainerHome />}  />
-            {/*<Route exact path="/clientstrainer" render={props => <TrainerClients {...props} />} />*/}
-            {/*<Route exact path="/profiletrainer" render={props => <TrainerProfile {...props} />} />*/}
+            {/* <Route path="/hometrainer" element={<TrainerHome />}  /> */}
+            <Route exact path="/clientstrainer" render={props => <TrainerClients />} />
+            <Route exact path="/profiletrainer" render={props => <TrainerProfile />} />
             {/*<Route exact path="/login" render={props => <Login {...props} />} />*/}
             {/*<Route exact path="/registerclient" render={props => <RegisterClient {...props} />} />*/}
             {/*<Route exact path="/registertrainer" render={props => <RegisterTrainer {...props} />} />*/}
