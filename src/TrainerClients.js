@@ -18,6 +18,8 @@ import {faCircleCheck} from "@fortawesome/free-solid-svg-icons/faCircleCheck";
 import {faCircleXmark} from "@fortawesome/free-solid-svg-icons/faCircleXmark";
 import { faMinus } from "@fortawesome/free-solid-svg-icons/faMinus";
 
+import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
+
 import { Link } from "react-router-dom";
 
 
@@ -119,7 +121,14 @@ const styles = {
                 heading: {
                     textAlign: "center",
                     fontSize: "2em",
-                    borderBottom: "1px solid black"
+                    borderBottom: "1px solid black",
+                    marginBottom: "2%"
+                },
+                table: {
+                    display: "grid",
+                    gap: "1.5rem",
+                    gridTemplateColumns: "1.25fr 1.25fr 0.5fr",
+                    marginLeft: "2%"
                 }
             },
             personalBests: {
@@ -210,23 +219,23 @@ function TrainerClients() {
             <div style={styles.trainerClients.container.fitbitIcons}>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faFire}/>
-                    <div>700kcl</div>
+                    <div>4900kcl</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faDroplet}/>
-                    <div>2.0L</div>
+                    <div>13.5L</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faStairs}/>
-                    <div>2 Floors</div>
+                    <div>45 Floors</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faBolt}/>
-                    <div>70 Min</div>
+                    <div>420 Min</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faRoad}/>
-                    <div>2.1km</div>
+                    <div>27.1km</div>
                 </div>
             </div>
             <div style={styles.trainerClients.container.assignWorkouts}>
@@ -234,10 +243,20 @@ function TrainerClients() {
             </div>
             <div style={styles.trainerClients.container.intake}>
                 <div style={styles.trainerClients.container.intake.heading}>Intake</div>
-                <div>Calories</div>
-                <div>Protein</div>
-                <div>Fat</div>
-                <div>Carbs</div>
+                <div style={styles.trainerClients.container.intake.table}>
+                    <div>Calories</div>
+                    <div>1000/2000</div>
+                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                    <div>Protein</div>
+                    <div>80/90g</div>
+                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                    <div>Fat</div>
+                    <div>10/30g</div>
+                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                    <div>Carbs</div>
+                    <div>50/60g</div>
+                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                </div>
             </div>
             <div style={{...styles.trainerClients.container.personalBests, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Personal Bests</div>
