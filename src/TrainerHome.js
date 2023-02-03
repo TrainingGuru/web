@@ -78,6 +78,14 @@ const styles = {
             },
             clients: {
                 gridRow: "span 3",
+                color: "rgb(0, 0, 0)",
+                fontFamily: "Roboto",
+                fontWeight: "500",
+                fontSize: "23px",
+                letterSpacing: "0px",
+                lineHeight: "30px",
+                textAlign: "center",
+                textTransform: "none",
                 content: {
                     entry: {
                         margin: "10% 5%",
@@ -100,9 +108,24 @@ const styles = {
                         justifyContent: "space-evenly",
                         margin: "10% 5%",
                         name: {
-                            fontWeight: "700"
+                            color: "rgb(0, 0, 0)",
+                            fontFamily: "Roboto",
+                            fontWeight: "500",
+                            fontSize: "20px",
+                            letterSpacing: "0px",
+                            lineHeight: "26px",
+                            textAlign: "center",
+                            textTransform: "none"
                         },
                         data: {
+                            color: "rgb(0, 0, 0)",
+                            fontFamily: "Roboto",
+                            // fontWeight: "500",
+                            fontSize: "14px",
+                            letterSpacing: "0px",
+                            lineHeight: "26px",
+                            textAlign: "center",
+                            textTransform: "none",
                             currentIntake: {},
                             targetIntake: {}
                         }
@@ -128,7 +151,17 @@ const styles = {
                 }
             },
             activeToday: {
+                color: "rgb(0, 0, 0)",
+                fontFamily: "Roboto",
+                // fontWeight: "500",
+                fontSize: "16px",
+                letterSpacing: "0px",
+                lineHeight: "21px",
                 textAlign: "center",
+                textTransform: "none",
+                img: {
+
+                }
             },
 
 
@@ -188,7 +221,12 @@ function TrainerHome() {
                     </div>
                 </div>
                 <div style={styles.trainerHome.container.activeToday}>
-                    <div>Active Today: 6</div>
+                    <div>Active Today: 85%</div>
+                    <div>
+                    <img style={styles.trainerHome.container.activeToday.img}
+                         src={"public/pieChart.png"}
+                         alt="Pie Chart"/>
+                    </div>
                 </div>
                 <div style={{...styles.trainerHome.container.activity, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Activity</div>
@@ -204,15 +242,15 @@ function TrainerHome() {
                     <div style={styles.trainerHome.container.intake.content}>
                         <div style={styles.trainerHome.container.intake.content.entry}>
                             <div style={styles.trainerHome.container.intake.content.entry.name}>Adam Hobbs</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.currentIntake}>2500</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.icon}>/</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.targetIntake}>3000</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>2500</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>3000</div>
                         </div>
                         <div style={styles.trainerHome.container.intake.content.entry}>
                             <div style={styles.trainerHome.container.intake.content.entry.name}>John Doe</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.currentIntake}>1400</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.icon}>/</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.targetIntake}>1700</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>1400</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>1700</div>
                         </div>
                     </div>
                 </div>
