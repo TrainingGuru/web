@@ -128,7 +128,7 @@ const styles = {
                             fontSize: "14px",
                             letterSpacing: "0px",
                             lineHeight: "26px",
-                            // textAlign: "center",
+                            // textAlign: "center", 
                             textTransform: "none",
                             currentIntake: {},
                             targetIntake: {}
