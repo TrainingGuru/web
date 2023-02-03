@@ -56,7 +56,7 @@ const styles = {
             headers: {
                 textAlign: "center",
                 width: "60%",
-                margin: "25px auto",
+                margin: "5% auto",
                 backgroundColor: "rgb(0, 0, 0)",
                 color: "rgb(255, 255, 255)",
                 fontFamily: "Roboto",
@@ -103,10 +103,13 @@ const styles = {
             intake: {
                 gridColumn: "2",
                 content: {
+                    margin: "auto 5%",
+                    marginLeft: "10%",
+                    textAlign: "center",
                     entry: {
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                        margin: "10% 5%",
+                        display: "grid",
+                        gap: "0.5rem",
+                        gridTemplateColumns: "1.5fr 0.5fr",
                         name: {
                             color: "rgb(0, 0, 0)",
                             fontFamily: "Roboto",
@@ -114,17 +117,18 @@ const styles = {
                             fontSize: "20px",
                             letterSpacing: "0px",
                             lineHeight: "26px",
-                            textAlign: "center",
+                            textAlign: "left",
                             textTransform: "none"
                         },
                         data: {
+                            display: "flex",
                             color: "rgb(0, 0, 0)",
                             fontFamily: "Roboto",
                             // fontWeight: "500",
                             fontSize: "14px",
                             letterSpacing: "0px",
                             lineHeight: "26px",
-                            textAlign: "center",
+                            // textAlign: "center",
                             textTransform: "none",
                             currentIntake: {},
                             targetIntake: {}
@@ -137,10 +141,12 @@ const styles = {
                 gridColumnStart: "2",
                 gridColumnEnd: "4",
                 content: {
+                    textAlign: "center",
                     entry: {
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                        margin: "5% 2.5%",
+                        display: "grid",
+                        gridTemplateColumns: "repeat(3, 1fr)",
+                        gap: "1rem",
+                        margin: "auto 5%",
                         name: {
                             fontWeight: "700"
                         },
@@ -242,15 +248,19 @@ function TrainerHome() {
                     <div style={styles.trainerHome.container.intake.content}>
                         <div style={styles.trainerHome.container.intake.content.entry}>
                             <div style={styles.trainerHome.container.intake.content.entry.name}>Adam Hobbs</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>2500</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>3000</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data}>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>2500</div>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>3000</div>
+                            </div>
                         </div>
                         <div style={styles.trainerHome.container.intake.content.entry}>
                             <div style={styles.trainerHome.container.intake.content.entry.name}>John Doe</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>1400</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>1700</div>
+                            <div style={styles.trainerHome.container.intake.content.entry.data}>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>1400</div>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>1700</div>
+                            </div>
                         </div>
                     </div>
                 </div>

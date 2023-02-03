@@ -78,7 +78,7 @@ const styles = {
             headers: {
                 textAlign: "center",
                 width: "60%",
-                margin: "25px auto",
+                margin: "5% auto",
                 backgroundColor: "rgb(0, 0, 0)",
                 color: "rgb(255, 255, 255)",
                 fontFamily: "Roboto",
