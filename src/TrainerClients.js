@@ -264,21 +264,78 @@ function TrainerClients() {
                 </div>
                 <div style={styles.trainerClients.container.assignWorkouts.content}>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>dropdown</div>
+                    <div>
+                        <select id="workouts">
+                            <option value={"Unassigned"}>Unassigned</option>
+                            <option value={"Legs"}>Legs</option>
+                            <option value={"Chest"}>Chest</option>
+                            <option value={"Cardio"}>Cardio</option>
+                        </select>
+                    </div>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>dropdown</div>
+                    <div>
+                        <select id="workouts">
+                            <option value={"Unassigned"}>Unassigned</option>
+                            <option value={"Legs"}>Legs</option>
+                            <option value={"Chest"}>Chest</option>
+                            <option value={"Cardio"}>Cardio</option>
+                        </select>
+                    </div>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>dropdown</div>
+                    <div>
+                        <select id="workouts">
+                            <option value={"Unassigned"}>Unassigned</option>
+                            <option value={"Legs"}>Legs</option>
+                            <option value={"Chest"}>Chest</option>
+                            <option value={"Cardio"}>Cardio</option>
+                        </select>
+                    </div>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>dropdown</div>
+                    <div>
+                        <select id="workouts">
+                            <option value={"Unassigned"}>Unassigned</option>
+                            <option value={"Legs"}>Legs</option>
+                            <option value={"Chest"}>Chest</option>
+                            <option value={"Cardio"}>Cardio</option>
+                        </select>
+                    </div>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>dropdown</div>
+                    <div>
+                        <select id="workouts">
+                            <option value={"Unassigned"}>Unassigned</option>
+                            <option value={"Legs"}>Legs</option>
+                            <option value={"Chest"}>Chest</option>
+                            <option value={"Cardio"}>Cardio</option>
+                        </select>
+                    </div>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>dropdown</div>
+                    <div>
+                        <select id="workouts">
+                            <option value={"Unassigned"}>Unassigned</option>
+                            <option value={"Legs"}>Legs</option>
+                            <option value={"Chest"}>Chest</option>
+                            <option value={"Cardio"}>Cardio</option>
+                        </select>
+                    </div>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>dropdown</div>
+                    <div>
+                        <select id="workouts">
+                            <option value={"Unassigned"}>Unassigned</option>
+                            <option value={"Legs"}>Legs</option>
+                            <option value={"Chest"}>Chest</option>
+                            <option value={"Cardio"}>Cardio</option>
+                        </select>
+                    </div>
                 </div>
-                <div>Weekly dropdown</div>
+                <div>
+                    <select id="weeks">
+                        <option value={"Mon06Feb"}>w/c Mon 06 Feb</option>
+                        <option value={"Mon13Feb"}>w/c Mon 13 Feb</option>
+                        <option value={"Mon20Feb"}>w/c Mon 20 Feb</option>
+                        <option value={"Mon27Feb"}>w/c Mon 27 Feb</option>
+                        <option value={"Mon06Mar"}>w/c Mon 06 Mar</option>
+                    </select>
+                </div>
             </div>
             <div style={styles.trainerClients.container.intake}>
                 <div style={styles.trainerClients.container.intake.heading}>Intake</div>
