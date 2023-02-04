@@ -183,7 +183,7 @@ function TrainerHome() {
 
     // const location = useLocation();
 
-    // console.log(props, " props");
+    // console.log(props, " props"); 
     // console.log(location, " useLocation Hook");
 
     // const data = location.state?.data;
