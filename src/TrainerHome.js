@@ -240,7 +240,11 @@ function TrainerHome() {
                         Barchart
                     </div>
                     <div>
-                        dropdown
+                        <select id="clients">
+                            <option value={"JaneMcAvoy"}>Jane McAvoy</option>
+                            <option value={"RobertMcAteer"}>Robert McAteer</option>
+                            <option value={"KieranMcCormack"}>Kieran McCormack</option>
+                        </select>
                     </div>
                 </div>
                 <div style={{...styles.trainerHome.container.intake, ...styles.trainerHome.container.sections}}>

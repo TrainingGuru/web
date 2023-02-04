@@ -260,7 +260,11 @@ function TrainerClients() {
             </div>
             <div style={styles.trainerClients.container.assignWorkouts}>
                 <div style={styles.trainerClients.container.assignWorkouts.name}>
-                    Jane McAvoy (dropdown)
+                    <select id="clients">
+                        <option value={"JaneMcAvoy"}>Jane McAvoy</option>
+                        <option value={"RobertMcAteer"}>Robert McAteer</option>
+                        <option value={"KieranMcCormack"}>Kieran McCormack</option>
+                    </select>
                 </div>
                 <div style={styles.trainerClients.container.assignWorkouts.content}>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
@@ -404,7 +408,9 @@ function TrainerClients() {
             <div style={{...styles.trainerClients.container.steps, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Steps</div>
                 <div>Barchart</div>
-                <div>Goal: 10,000</div>
+                <div>Goal:</div>
+                <div>10,000</div>
+                <div><FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/></div>
             </div>
             <div style={{...styles.trainerClients.container.goals, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Goals</div>
