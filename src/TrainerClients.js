@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 
 
 
+
 const styles = {
     trainerClients: {
         margin: "2rem",
@@ -210,6 +211,14 @@ const styles = {
 
 
 function TrainerClients() {
+    
+    // let clients = useEffect(() => {
+    //     fetch(`https://traininggurubackend.onrender.com/Client`)
+    //         .then((response) => response.json())
+    //         .then((actualData) => {return actualData});
+    // }, []);
+
+    // const [data, setData] = useState({clients});
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>

@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faHouseChimney, faPeopleGroup, faUser, faChevronUp} from "@fortawesome/free-solid-svg-icons";
 
+import { useEffect, useState } from "react";
+
 const styles = {
     trainerHome: {
         margin: "2rem",
@@ -176,8 +178,28 @@ const styles = {
     }
 }
 
+
 function TrainerHome() {
 
+    // const location = useLocation();
+
+    // console.log(props, " props");
+    // console.log(location, " useLocation Hook");
+
+    // const data = location.state?.data;
+
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Client`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setData(actualData));
+    }, []);
+
+    // const [data, setData] = useState({clients});
+
+    // console.log(data);
 
     return (<div style={styles.trainerHome}>
             <div style={styles.trainerHome.nav}>
@@ -209,21 +231,11 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.clients, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Clients</div>
                     <div style={styles.trainerHome.container.clients.content}>
-                        <div style={styles.trainerHome.container.clients.content.entry}>
-                            <div style={styles.trainerHome.container.clients.content.entry.name}>Adam Hobbs</div>
-                        </div>
-                        <div style={styles.trainerHome.container.clients.content.entry}>
-                            <div style={styles.trainerHome.container.clients.content.entry.name}>James Martin</div>
-                        </div>
-                        <div style={styles.trainerHome.container.clients.content.entry}>
-                            <div style={styles.trainerHome.container.clients.content.entry.name}>Katie Maguire</div>
-                        </div>
-                        <div style={styles.trainerHome.container.clients.content.entry}>
-                            <div style={styles.trainerHome.container.clients.content.entry.name}>John Doe</div>
-                        </div>
-                        <div style={styles.trainerHome.container.clients.content.entry}>
-                            <div style={styles.trainerHome.container.clients.content.entry.name}>Patrick McCann</div>
-                        </div>
+                        { data?.map((client) => {
+                            return <div style={styles.trainerHome.container.clients.content.entry}>
+                                <div style={styles.trainerHome.container.clients.content.entry.name}>{client.Name}</div>
+                            </div>
+                        }) }
                     </div>
                 </div>
                 <div style={styles.trainerHome.container.activeToday}>

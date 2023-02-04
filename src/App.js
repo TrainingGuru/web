@@ -7,7 +7,7 @@ import TrainerHome from "./TrainerHome";
 import TrainerClients from "./TrainerClients";
 import TrainerProfile from "./TrainerProfile";
 
-import { useEffect } from "react";
+
 
 function HomeScreen() {
   return (
@@ -27,11 +27,16 @@ function SettingsScreen() {
 
 export default function App() {
 
-  useEffect(() => {
-    fetch(`https://traininggurubackend.onrender.com/Client`)
-      .then((response) => response.json())
-     .then((actualData) => console.log(actualData[0].Name));
-   }, []);
+  // let clients = useEffect(() => {
+  //   fetch(`https://traininggurubackend.onrender.com/Client`)
+  //     .then((response) => response.json())
+  //    .then((actualData) => {return actualData});
+  //  }, []);
+
+  //  const [data, setData] = useState(false);
+
+  //  console.log(data);
+  
 
   return (
 
