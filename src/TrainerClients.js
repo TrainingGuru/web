@@ -115,6 +115,26 @@ const styles = {
                     textAlign: "center",
                     fontSize: "2em",
                     borderBottom: "1px solid black"
+                },
+                content: {
+                    display: "grid",
+                    gap: "1.5rem",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    margin: "auto 5%",
+                    color: "rgb(0, 0, 0)",
+                    fontFamily: "Poppins",
+                    // fontWeight: "500",
+                    fontSize: "14px",
+                    letterSpacing: "0px",
+                    lineHeight: "26px",
+                    // textAlign: "center", 
+                    textTransform: "none",
+                    day: {
+
+                    },
+                    dropdown: {
+                        
+                    }
                 }
             },
             intake: {
@@ -239,7 +259,26 @@ function TrainerClients() {
                 </div>
             </div>
             <div style={styles.trainerClients.container.assignWorkouts}>
-                <div style={styles.trainerClients.container.assignWorkouts.name}>Jane McAvoy</div>
+                <div style={styles.trainerClients.container.assignWorkouts.name}>
+                    Jane McAvoy (dropdown)
+                </div>
+                <div style={styles.trainerClients.container.assignWorkouts.content}>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div>dropdown</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div>dropdown</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div>dropdown</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div>dropdown</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div>dropdown</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div>dropdown</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div>dropdown</div>
+                </div>
+                <div>Weekly dropdown</div>
             </div>
             <div style={styles.trainerClients.container.intake}>
                 <div style={styles.trainerClients.container.intake.heading}>Intake</div>
