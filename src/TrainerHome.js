@@ -233,13 +233,22 @@ function TrainerHome() {
 
     // const data = location.state?.data;
 
-    const [data, setData] = useState(null);
+    const [clients, setClients] = useState(null);
 
     useEffect(() => {
-        fetch(`https://traininggurubackend.onrender.com/Client`)
+        fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
             .then((response) => response.json())
             // .then((actualData) => console.log(actualData[0]))
-            .then((actualData) => setData(actualData));
+            .then((actualData) => setClients(actualData));
+    }, []);
+
+    const [clientIntakes, setIntakeData] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Client/Trainer/1/NutritionValues`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setIntakeData(actualData));
     }, []);
 
     // const [data, setData] = useState({clients});
@@ -276,7 +285,7 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.clients, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Clients</div>
                     <div style={styles.trainerHome.container.clients.content}>
-                        { data?.map((client) => {
+                        { clients?.map((client) => {
                             return <div style={styles.trainerHome.container.clients.content.entry}>
                                 <div style={styles.trainerHome.container.clients.content.entry.name}>{client.Name}</div>
                             </div>
@@ -304,9 +313,9 @@ function TrainerHome() {
                     
                         <div style={styles.trainerHome.container.activity.content.dropdown}>
                             <select id="clients">
-                                <option value={"JaneMcAvoy"}>Jane McAvoy</option>
-                                <option value={"RobertMcAteer"}>Robert McAteer</option>
-                                <option value={"KieranMcCormack"}>Kieran McCormack</option>
+                                { clients?.map((client) => {
+                                    return <option value={"${client.ClientID}"}>{client.Name}</option>
+                                }) }
                             </select>
                         </div>
                     </div>
@@ -314,22 +323,17 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.intake, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Intake</div>
                     <div style={styles.trainerHome.container.intake.content}>
-                        <div style={styles.trainerHome.container.intake.content.entry}>
-                            <div style={styles.trainerHome.container.intake.content.entry.name}>Adam Hobbs</div>
+                        { clientIntakes?.map((clientIntake) => {
+                            return <div style={styles.trainerHome.container.intake.content.entry}>
+                            <div style={styles.trainerHome.container.intake.content.entry.name}>{clientIntake.Name}</div>
                             <div style={styles.trainerHome.container.intake.content.entry.data}>
-                                <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>2500</div>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>{clientIntake.Nutrition?.CaloriesIntake}</div>
                                 <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
-                                <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>3000</div>
+                                <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>{clientIntake.Nutrition?.TotalCalories}</div>
                             </div>
                         </div>
-                        <div style={styles.trainerHome.container.intake.content.entry}>
-                            <div style={styles.trainerHome.container.intake.content.entry.name}>John Doe</div>
-                            <div style={styles.trainerHome.container.intake.content.entry.data}>
-                                <div style={styles.trainerHome.container.intake.content.entry.data.currentIntake}>1400</div>
-                                <div style={styles.trainerHome.container.intake.content.entry.data.icon}>/</div>
-                                <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>1700</div>
-                            </div>
-                        </div>
+                        }) }
+                        
                     </div>
                 </div>
 
