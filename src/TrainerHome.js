@@ -9,9 +9,12 @@ import { useEffect, useState } from "react";
 const styles = {
     trainerHome: {
         margin: "2rem",
+        height: "90vh",
+        overflow: "hidden",
         header: {
             display: "flex",
             width: "80%",
+            height: "5%",
             float: "left",
             justifyContent: "space-evenly",
             logo: {
@@ -51,10 +54,13 @@ const styles = {
             display: "grid",
             gap: "1.5rem",
             width: "75%",
-            // height: "100%",
+            // height: "70vh",
+            overflow: "hidden",
+            height: "100%",
             margin: "5% 5% 5% 0",
             float: "left",
             gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateRows: "0.5fr 0.5fr 2fr",
             headers: {
                 textAlign: "center",
                 width: "60%",
@@ -80,6 +86,8 @@ const styles = {
             },
             clients: {
                 gridRow: "span 3",
+                height: "100%",
+                overflow: "scroll",
                 color: "rgb(0, 0, 0)",
                 fontFamily: "Roboto",
                 fontWeight: "500",
