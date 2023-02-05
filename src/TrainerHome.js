@@ -63,7 +63,7 @@ const styles = {
             margin: "5% 5% 5% 0",
             float: "left",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gridTemplateRows: "0.5fr 0.5fr 2fr",
+            gridTemplateRows: "1fr 1fr 3fr",
             headers: {
                 textAlign: "center",
                 width: "60%",
@@ -112,12 +112,16 @@ const styles = {
             },
             activity: {
                 gridRow: "span 2",
+                height: "100%",
+                overflow: "hidden",
                 content: {
                     img: {}
                 }
             },
             intake: {
                 gridColumn: "2",
+                height: "100%",
+                overflow: "hidden",
                 content: {
                     margin: "auto 5%",
                     marginLeft: "10%",
@@ -156,6 +160,8 @@ const styles = {
             upcomingWorkouts: {
                 gridColumnStart: "2",
                 gridColumnEnd: "4",
+                height: "100%",
+                overflow: "hidden",
                 content: {
                     textAlign: "center",
                     entry: {
@@ -173,6 +179,8 @@ const styles = {
                 }
             },
             activeToday: {
+                height: "100%",
+                overflow: "hidden",
                 color: "rgb(0, 0, 0)",
                 fontFamily: "Roboto",
                 // fontWeight: "500",

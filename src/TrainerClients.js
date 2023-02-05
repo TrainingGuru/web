@@ -28,9 +28,12 @@ import barChart from "./barChart.png";
 const styles = {
     trainerClients: {
         margin: "2rem",
+        height: "90vh",
+        overflow: "hidden",
         header: {
             display: "flex",
             width: "80%",
+            height: "5%",
             float: "left",
             justifyContent: "space-evenly",
             logo: {
@@ -70,16 +73,19 @@ const styles = {
         },
         container: {
             display: "grid",
-            gap: "1.5rem",
+            gap: "1rem",
             width: "75%",
+            overflow: "hidden",
+            height: "100%",
             // height: "100%",
             margin: "2.5% 5% 5% 0",
             float: "left",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: "1.5fr 1fr 1.5fr",
+            gridTemplateRows: "0.75fr 1.5fr 0.25fr 1.5fr 2fr",
             headers: {
                 textAlign: "center",
                 width: "60%",
-                margin: "5% auto",
+                margin: "2% auto 0.5% auto",
                 backgroundColor: "rgb(0, 0, 0)",
                 color: "rgb(255, 255, 255)",
                 fontFamily: "Roboto",
@@ -102,6 +108,8 @@ const styles = {
             fitbitIcons: {
                 gridColumnStart: "1",
                 gridColumnEnd: "4",
+                height: "100%",
+                overflow: "hidden",
                 display: "flex",
                 justifyContent: "space-evenly",
                 textAlign: "center",
@@ -112,6 +120,8 @@ const styles = {
             },
             assignWorkouts: {
                 gridRow: "span 3",
+                height: "100%",
+                overflow: "hidden",
                 name: {
                     textAlign: "center",
                     fontSize: "2em",
@@ -139,11 +149,13 @@ const styles = {
                 }
             },
             intake: {
+                height: "100%",
+                overflow: "hidden",
                 heading: {
                     textAlign: "center",
                     fontSize: "2em",
                     borderBottom: "1px solid black",
-                    marginBottom: "2%"
+                    // marginBottom: "2%"
                 },
                 table: {
                     display: "grid",
@@ -154,9 +166,11 @@ const styles = {
             },
             personalBests: {
                 gridRow: "span 2",
+                height: "100%",
+                overflow: "hidden",
                 content: {
                     entry: {
-                        margin: "10% 5%",
+                        margin: "2% 5%",
                         data: {
                             display: "flex",
                             margin: "5%",
@@ -176,8 +190,10 @@ const styles = {
             },
             calorieSummary: {
                 display: "grid",
-                gap: "1.5rem",
+                // gap: "1rem",
                 gridTemplateColumns: "repeat(7, 1fr)",
+                height: "100%",
+                overflow: "hidden",
                 icon: {
                     check: {
                         color: "green"
@@ -191,12 +207,15 @@ const styles = {
                 }
             },
             steps: {
+                height: "100%",
+                overflow: "hidden",
                 content: {
                     img: {}
                 }
             },
             goals: {
-                
+                height: "100%",
+                overflow: "hidden",
                 entry: {
                     textAlign: "center",
                     margin: "0 0 5% 0"
@@ -204,7 +223,9 @@ const styles = {
             },
             schedule: {
                 gridColumnStart: "1",
-                gridColumnEnd: "4"
+                gridColumnEnd: "4",
+                height: "100%",
+                overflow: "hidden"
             }
         }
 
@@ -438,6 +459,10 @@ function TrainerClients() {
             </div>
             <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
+                <div>Wed</div>
+                <div>16th</div>
+                <div>Legs Advanced</div>
+                <div>notes</div>
             </div>
 
         </div>
