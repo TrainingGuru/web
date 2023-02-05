@@ -6,6 +6,9 @@ import {faBars, faHouseChimney, faPeopleGroup, faUser, faChevronUp} from "@forta
 
 import { useEffect, useState } from "react";
 
+import pieChart from "./pieChart.png";
+import barChart from "./barChart.png";
+
 const styles = {
     trainerHome: {
         margin: "2rem",
@@ -108,7 +111,10 @@ const styles = {
                 }
             },
             activity: {
-                gridRow: "span 2"
+                gridRow: "span 2",
+                content: {
+                    img: {}
+                }
             },
             intake: {
                 gridColumn: "2",
@@ -250,14 +256,16 @@ function TrainerHome() {
                     <div>Active Today: 85%</div>
                     <div>
                     <img style={styles.trainerHome.container.activeToday.img}
-                         src={"public/pieChart.png"}
+                         src={pieChart}
                          alt="Pie Chart"/>
                     </div>
                 </div>
                 <div style={{...styles.trainerHome.container.activity, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Activity</div>
-                    <div>
-                        Barchart
+                    <div style={styles.trainerHome.container.activity.content}>
+                        <img style={styles.trainerHome.container.activity.img}
+                            src={barChart}
+                            alt="Bar Chart"/>
                     </div>
                     <div>
                         <select id="clients">
