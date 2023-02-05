@@ -129,13 +129,14 @@ const styles = {
                 height: "100%",
                 overflow: "hidden",
                 content: {
-                    margin: "auto 5%",
-                    marginLeft: "10%",
+                    margin: "10%",
+                    marginLeft: "7.5%",
                     textAlign: "center",
                     entry: {
                         display: "grid",
                         gap: "0.5rem",
                         gridTemplateColumns: "1.5fr 0.5fr",
+                        margin: "5%",
                         name: {
                             color: "rgb(0, 0, 0)",
                             fontFamily: "Roboto",
@@ -174,7 +175,7 @@ const styles = {
                         display: "grid",
                         gridTemplateColumns: "repeat(3, 1fr)",
                         gap: "1rem",
-                        margin: "auto 5%",
+                        margin: "10%",
                         name: {
                             fontWeight: "700"
                         },
@@ -186,6 +187,7 @@ const styles = {
             },
             activeToday: {
                 height: "100%",
+                display: "flex",
                 overflow: "hidden",
                 color: "rgb(0, 0, 0)",
                 fontFamily: "Roboto",
@@ -195,8 +197,23 @@ const styles = {
                 lineHeight: "21px",
                 textAlign: "center",
                 textTransform: "none",
-                img: {
-
+                text: {
+                    width: "50%",
+                    // float: "left",
+                    margin: "20% auto",
+                    label: {
+                        margin: "5%"
+                    },
+                    data: {}
+                },
+                imgContainer: {
+                    width: "50%",
+                    margin: "0",
+                    // float: "right",
+                    img: {
+                        width: "100%",
+                        height: "100%"
+                    }
                 }
             },
 
@@ -267,11 +284,15 @@ function TrainerHome() {
                     </div>
                 </div>
                 <div style={styles.trainerHome.container.activeToday}>
-                    <div>Active Today: 85%</div>
-                    <div>
-                    <img style={styles.trainerHome.container.activeToday.img}
-                         src={pieChart}
-                         alt="Pie Chart"/>
+                    <div style={styles.trainerHome.container.activeToday.text}>
+                        <div style={styles.trainerHome.container.activeToday.text.label}>Active Today:</div>
+                        <div style={styles.trainerHome.container.activeToday.text.data}>85%</div>
+                    </div>
+                    
+                    <div style={styles.trainerHome.container.activeToday.imgContainer}>
+                        <img style={styles.trainerHome.container.activeToday.imgContainer.img}
+                            src={pieChart}
+                            alt="Pie Chart"/>
                     </div>
                 </div>
                 <div style={{...styles.trainerHome.container.activity, ...styles.trainerHome.container.sections}}>
