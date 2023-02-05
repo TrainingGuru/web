@@ -259,14 +259,14 @@ function TrainerClients() {
             .then((actualData) => setClients(actualData));
     }, []);
     
-    const [clientGoals, setGoals] = useState(null);
+    // const [clientGoals, setGoals] = useState(null);
 
-    useEffect(() => {
-        fetch(`https://traininggurubackend.onrender.com/Goals/3`)
-            .then((response) => response.json())
-            // .then((actualData) => console.log(actualData[0]))
-            .then((actualData) => setGoals(actualData));
-    }, []);
+    // useEffect(() => {
+    //     fetch(`https://traininggurubackend.onrender.com/Goals/3`)
+    //         .then((response) => response.json())
+    //         // .then((actualData) => console.log(actualData[0]))
+    //         .then((actualData) => setGoals(actualData));
+    // }, []);
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
