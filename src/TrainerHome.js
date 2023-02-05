@@ -17,13 +17,13 @@ const styles = {
         header: {
             display: "flex",
             width: "80%",
-            height: "5%",
+            height: "10%",
             float: "left",
             justifyContent: "space-evenly",
             logo: {
                 img: {
-                    width: "5em",
-                    height: "5em"
+                    width: "100%",
+                    height: "100%"
                 }
             },
             menu: {
@@ -60,7 +60,7 @@ const styles = {
             // height: "70vh",
             overflow: "hidden",
             height: "100%",
-            margin: "5% 5% 5% 0",
+            margin: "1% 5% 5% 0",
             float: "left",
             gridTemplateColumns: "repeat(3, 1fr)",
             gridTemplateRows: "1fr 1fr 3fr",

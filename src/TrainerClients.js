@@ -33,13 +33,13 @@ const styles = {
         header: {
             display: "flex",
             width: "80%",
-            height: "5%",
+            height: "10%",
             float: "left",
             justifyContent: "space-evenly",
             logo: {
                 img: {
-                    width: "5em",
-                    height: "5em"
+                    width: "100%",
+                    height: "100%"
                 }
             },
             menu: {
@@ -78,7 +78,7 @@ const styles = {
             overflow: "hidden",
             height: "100%",
             // height: "100%",
-            margin: "2.5% 5% 5% 0",
+            margin: "1% 5% 5% 0",
             float: "left",
             gridTemplateColumns: "1.5fr 1fr 1.5fr",
             gridTemplateRows: "0.75fr 1.5fr 0.25fr 1.5fr 2fr",
