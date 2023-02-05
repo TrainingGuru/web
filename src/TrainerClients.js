@@ -24,6 +24,8 @@ import { Link } from "react-router-dom";
 
 import barChart from "./barChart.png";
 
+import { useEffect, useState } from "react";
+
 
 const styles = {
     trainerClients: {
@@ -248,13 +250,23 @@ const styles = {
 
 function TrainerClients() {
     
-    // let clients = useEffect(() => {
-    //     fetch(`https://traininggurubackend.onrender.com/Client`)
-    //         .then((response) => response.json())
-    //         .then((actualData) => {return actualData});
-    // }, []);
+    const [clients, setClients] = useState(null);
 
-    // const [data, setData] = useState({clients});
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setClients(actualData));
+    }, []);
+    
+    const [clientGoals, setGoals] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Goals/3`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setGoals(actualData));
+    }, []);
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
@@ -306,9 +318,9 @@ function TrainerClients() {
             <div style={styles.trainerClients.container.assignWorkouts}>
                 <div style={styles.trainerClients.container.assignWorkouts.name}>
                     <select id="clients">
-                        <option value={"JaneMcAvoy"}>Jane McAvoy</option>
-                        <option value={"RobertMcAteer"}>Robert McAteer</option>
-                        <option value={"KieranMcCormack"}>Kieran McCormack</option>
+                        { clients?.map((client) => {
+                            return <option value={"${client.ClientID}"}>{client.Name}</option>
+                        }) }
                     </select>
                 </div>
                 <div style={styles.trainerClients.container.assignWorkouts.content}>
