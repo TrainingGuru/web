@@ -251,6 +251,15 @@ function TrainerHome() {
             .then((actualData) => setIntakeData(actualData));
     }, []);
 
+    const [clientWorkouts, setWorkoutData] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Trainer/1/UpComingWorkouts`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setWorkoutData(actualData));
+    }, []);
+
     // const [data, setData] = useState({clients});
 
     // console.log(data);
@@ -340,28 +349,14 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.upcomingWorkouts, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Upcoming Workouts</div>
                     <div style={styles.trainerHome.container.upcomingWorkouts.content}>
-                        <div style={styles.trainerHome.container.upcomingWorkouts.content.entry}>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.name}>Adam Hobbs
+                        { clientWorkouts?.map((clientWorkout) => {
+                            return <div style={styles.trainerHome.container.upcomingWorkouts.content.entry}>
+                                <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.name}>{clientWorkout.Client.Name}</div>
+                                <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.date}>{clientWorkout.Date}</div>
+                                <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.workout}>{clientWorkout.TrainerWorkout.WorkoutName}</div>
                             </div>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.date}>26/01/2023
-                            </div>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.workout}>Chest</div>
-                        </div>
-                        <div style={styles.trainerHome.container.upcomingWorkouts.content.entry}>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.name}>James Martin
-                            </div>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.date}>28/01/2023
-                            </div>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.workout}>Legs</div>
-                        </div>
-                        <div style={styles.trainerHome.container.upcomingWorkouts.content.entry}>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.name}>Katie
-                                Maguire
-                            </div>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.date}>30/01/2023
-                            </div>
-                            <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.workout}>Back</div>
-                        </div>
+                        }) }
+                        
                     </div>
                 </div>
             </div>
