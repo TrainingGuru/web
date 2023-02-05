@@ -90,14 +90,14 @@ const styles = {
                 color: "rgb(255, 255, 255)",
                 fontFamily: "Roboto",
                 fontWeight: "500",
-                fontSize: "14px",
+                fontSize: "10px",
                 letterSpacing: "1.3px",
                 textTransform: "Uppercase",
                 lineHeight: "18px",
                 border: "0px",
                 borderRadius: "4px",
                 boxShadow: "rgb(0 0 0 / 10%) 0px 3px 1px",
-                padding: "0.5rem"
+                padding: "1%"
             },
             sections: {
                 background: "rgb(245, 245, 245)",
@@ -170,7 +170,7 @@ const styles = {
                 overflow: "hidden",
                 content: {
                     entry: {
-                        margin: "2% 5%",
+                        margin: "10%",
                         data: {
                             display: "flex",
                             margin: "5%",
@@ -193,7 +193,7 @@ const styles = {
                 // gap: "1rem",
                 gridTemplateColumns: "repeat(7, 1fr)",
                 height: "100%",
-                overflow: "hidden",
+                // overflow: "hidden",
                 icon: {
                     check: {
                         color: "green"
@@ -210,7 +210,19 @@ const styles = {
                 height: "100%",
                 overflow: "hidden",
                 content: {
-                    img: {}
+                    textAlign: "center",
+                    img: {
+                        width: "75%",
+                        height: "75%"
+                    },
+                    text: {
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                        label: {},
+                        data: {},
+                        editIcon: {}
+                    }
+                    
                 }
             },
             goals: {
@@ -218,7 +230,8 @@ const styles = {
                 overflow: "hidden",
                 entry: {
                     textAlign: "center",
-                    margin: "0 0 5% 0"
+                    margin: "5%",
+                    fontSize: "20px"
                 }
             },
             schedule: {
@@ -395,25 +408,25 @@ function TrainerClients() {
                 <div style={styles.trainerClients.container.personalBests.content}>
                     <div style={styles.trainerClients.container.personalBests.content.entry}>
                         <div style={styles.trainerClients.container.personalBests.content.entry.data}>
-                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>80kg</div>
                             <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>Bench Press</div>
+                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>80kg</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
                             <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>100kg</div>
                         </div>
                     </div>
                     <div style={styles.trainerClients.container.personalBests.content.entry}>
                         <div style={styles.trainerClients.container.personalBests.content.entry.data}>
-                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>40kg</div>
                             <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>Low Rows</div>
+                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>40kg</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
                             <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>45kg</div>
                         </div>
                     </div>
                     <div style={styles.trainerClients.container.personalBests.content.entry}>
                         <div style={styles.trainerClients.container.personalBests.content.entry.data}>
-                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>60kg</div>
                             <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>Leg Press</div>
+                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>60kg</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
                             <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>65kg</div>
                         </div>
                     </div>
@@ -439,14 +452,18 @@ function TrainerClients() {
             </div>
             <div style={{...styles.trainerClients.container.steps, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Steps</div>
-                <div>
-                    <img style={styles.trainerClients.container.steps.content.img}
-                        src={barChart}
-                        alt="Bar Chart"/>
+                <div style={styles.trainerClients.container.steps.content}>
+                    <div>
+                        <img style={styles.trainerClients.container.steps.content.img}
+                            src={barChart}
+                            alt="Bar Chart"/>
+                    </div>
+                    <div style={styles.trainerClients.container.steps.content.text}>
+                        <div style={styles.trainerClients.container.steps.content.text.label}>Goal:</div>
+                        <div style={styles.trainerClients.container.steps.content.text.data}>10,000</div>
+                        <div><FontAwesomeIcon style={styles.trainerClients.container.steps.content.text.editIcon} icon={faPenToSquare}/></div>
+                    </div>
                 </div>
-                <div>Goal:</div>
-                <div>10,000</div>
-                <div><FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/></div>
             </div>
             <div style={{...styles.trainerClients.container.goals, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Goals</div>

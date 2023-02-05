@@ -114,8 +114,14 @@ const styles = {
                 gridRow: "span 2",
                 height: "100%",
                 overflow: "hidden",
+                textAlign: "center",
                 content: {
-                    img: {}
+                    img: {
+                        margin: "1% auto"
+                    },
+                    dropdown: {
+                        
+                    }
                 }
             },
             intake: {
@@ -274,13 +280,14 @@ function TrainerHome() {
                         <img style={styles.trainerHome.container.activity.content.img}
                             src={barChart}
                             alt="Bar Chart"/>
-                    </div>
-                    <div>
-                        <select id="clients">
-                            <option value={"JaneMcAvoy"}>Jane McAvoy</option>
-                            <option value={"RobertMcAteer"}>Robert McAteer</option>
-                            <option value={"KieranMcCormack"}>Kieran McCormack</option>
-                        </select>
+                    
+                        <div style={styles.trainerHome.container.activity.content.dropdown}>
+                            <select id="clients">
+                                <option value={"JaneMcAvoy"}>Jane McAvoy</option>
+                                <option value={"RobertMcAteer"}>Robert McAteer</option>
+                                <option value={"KieranMcCormack"}>Kieran McCormack</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div style={{...styles.trainerHome.container.intake, ...styles.trainerHome.container.sections}}>
