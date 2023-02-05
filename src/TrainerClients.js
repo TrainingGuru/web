@@ -22,7 +22,7 @@ import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
 
 import { Link } from "react-router-dom";
 
-
+import barChart from "./barChart.png";
 
 
 const styles = {
@@ -191,7 +191,9 @@ const styles = {
                 }
             },
             steps: {
-                
+                content: {
+                    img: {}
+                }
             },
             goals: {
                 
@@ -416,7 +418,11 @@ function TrainerClients() {
             </div>
             <div style={{...styles.trainerClients.container.steps, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Steps</div>
-                <div>Barchart</div>
+                <div>
+                    <img style={styles.trainerClients.container.steps.content.img}
+                        src={barChart}
+                        alt="Bar Chart"/>
+                </div>
                 <div>Goal:</div>
                 <div>10,000</div>
                 <div><FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/></div>

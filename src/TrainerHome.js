@@ -263,7 +263,7 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.activity, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Activity</div>
                     <div style={styles.trainerHome.container.activity.content}>
-                        <img style={styles.trainerHome.container.activity.img}
+                        <img style={styles.trainerHome.container.activity.content.img}
                             src={barChart}
                             alt="Bar Chart"/>
                     </div>
