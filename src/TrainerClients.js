@@ -87,7 +87,7 @@ const styles = {
             headers: {
                 textAlign: "center",
                 width: "60%",
-                margin: "2% auto 0.5% auto",
+                margin: "1% auto 0.5% auto",
                 backgroundColor: "rgb(0, 0, 0)",
                 color: "rgb(255, 255, 255)",
                 fontFamily: "Roboto",
@@ -133,7 +133,8 @@ const styles = {
                     display: "grid",
                     gap: "1.5rem",
                     gridTemplateColumns: "repeat(2, 1fr)",
-                    margin: "auto 5%",
+                    width: "75%",
+                    margin: "5% auto",
                     color: "rgb(0, 0, 0)",
                     fontFamily: "Poppins",
                     // fontWeight: "500",
@@ -212,14 +213,19 @@ const styles = {
                 height: "100%",
                 overflow: "hidden",
                 content: {
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
                     textAlign: "center",
-                    width: "100%",
-                    height: "100%",
+                    width: "80%",
+                    height: "80%",
+                    margin: "auto",
                     imgContainer: {
-                        
+                        height: "100%",
+                        width: "100%",
                         img: {
-                            width: "75%",
-                            height: "75%"
+                            height: "100%",
+                            width: "100%"
                         }
                     },
                     text: {
@@ -249,7 +255,13 @@ const styles = {
                 content: {
                     display: "flex",
                     justifyContent: "space-evenly",
-                    entry: {}
+                    textAlign: "center",
+                    // margin: "5%, auto",
+                    entry: {
+                        day: {
+                            fontWeight: "700"
+                        }
+                    }
                 }
             }
         }
@@ -392,9 +404,9 @@ function TrainerClients() {
                     <div>
                         <select id="workouts">
                             <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs</option>
-                            <option value={"Chest"}>Chest</option>
-                            <option value={"Cardio"}>Cardio</option>
+                            <option value={"Legs"}>Legs Advanced</option>
+                            <option value={"Chest"}>Chest Beginner</option>
+                            <option value={"Cardio"}>Cardio Beginner</option>
                         </select>
                     </div>
                     <div style={styles.trainerClients.container.assignWorkouts.content.day}>Tuesday</div>
@@ -545,43 +557,43 @@ function TrainerClients() {
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
                 <div style={styles.trainerClients.container.schedule.content}>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div>Mon</div>
+                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Mon</div>
                         <div>6th</div>
                         <div>Chest Beginner</div>
                         <div>notes</div>
                     </div>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div>Tues</div>
+                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Tues</div>
                         <div>7th</div>
                         <div></div>
                         <div></div>
                     </div>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div>Wed</div>
+                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Wed</div>
                         <div>8th</div>
                         <div>Legs Advanced</div>
                         <div>notes</div>
                     </div>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div>Thurs</div>
+                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Thurs</div>
                         <div>9th</div>
                         <div></div>
                         <div></div>
                     </div>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div>Fri</div>
+                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Fri</div>
                         <div>10th</div>
                         <div>Cardio Beginner</div>
                         <div>notes</div>
                     </div>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div>Sat</div>
+                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Sat</div>
                         <div>11th</div>
                         <div></div>
                         <div></div>
                     </div>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div>Sun</div>
+                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Sun</div>
                         <div>12th</div>
                         <div></div>
                         <div></div>

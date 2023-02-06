@@ -100,6 +100,9 @@ const styles = {
                 textAlign: "center",
                 textTransform: "none",
                 content: {
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
                     entry: {
                         margin: "10% 5%",
                         name: {
@@ -116,6 +119,9 @@ const styles = {
                 overflow: "hidden",
                 textAlign: "center",
                 content: {
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
                     img: {
                         margin: "1% auto"
                     },
@@ -173,11 +179,15 @@ const styles = {
                 overflow: "hidden",
                 content: {
                     textAlign: "center",
+                    display: "flex",
+                    height: "60%",
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
                     entry: {
                         display: "grid",
                         gridTemplateColumns: "repeat(3, 1fr)",
                         gap: "1rem",
-                        margin: "10%",
+                        // margin: "7.5%",
                         name: {
                             fontWeight: "700"
                         },
