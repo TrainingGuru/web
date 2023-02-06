@@ -79,7 +79,7 @@ const styles = {
             width: "75%",
             overflow: "hidden",
             height: "100%",
-            // height: "100%",
+            // height: "100%", 
             margin: "1% 5% 5% 0",
             float: "left",
             gridTemplateColumns: "1.5fr 1fr 1.5fr",
