@@ -83,7 +83,7 @@ const styles = {
             margin: "1% 5% 5% 0",
             float: "left",
             gridTemplateColumns: "1.5fr 1fr 1.5fr",
-            gridTemplateRows: "0.75fr 1.5fr 0.25fr 1.5fr 2fr",
+            gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
             headers: {
                 textAlign: "center",
                 width: "60%",
@@ -394,22 +394,27 @@ function TrainerClients() {
             <div style={styles.trainerClients.container.fitbitIcons}>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faFire}/>
+                    <div>Calories Burnt</div>
                     <div>4900kcl</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faDroplet}/>
+                    <div>Water Intake</div>
                     <div>13.5L</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faStairs}/>
+                    <div>Floors Climbed</div>
                     <div>45 Floors</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faBolt}/>
+                    <div>Active Minutes</div>
                     <div>420 Min</div>
                 </div>
                 <div>
                     <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faRoad}/>
+                    <div>Distance Travelled</div>
                     <div>27.1km</div>
                 </div>
             </div>
