@@ -172,7 +172,7 @@ const styles = {
                 overflow: "hidden",
                 content: {
                     entry: {
-                        margin: "10%",
+                        margin: "7.5%",
                         data: {
                             display: "flex",
                             margin: "5%",
@@ -248,6 +248,7 @@ const styles = {
 }
 
 
+
 function TrainerClients() {
     
     const [clients, setClients] = useState(null);
@@ -259,22 +260,28 @@ function TrainerClients() {
             .then((actualData) => setClients(actualData));
     }, []);
 
-    var currentClientID = 1;
+    // var clientData = Array.from(clients);
+
+    // var currentClientID = 1;
     const clientSelect = document?.getElementById("clients");
     clientSelect?.addEventListener('change', function handleChange(event) {
         // console.log("Select Value (ID): " + event.target.value);
-        currentClientID = event.target.value;
+        setCurrentClientID(event.target.value);
+        setGoals(clientGoals);
+        // TrainerClients();
     })
 
     const [clientGoals, setGoals] = useState(null);
+    const [currentClientID, setCurrentClientID] = useState(1);
 
-    // ${currentClientID}
     useEffect(() => {
-        fetch(`https://traininggurubackend.onrender.com/Goals/3`)
+        fetch(`https://traininggurubackend.onrender.com/Goals/${currentClientID}`)
             .then((response) => response.json())
             // .then((actualData) => console.log(actualData))
             .then((actualData) => setGoals(actualData));
-    }, []);
+    }, [clientGoals]);
+
+    // var goalData = Array.from(clientGoals);
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
@@ -342,7 +349,7 @@ function TrainerClients() {
                             <option value={"Cardio"}>Cardio</option>
                         </select>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Tuesday</div>
                     <div>
                         <select id="workouts">
                             <option value={"Unassigned"}>Unassigned</option>
@@ -351,7 +358,7 @@ function TrainerClients() {
                             <option value={"Cardio"}>Cardio</option>
                         </select>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Wednesday</div>
                     <div>
                         <select id="workouts">
                             <option value={"Unassigned"}>Unassigned</option>
@@ -360,7 +367,7 @@ function TrainerClients() {
                             <option value={"Cardio"}>Cardio</option>
                         </select>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Thursday</div>
                     <div>
                         <select id="workouts">
                             <option value={"Unassigned"}>Unassigned</option>
@@ -369,7 +376,7 @@ function TrainerClients() {
                             <option value={"Cardio"}>Cardio</option>
                         </select>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Friday</div>
                     <div>
                         <select id="workouts">
                             <option value={"Unassigned"}>Unassigned</option>
@@ -378,7 +385,7 @@ function TrainerClients() {
                             <option value={"Cardio"}>Cardio</option>
                         </select>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Saturday</div>
                     <div>
                         <select id="workouts">
                             <option value={"Unassigned"}>Unassigned</option>
@@ -387,7 +394,7 @@ function TrainerClients() {
                             <option value={"Cardio"}>Cardio</option>
                         </select>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
+                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Sunday</div>
                     <div>
                         <select id="workouts">
                             <option value={"Unassigned"}>Unassigned</option>
