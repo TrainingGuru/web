@@ -268,11 +268,32 @@ const styles = {
 
     }
 }
+var called = false;
+function getFitBitData() {
+    if(!called) {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzk5NEwiLCJzdWIiOiI5VDNRVkQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcm94eSBycHJvIHJudXQgcnNsZSByYWN0IHJsb2MgcnJlcyByd2VpIHJociBydGVtIiwiZXhwIjoxNjc1NzIzNDgzLCJpYXQiOjE2NzU2OTQ2ODN9.mDxpRhMeapdCvCDaFKFVNNOqZXR6tpmnd26xz89HG2U");
+        myHeaders.append("Cookie", "JSESSIONID=24FC41C2A5AFA76FFD3B2F8450EDCFD2.fitbit1; fct=6729e7eb6dd2457991ac1358ea327403");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.fitbit.com/1/user/-/activities/steps/date/2023-01-27/2023-02-03.json", requestOptions)
+            .then(response => response.text())
+            // .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+        called = true;
+    }
+    
+}
 
 
 
 function TrainerClients() {
-    
     const [clients, setClients] = useState(null);
 
     useEffect(() => {
@@ -281,6 +302,7 @@ function TrainerClients() {
             // .then((actualData) => console.log(actualData[0]))
             .then((actualData) => setClients(actualData));
     }, []);
+    
 
     // var clientData = Array.from(clients);
 
@@ -291,7 +313,7 @@ function TrainerClients() {
         setCurrentClientID(event.target.value);
         setGoals(clientGoals);
         setIntake(clientIntake);
-        setWorkouts(clientWorkouts);
+        // setWorkouts(clientWorkouts);
         // TrainerClients();
     })
 
@@ -323,17 +345,17 @@ function TrainerClients() {
             .then((actualData) => setPBs(actualData));
     }, [clientPBs]);
 
-    const [clientWorkouts, setWorkouts] = useState(null);
+    // const [clientWorkouts, setWorkouts] = useState(null);
 
-    useEffect(() => {
-        fetch(`https://traininggurubackend.onrender.com/Client/${currentClientID}/AllWorkouts`)
-            .then((response) => response.json())
-            // .then((actualData) => console.log(actualData))
-            .then((actualData) => setWorkouts(actualData));
-    }, [clientWorkouts]);
+    // useEffect(() => {
+    //     fetch(`https://traininggurubackend.onrender.com/Client/${currentClientID}/AllWorkouts`)
+    //         .then((response) => response.json())
+    //         // .then((actualData) => console.log(actualData))
+    //         .then((actualData) => setWorkouts(actualData));
+    // }, [clientWorkouts]);
 
-    var workoutsThisWeek = [];
-    var todaysDate = new Date();
+    // var workoutsThisWeek = [];
+    // var todaysDate = new Date();
 
     // for(var i = 0; i < Object.keys(clientWorkouts).length; i++) {
     //     if(clientWorkouts[i].Date > todaysDate) {
@@ -342,6 +364,7 @@ function TrainerClients() {
     // }
 
     // console.log(workoutsThisWeek);
+    getFitBitData();
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
