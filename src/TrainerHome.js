@@ -67,7 +67,7 @@ const styles = {
             headers: {
                 textAlign: "center",
                 width: "60%",
-                margin: "5% auto",
+                margin: "2% auto",
                 backgroundColor: "rgb(0, 0, 0)",
                 color: "rgb(255, 255, 255)",
                 fontFamily: "Roboto",
@@ -127,10 +127,12 @@ const styles = {
             intake: {
                 gridColumn: "2",
                 height: "100%",
-                overflow: "hidden",
+                overflow: "scroll",
+                overflowX: "hidden",
                 content: {
-                    margin: "10%",
-                    marginLeft: "7.5%",
+                    // margin: "10%",
+                    marginLeft: "5%",
+                    marginRight: "5%",
                     textAlign: "center",
                     entry: {
                         display: "grid",
