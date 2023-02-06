@@ -247,6 +247,8 @@ const styles = {
                 height: "100%",
                 overflow: "hidden",
                 content: {
+                    display: "flex",
+                    justifyContent: "space-evenly",
                     entry: {}
                 }
             }
@@ -543,10 +545,46 @@ function TrainerClients() {
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
                 <div style={styles.trainerClients.container.schedule.content}>
                     <div style={styles.trainerClients.container.schedule.content.entry}>
+                        <div>Mon</div>
+                        <div>6th</div>
+                        <div>Chest Beginner</div>
+                        <div>notes</div>
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.entry}>
+                        <div>Tues</div>
+                        <div>7th</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.entry}>
                         <div>Wed</div>
-                        <div>16th</div>
+                        <div>8th</div>
                         <div>Legs Advanced</div>
                         <div>notes</div>
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.entry}>
+                        <div>Thurs</div>
+                        <div>9th</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.entry}>
+                        <div>Fri</div>
+                        <div>10th</div>
+                        <div>Cardio Beginner</div>
+                        <div>notes</div>
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.entry}>
+                        <div>Sat</div>
+                        <div>11th</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.entry}>
+                        <div>Sun</div>
+                        <div>12th</div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </div>
                 
