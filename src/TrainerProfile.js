@@ -70,7 +70,7 @@ const styles = {
             }, 
             createWorkout: {
                 width: "50%",
-                // float: "left",
+                // float: "left", 
             }
         }
 
