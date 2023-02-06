@@ -213,9 +213,14 @@ const styles = {
                 overflow: "hidden",
                 content: {
                     textAlign: "center",
-                    img: {
-                        width: "75%",
-                        height: "75%"
+                    width: "100%",
+                    height: "100%",
+                    imgContainer: {
+                        
+                        img: {
+                            width: "75%",
+                            height: "75%"
+                        }
                     },
                     text: {
                         display: "flex",
@@ -240,7 +245,10 @@ const styles = {
                 gridColumnStart: "1",
                 gridColumnEnd: "4",
                 height: "100%",
-                overflow: "hidden"
+                overflow: "hidden",
+                content: {
+                    entry: {}
+                }
             }
         }
 
@@ -267,8 +275,9 @@ function TrainerClients() {
     clientSelect?.addEventListener('change', function handleChange(event) {
         // console.log("Select Value (ID): " + event.target.value);
         setCurrentClientID(event.target.value);
-        // setGoals(clientGoals);
+        setGoals(clientGoals);
         setIntake(clientIntake);
+        setWorkouts(clientWorkouts);
         // TrainerClients();
     })
 
@@ -299,6 +308,26 @@ function TrainerClients() {
             // .then((actualData) => console.log(actualData))
             .then((actualData) => setPBs(actualData));
     }, [clientPBs]);
+
+    const [clientWorkouts, setWorkouts] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Client/${currentClientID}/AllWorkouts`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setWorkouts(actualData));
+    }, [clientWorkouts]);
+
+    var workoutsThisWeek = [];
+    var todaysDate = new Date();
+
+    // for(var i = 0; i < Object.keys(clientWorkouts).length; i++) {
+    //     if(clientWorkouts[i].Date > todaysDate) {
+    //         workoutsThisWeek.push(clientWorkouts[i]);
+    //     }
+    // }
+
+    // console.log(workoutsThisWeek);
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
@@ -423,6 +452,7 @@ function TrainerClients() {
                 </div>
                 <div>
                     <select id="weeks">
+                        <option value={"Mon30Jan"}>w/c Mon 30 Jan</option>
                         <option value={"Mon06Feb"}>w/c Mon 06 Feb</option>
                         <option value={"Mon13Feb"}>w/c Mon 13 Feb</option>
                         <option value={"Mon20Feb"}>w/c Mon 20 Feb</option>
@@ -488,8 +518,8 @@ function TrainerClients() {
             <div style={{...styles.trainerClients.container.steps, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Steps</div>
                 <div style={styles.trainerClients.container.steps.content}>
-                    <div>
-                        <img style={styles.trainerClients.container.steps.content.img}
+                    <div style={styles.trainerClients.container.steps.content.imgContainer}>
+                        <img style={styles.trainerClients.container.steps.content.imgContainer.img}
                             src={barChart}
                             alt="Bar Chart"/>
                     </div>
@@ -511,10 +541,15 @@ function TrainerClients() {
             </div>
             <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
-                <div>Wed</div>
-                <div>16th</div>
-                <div>Legs Advanced</div>
-                <div>notes</div>
+                <div style={styles.trainerClients.container.schedule.content}>
+                    <div style={styles.trainerClients.container.schedule.content.entry}>
+                        <div>Wed</div>
+                        <div>16th</div>
+                        <div>Legs Advanced</div>
+                        <div>notes</div>
+                    </div>
+                </div>
+                
             </div>
 
         </div>
