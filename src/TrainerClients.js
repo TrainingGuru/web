@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars} from "@fortawesome/free-solid-svg-icons/faBars";
@@ -258,15 +258,23 @@ function TrainerClients() {
             // .then((actualData) => console.log(actualData[0]))
             .then((actualData) => setClients(actualData));
     }, []);
-    
-    // const [clientGoals, setGoals] = useState(null);
 
-    // useEffect(() => {
-    //     fetch(`https://traininggurubackend.onrender.com/Goals/3`)
-    //         .then((response) => response.json())
-    //         // .then((actualData) => console.log(actualData[0]))
-    //         .then((actualData) => setGoals(actualData));
-    // }, []);
+    var currentClientID = 1;
+    const clientSelect = document?.getElementById("clients");
+    clientSelect?.addEventListener('change', function handleChange(event) {
+        // console.log("Select Value (ID): " + event.target.value);
+        currentClientID = event.target.value;
+    })
+
+    const [clientGoals, setGoals] = useState(null);
+
+    // ${currentClientID}
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Goals/3`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setGoals(actualData));
+    }, []);
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
@@ -319,8 +327,9 @@ function TrainerClients() {
                 <div style={styles.trainerClients.container.assignWorkouts.name}>
                     <select id="clients">
                         { clients?.map((client) => {
-                            return <option value={"${client.ClientID}"}>{client.Name}</option>
-                        }) }
+                                return <option value={`${client.ClientID}`}>{client.Name}</option>
+                            })
+                        }
                     </select>
                 </div>
                 <div style={styles.trainerClients.container.assignWorkouts.content}>
@@ -479,12 +488,12 @@ function TrainerClients() {
             </div>
             <div style={{...styles.trainerClients.container.goals, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Goals</div>
-                <div style={styles.trainerClients.container.goals.entry}>
-                    Lose Weight
-                </div>
-                <div style={styles.trainerClients.container.goals.entry}>
-                    Build Muscle
-                </div>
+                    { clientGoals?.map((goal) => {
+                        return <div style={styles.trainerClients.container.goals.entry}>
+                                    {goal.Goal}
+                                </div>
+                        }) 
+                    }
             </div>
             <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
