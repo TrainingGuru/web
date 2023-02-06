@@ -11,21 +11,22 @@ import { Link } from "react-router-dom";
 const styles = {
     trainerProfile: {
         margin: "2rem",
+        height: "90vh",
+        overflow: "hidden",
         header: {
             display: "flex",
             width: "80%",
+            height: "10%",
             float: "left",
             justifyContent: "space-evenly",
             logo: {
                 img: {
-                    width: "5em",
-                    height: "5em"
+                    width: "100%",
+                    height: "100%"
                 }
             },
             menu: {
-                icon: {
-                    
-                }
+                icon: {}
             }
         },
         nav: {
@@ -49,7 +50,28 @@ const styles = {
                     color: "rgb(0, 0, 0)"
                 }
             }
-            
+
+        },
+        container: {
+            profile: {
+                width: "25%",
+                float: "left",
+                info: {
+                    name: {
+                        margin: "2%"
+                    },
+                    description: {
+                        margin: "2%"
+                    }
+                },
+                workouts: {
+
+                }
+            }, 
+            createWorkout: {
+                width: "50%",
+                // float: "left",
+            }
         }
 
     }
@@ -80,6 +102,24 @@ function TrainerProfile() {
             {/* <div style={styles.trainerProfile.header.menu}>
                 <FontAwesomeIcon style={styles.trainerProfile.header.menu.icon} icon={faBars}/>
             </div> */}
+        </div>
+        <div style={styles.trainerProfile.container}>
+            <div style={styles.trainerProfile.container.profile}>
+                <div style={styles.trainerProfile.container.profile.info}>
+                    <div style={styles.trainerProfile.container.profile.info.name}>Name: Adam Hobbs</div>
+                    <div style={styles.trainerProfile.container.profile.info.description}>
+                        <div>1 to 1 personal trainer working out of DkIT Sport in Dundalk, County Louth. I am a certified Level 3 Personal Trainer and have a Level 7 Qualification in Nutrition.</div>
+                        <div>I am currently open to taking on clients on a 1 to 1 or Online Basis.</div>
+                    </div>
+                </div>
+                <div style={styles.trainerProfile.container.profile.workouts}>
+
+                </div>
+            </div>
+            <div style={styles.trainerProfile.container.createWorkout}>
+                {/* <div>Create Workout</div> */}
+
+            </div>
         </div>
     </div>
     );
