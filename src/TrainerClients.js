@@ -267,7 +267,8 @@ function TrainerClients() {
     clientSelect?.addEventListener('change', function handleChange(event) {
         // console.log("Select Value (ID): " + event.target.value);
         setCurrentClientID(event.target.value);
-        setGoals(clientGoals);
+        // setGoals(clientGoals);
+        setIntake(clientIntake);
         // TrainerClients();
     })
 
@@ -281,7 +282,14 @@ function TrainerClients() {
             .then((actualData) => setGoals(actualData));
     }, [clientGoals]);
 
-    // var goalData = Array.from(clientGoals);
+    const [clientIntake, setIntake] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Client/${currentClientID}/NutritionValue`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setIntake(actualData));
+    }, [clientIntake]);
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
@@ -416,21 +424,24 @@ function TrainerClients() {
             </div>
             <div style={styles.trainerClients.container.intake}>
                 <div style={styles.trainerClients.container.intake.heading}>Intake</div>
-                <div style={styles.trainerClients.container.intake.table}>
-                    <div>Calories</div>
-                    <div>1000/2000</div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
-                    <div>Protein</div>
-                    <div>80/90g</div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
-                    <div>Fat</div>
-                    <div>10/30g</div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
-                    <div>Carbs</div>
-                    <div>50/60g</div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
-                </div>
+                { <div style={styles.trainerClients.container.intake.table}>
+                            <div>Calories</div>
+                            <div>{clientIntake?.CaloriesIntake}/{clientIntake?.TotalCalories}cal</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Protein</div>
+                            <div>{clientIntake?.ProteinIntake}/{clientIntake?.TotalProtein}g</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Fat</div>
+                            <div>{clientIntake?.FatsIntake}/{clientIntake?.TotalFats}g</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Carbs</div>
+                            <div>{clientIntake?.CarbohydratesIntake}/{clientIntake?.TotalCarbohydrates}g</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                        </div>
+                        
+                    }
             </div>
+        
             <div style={{...styles.trainerClients.container.personalBests, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Personal Bests</div>
                 <div style={styles.trainerClients.container.personalBests.content}>
