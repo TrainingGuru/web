@@ -291,6 +291,15 @@ function TrainerClients() {
             .then((actualData) => setIntake(actualData));
     }, [clientIntake]);
 
+    const [clientPBs, setPBs] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/PB/Client/${currentClientID}`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setPBs(actualData));
+    }, [clientPBs]);
+
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
             <div style={styles.trainerClients.nav.link}>
@@ -445,30 +454,17 @@ function TrainerClients() {
             <div style={{...styles.trainerClients.container.personalBests, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Personal Bests</div>
                 <div style={styles.trainerClients.container.personalBests.content}>
-                    <div style={styles.trainerClients.container.personalBests.content.entry}>
-                        <div style={styles.trainerClients.container.personalBests.content.entry.data}>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>Bench Press</div>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>80kg</div>
-                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>100kg</div>
-                        </div>
-                    </div>
-                    <div style={styles.trainerClients.container.personalBests.content.entry}>
-                        <div style={styles.trainerClients.container.personalBests.content.entry.data}>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>Low Rows</div>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>40kg</div>
-                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>45kg</div>
-                        </div>
-                    </div>
-                    <div style={styles.trainerClients.container.personalBests.content.entry}>
-                        <div style={styles.trainerClients.container.personalBests.content.entry.data}>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>Leg Press</div>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>60kg</div>
-                            <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
-                            <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>65kg</div>
-                        </div>
-                    </div>
+                    {   clientPBs?.map((PB) => {
+                            return <div style={styles.trainerClients.container.personalBests.content.entry}>
+                                <div style={styles.trainerClients.container.personalBests.content.entry.data}>
+                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>{PB.Exercise.Name}</div>
+                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>{PB.LastPB}</div>
+                                    <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
+                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>{PB.PersonalBest}</div>
+                                </div>
+                            </div>
+                        })
+                    }
                 </div>
             </div>
             <div style={styles.trainerClients.container.calorieSummary}>
