@@ -7,6 +7,10 @@ import TrainerHome from "./TrainerHome";
 import TrainerClients from "./TrainerClients";
 import TrainerProfile from "./TrainerProfile";
 
+import Login from "./Login";
+import RegisterTrainer from "./RegisterTrainer";
+
+
 
 
 function HomeScreen() {
@@ -48,6 +52,8 @@ export default function App() {
             {/* <Route path="/hometrainer" element={<TrainerHome />}  /> */}
             <Route path="/clientstrainer" element={<TrainerClients />} />
             <Route path="/profiletrainer" element={<TrainerProfile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registertrainer" element={<RegisterTrainer />} />
             {/*<Route exact path="/login" render={props => <Login {...props} />} />*/}
             {/*<Route exact path="/registerclient" render={props => <RegisterClient {...props} />} />*/}
             {/*<Route exact path="/registertrainer" render={props => <RegisterTrainer {...props} />} />*/}
