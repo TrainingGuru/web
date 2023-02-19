@@ -308,7 +308,8 @@ function TrainerHome() {
                     <div style={styles.trainerHome.container.clients.content}>
                         { clients?.map((client) => {
                             return <div style={styles.trainerHome.container.clients.content.entry}>
-                                <div style={styles.trainerHome.container.clients.content.entry.name}>{client.Name}</div>
+                                {/* <div style={styles.trainerHome.container.clients.content.entry.name}>{client.Name}</div> */}
+                                <Link to="/clientstrainer/{client.ID}">{client.Name}</Link>
                             </div>
                         }) }
                     </div>
