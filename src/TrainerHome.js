@@ -16,7 +16,7 @@ const styles = {
         overflow: "hidden",
         header: {
             display: "flex",
-            width: "80%",
+            width: "100%",
             height: "10%",
             float: "left",
             justifyContent: "space-evenly",
@@ -56,12 +56,12 @@ const styles = {
         container: {
             display: "grid",
             gap: "1.5rem",
-            width: "75%",
+            width: "100%",
             // height: "70vh",
             overflow: "hidden",
             height: "100%",
-            margin: "1% 5% 5% 0",
-            float: "left",
+            // margin: "1% 5% 5% 0",
+            // float: "left",
             gridTemplateColumns: "repeat(3, 1fr)",
             gridTemplateRows: "1fr 1fr 3fr",
             headers: {
@@ -277,7 +277,7 @@ function TrainerHome() {
     // console.log(data);
 
     return (<div style={styles.trainerHome}>
-            <div style={styles.trainerHome.nav}>
+            {/* <div style={styles.trainerHome.nav}>
                 <div style={styles.trainerHome.nav.link}>
                     <FontAwesomeIcon style={styles.trainerHome.nav.link.icon} icon={faHouseChimney}/>
                     <Link to="/" style={styles.trainerHome.nav.link.a}>HOME</Link>
@@ -290,7 +290,7 @@ function TrainerHome() {
                     <FontAwesomeIcon style={styles.trainerHome.nav.link.icon} icon={faUser}/>
                     <Link to="/profiletrainer" style={styles.trainerHome.nav.link.a}>PROFILE</Link>
                 </div>
-            </div>
+            </div> */}
             <div style={styles.trainerHome.header}>
                 <div style={styles.trainerHome.header.logo}>
                     <img style={styles.trainerHome.header.logo.img}
