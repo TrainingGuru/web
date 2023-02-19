@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import pieChart from "./pieChart.png";
 import barChart from "./barChart.png";
 
+import Nav from './Nav';
+
 const styles = {
     trainerHome: {
         margin: "2rem",
@@ -238,46 +240,37 @@ const styles = {
 
 function TrainerHome() {
 
-    // const location = useLocation();
+    // const [clients, setClients] = useState(null);
 
-    // console.log(props, " props"); 
-    // console.log(location, " useLocation Hook");
+    // useEffect(() => {
+    //     fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
+    //         .then((response) => response.json())
+    //         // .then((actualData) => console.log(actualData[0]))
+    //         .then((actualData) => setClients(actualData));
+    // }, []);
 
-    // const data = location.state?.data;
+    // const [clientIntakes, setIntakeData] = useState(null);
 
-    const [clients, setClients] = useState(null);
+    // useEffect(() => {
+    //     fetch(`https://traininggurubackend.onrender.com/Client/Trainer/1/NutritionValues`)
+    //         .then((response) => response.json())
+    //         // .then((actualData) => console.log(actualData[0]))
+    //         .then((actualData) => setIntakeData(actualData));
+    // }, []);
 
-    useEffect(() => {
-        fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
-            .then((response) => response.json())
-            // .then((actualData) => console.log(actualData[0]))
-            .then((actualData) => setClients(actualData));
-    }, []);
+    // const [clientWorkouts, setWorkoutData] = useState(null);
 
-    const [clientIntakes, setIntakeData] = useState(null);
+    // useEffect(() => {
+    //     fetch(`https://traininggurubackend.onrender.com/Trainer/1/UpComingWorkouts`)
+    //         .then((response) => response.json())
+    //         // .then((actualData) => console.log(actualData[0]))
+    //         .then((actualData) => setWorkoutData(actualData));
+    // }, []);
 
-    useEffect(() => {
-        fetch(`https://traininggurubackend.onrender.com/Client/Trainer/1/NutritionValues`)
-            .then((response) => response.json())
-            // .then((actualData) => console.log(actualData[0]))
-            .then((actualData) => setIntakeData(actualData));
-    }, []);
-
-    const [clientWorkouts, setWorkoutData] = useState(null);
-
-    useEffect(() => {
-        fetch(`https://traininggurubackend.onrender.com/Trainer/1/UpComingWorkouts`)
-            .then((response) => response.json())
-            // .then((actualData) => console.log(actualData[0]))
-            .then((actualData) => setWorkoutData(actualData));
-    }, []);
-
-    // const [data, setData] = useState({clients});
-
-    // console.log(data);
 
     return (<div style={styles.trainerHome}>
-            {/* <div style={styles.trainerHome.nav}>
+            {/* 
+            <div style={styles.trainerHome.nav}>
                 <div style={styles.trainerHome.nav.link}>
                     <FontAwesomeIcon style={styles.trainerHome.nav.link.icon} icon={faHouseChimney}/>
                     <Link to="/" style={styles.trainerHome.nav.link.a}>HOME</Link>
@@ -291,6 +284,7 @@ function TrainerHome() {
                     <Link to="/profiletrainer" style={styles.trainerHome.nav.link.a}>PROFILE</Link>
                 </div>
             </div> */}
+            <Nav />
             <div style={styles.trainerHome.header}>
                 <div style={styles.trainerHome.header.logo}>
                     <img style={styles.trainerHome.header.logo.img}
@@ -306,12 +300,12 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.clients, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Clients</div>
                     <div style={styles.trainerHome.container.clients.content}>
-                        { clients?.map((client) => {
+                        {/* { clients?.map((client) => {
                             return <div style={styles.trainerHome.container.clients.content.entry}>
-                                {/* <div style={styles.trainerHome.container.clients.content.entry.name}>{client.Name}</div> */}
+                                <div style={styles.trainerHome.container.clients.content.entry.name}>{client.Name}</div>
                                 <Link to="/clientstrainer/{client.ID}">{client.Name}</Link>
                             </div>
-                        }) }
+                        }) } */}
                     </div>
                 </div>
                 <div style={styles.trainerHome.container.activeToday}>
@@ -335,9 +329,9 @@ function TrainerHome() {
                     
                         <div style={styles.trainerHome.container.activity.content.dropdown}>
                             <select id="clients">
-                                { clients?.map((client) => {
+                                {/* { clients?.map((client) => {
                                     return <option value={"${client.ClientID}"}>{client.Name}</option>
-                                }) }
+                                }) } */}
                             </select>
                         </div>
                     </div>
@@ -345,7 +339,7 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.intake, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Intake</div>
                     <div style={styles.trainerHome.container.intake.content}>
-                        { clientIntakes?.map((clientIntake) => {
+                        {/* { clientIntakes?.map((clientIntake) => {
                             return <div style={styles.trainerHome.container.intake.content.entry}>
                             <div style={styles.trainerHome.container.intake.content.entry.name}>{clientIntake.Name}</div>
                             <div style={styles.trainerHome.container.intake.content.entry.data}>
@@ -354,7 +348,7 @@ function TrainerHome() {
                                 <div style={styles.trainerHome.container.intake.content.entry.data.targetIntake}>{clientIntake.Nutrition?.TotalCalories}</div>
                             </div>
                         </div>
-                        }) }
+                        }) } */}
                         
                     </div>
                 </div>
@@ -362,13 +356,13 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.upcomingWorkouts, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Upcoming Workouts</div>
                     <div style={styles.trainerHome.container.upcomingWorkouts.content}>
-                        { clientWorkouts?.map((clientWorkout) => {
+                        {/* { clientWorkouts?.map((clientWorkout) => {
                             return <div style={styles.trainerHome.container.upcomingWorkouts.content.entry}>
                                 <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.name}>{clientWorkout.Client.Name}</div>
                                 <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.date}>{clientWorkout.Date}</div>
                                 <div style={styles.trainerHome.container.upcomingWorkouts.content.entry.workout}>{clientWorkout.TrainerWorkout.WorkoutName}</div>
                             </div>
-                        }) }
+                        }) } */}
                         
                     </div>
                 </div>
