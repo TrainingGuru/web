@@ -53,9 +53,42 @@ const styles = {
 
         },
         container: {
+            display: "grid",
+            gap: "1.5rem",
+            width: "75%",
+            // height: "70vh",
+            overflow: "hidden",
+            height: "100%",
+            margin: "1% 5% 5% 0",
+            float: "left",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            // gridTemplateRows: "1fr 3fr",
+            headers: {
+                textAlign: "center",
+                width: "60%",
+                margin: "2% auto",
+                backgroundColor: "rgb(0, 0, 0)",
+                color: "rgb(255, 255, 255)",
+                fontFamily: "Roboto",
+                fontWeight: "500",
+                fontSize: "14px",
+                letterSpacing: "1.3px",
+                textTransform: "Uppercase",
+                lineHeight: "18px",
+                border: "0px",
+                borderRadius: "4px",
+                boxShadow: "rgb(0 0 0 / 10%) 0px 3px 1px",
+                padding: "0.5rem"
+            },
+            sections: {
+                background: "rgb(245, 245, 245)",
+                border: "1px solid rgb(236, 239, 241)",
+                borderRadius: "4px",
+                boxShadow: "rgb(0 0 0 / 10%) 0px 2px 1px"
+            },
             profile: {
-                width: "25%",
-                float: "left",
+                // width: "25%",
+                // float: "left",
                 info: {
                     name: {
                         margin: "2%"
@@ -64,12 +97,12 @@ const styles = {
                         margin: "2%"
                     }
                 },
-                workouts: {
-
+                savedWorkouts: {
+                    height: "100%"
                 }
             }, 
             createWorkout: {
-                width: "50%",
+                // width: "50%",
                 // float: "left", 
             }
         }
@@ -106,18 +139,18 @@ function TrainerProfile() {
         <div style={styles.trainerProfile.container}>
             <div style={styles.trainerProfile.container.profile}>
                 <div style={styles.trainerProfile.container.profile.info}>
-                    <div style={styles.trainerProfile.container.profile.info.name}>Name: Adam Hobbs</div>
-                    <div style={styles.trainerProfile.container.profile.info.description}>
+                    <div style={styles.trainerProfile.container.profile.info.name}><b>Name:</b> Adam Hobbs</div>
+                    <div style={{...styles.trainerProfile.container.profile.info.description, ...styles.trainerProfile.container.sections}}>
                         <div>1 to 1 personal trainer working out of DkIT Sport in Dundalk, County Louth. I am a certified Level 3 Personal Trainer and have a Level 7 Qualification in Nutrition.</div>
                         <div>I am currently open to taking on clients on a 1 to 1 or Online Basis.</div>
                     </div>
                 </div>
-                <div style={styles.trainerProfile.container.profile.workouts}>
-
+                <div style={{...styles.trainerProfile.container.profile.savedWorkouts, ...styles.trainerProfile.container.sections}}>
+                    <div style={styles.trainerProfile.container.headers}>Saved Workouts</div>
                 </div>
             </div>
             <div style={styles.trainerProfile.container.createWorkout}>
-                {/* <div>Create Workout</div> */}
+                <div>Create Workout</div>
 
             </div>
         </div>
