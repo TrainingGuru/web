@@ -32,7 +32,7 @@ const styles = {
         },
         menu: {
             width: "30%",
-            height: "100vh",
+            height: "80vh",
             background: "aqua",
             position: "absolute",
             // top: "0",
