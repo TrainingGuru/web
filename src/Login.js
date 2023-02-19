@@ -1,6 +1,4 @@
 import React from 'react';
-import {TextField} from "@mui/material";
-import InputBox from "../../components/reusable/InputBox";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons/faEnvelope";
