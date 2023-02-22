@@ -32,29 +32,29 @@ const styles = {
                 icon: {}
             }
         },
-        nav: {
-            display: "flex",
-            gap: "2rem",
-            flexDirection: "column",
-            height: "100%",
-            width: "20%",
-            float: "left",
-            link: {
-                fontSize: "1.5rem",
-                position: "relative",
-                top: "8%",
-                paddingRight: "2rem",
-                paddingLeft: "2rem",
-                icon: {
-                    paddingRight: "1rem"
-                },
-                a: {
-                    textDecoration: "none",
-                    color: "rgb(0, 0, 0)"
-                }
-            }
+        // nav: {
+        //     display: "flex",
+        //     gap: "2rem",
+        //     flexDirection: "column",
+        //     height: "100%",
+        //     width: "20%",
+        //     float: "left",
+        //     link: {
+        //         fontSize: "1.5rem",
+        //         position: "relative",
+        //         top: "8%",
+        //         paddingRight: "2rem",
+        //         paddingLeft: "2rem",
+        //         icon: {
+        //             paddingRight: "1rem"
+        //         },
+        //         a: {
+        //             textDecoration: "none",
+        //             color: "rgb(0, 0, 0)"
+        //         }
+        //     }
 
-        },
+        // },
         container: {
             display: "grid",
             gap: "1.5rem",

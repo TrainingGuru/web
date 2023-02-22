@@ -1,5 +1,10 @@
 import React, {useState} from "react";
 
+
+import {Link} from "react-router-dom";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faBars, faHouseChimney, faPeopleGroup, faUser, faChevronUp} from "@fortawesome/free-solid-svg-icons";
+
 const styles = {
     navStyles: {
         width: "100%",
@@ -36,7 +41,27 @@ const styles = {
             background: "aqua",
             position: "absolute",
             // top: "0",
-            zIndex: "1"
+            zIndex: "1",
+            // display: "flex",
+            // gap: "2rem",
+            // flexDirection: "column",
+            // height: "100%",
+            // width: "20%",
+            // float: "left",
+            link: {
+                // fontSize: "1.5rem",
+                // position: "relative",
+                // top: "8%",
+                // paddingRight: "2rem",
+                // paddingLeft: "2rem",
+                icon: {
+                    // paddingRight: "1rem"
+                },
+                a: {
+                    // textDecoration: "none",
+                    // color: "rgb(0, 0, 0)"
+                }
+            }
         },
         clicked: {
 
@@ -81,7 +106,20 @@ function Nav() {
                 </div>
             </nav>
 
-            <div style={isMenuClicked? {...styles.navStyles.menu, ...styles.navStyles.hidden} : {...styles.navStyles.menu, ...styles.navStyles.visible}}></div>
+            <div style={isMenuClicked? {...styles.navStyles.menu, ...styles.navStyles.hidden} : {...styles.navStyles.menu, ...styles.navStyles.visible}}>
+                <div style={styles.navStyles.menu.link}>
+                    <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faHouseChimney}/>
+                    <Link to="/" style={styles.navStyles.menu.link.a}>HOME</Link>
+                </div>
+                <div style={styles.navStyles.menu.link}>
+                    <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faPeopleGroup}/>
+                    <Link to="/clientstrainer" style={styles.navStyles.menu.link.a}>CLIENTS</Link>
+                </div>
+                <div style={styles.navStyles.menu.link}>
+                    <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faUser}/>
+                    <Link to="/profiletrainer" style={styles.navStyles.menu.link.a}>PROFILE</Link>
+                </div>
+            </div>
         </div>
     );
 
