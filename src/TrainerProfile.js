@@ -8,59 +8,60 @@ import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 
 import { Link } from "react-router-dom";
 
+import Nav from './Nav';
+
 const styles = {
     trainerProfile: {
-        margin: "2rem",
-        height: "90vh",
+        // margin: "2rem",
+        height: "95vh",
         overflow: "hidden",
-        header: {
-            display: "flex",
-            width: "80%",
-            height: "10%",
-            float: "left",
-            justifyContent: "space-evenly",
-            logo: {
-                img: {
-                    width: "100%",
-                    height: "100%"
-                }
-            },
-            menu: {
-                icon: {}
-            }
-        },
-        nav: {
-            display: "flex",
-            gap: "2rem",
-            flexDirection: "column",
-            height: "100%",
-            width: "20%",
-            float: "left",
-            link: {
-                fontSize: "1.5rem",
-                position: "relative",
-                top: "8%",
-                paddingRight: "2rem",
-                paddingLeft: "2rem",
-                icon: {
-                    paddingRight: "1rem"
-                },
-                a: {
-                    textDecoration: "none",
-                    color: "rgb(0, 0, 0)"
-                }
-            }
+        // header: {
+        //     display: "flex",
+        //     width: "80%",
+        //     height: "10%",
+        //     float: "left",
+        //     justifyContent: "space-evenly",
+        //     logo: {
+        //         img: {
+        //             width: "100%",
+        //             height: "100%"
+        //         }
+        //     },
+        //     menu: {
+        //         icon: {}
+        //     }
+        // },
+        // nav: {
+        //     display: "flex",
+        //     gap: "2rem",
+        //     flexDirection: "column",
+        //     height: "100%",
+        //     width: "20%",
+        //     float: "left",
+        //     link: {
+        //         fontSize: "1.5rem",
+        //         position: "relative",
+        //         top: "8%",
+        //         paddingRight: "2rem",
+        //         paddingLeft: "2rem",
+        //         icon: {
+        //             paddingRight: "1rem"
+        //         },
+        //         a: {
+        //             textDecoration: "none",
+        //             color: "rgb(0, 0, 0)"
+        //         }
+        //     }
 
-        },
+        // },
         container: {
             display: "grid",
             gap: "1.5rem",
-            width: "75%",
+            width: "95%",
+            margin: "auto",
             // height: "70vh",
             overflow: "hidden",
             height: "100%",
-            margin: "1% 5% 5% 0",
-            float: "left",
             gridTemplateColumns: "repeat(2, 1fr)",
             // gridTemplateRows: "1fr 3fr",
             headers: {
@@ -114,7 +115,7 @@ const styles = {
 function TrainerProfile() {
 
     return (<div style={styles.trainerProfile}>
-        <div style={styles.trainerProfile.nav}>
+        {/* <div style={styles.trainerProfile.nav}>
             <div style={styles.trainerProfile.nav.link}>
                 <FontAwesomeIcon style={styles.trainerProfile.nav.link.icon} icon={faHouseChimney}/>
                 <Link to="/" style={styles.trainerProfile.nav.link.a}>HOME</Link>
@@ -132,10 +133,8 @@ function TrainerProfile() {
             <div style={styles.trainerProfile.header.logo}>
                 <img style={styles.trainerProfile.header.logo.img} src={"https://assets.api.uizard.io/api/cdn/stream/9789bb7f-8141-48f9-87dd-f2ebdadcbec6.png"} alt="logo"/>
             </div>
-            {/* <div style={styles.trainerProfile.header.menu}>
-                <FontAwesomeIcon style={styles.trainerProfile.header.menu.icon} icon={faBars}/>
-            </div> */}
-        </div>
+        </div> */}
+        <Nav />
         <div style={styles.trainerProfile.container}>
             <div style={styles.trainerProfile.container.profile}>
                 <div style={styles.trainerProfile.container.profile.info}>

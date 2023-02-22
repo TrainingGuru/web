@@ -14,7 +14,7 @@ import Nav from './Nav';
 const styles = {
     trainerHome: {
         // margin: "2rem",
-        height: "90vh",
+        height: "95vh",
         overflow: "hidden",
         // header: {
         //     display: "flex",

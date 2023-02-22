@@ -120,7 +120,7 @@ function Nav() {
                     <div style={isMenuClicked? {...styles.navStyles.burgerBar, ...styles.navStyles.unclicked} : {...styles.navStyles.burgerBar, ...styles.navStyles.clicked}}></div>
                     <div style={isMenuClicked? {...styles.navStyles.burgerBar, ...styles.navStyles.unclicked} : {...styles.navStyles.burgerBar, ...styles.navStyles.clicked}}></div> */}
                     
-                {isMenuClicked ? <FontAwesomeIcon style={styles.navStyles.burgerMenu.icon} icon={faBars}/> : <FontAwesomeIcon style={styles.navStyles.burgerMenu.icon} icon={faX}/>}
+                {isMenuClicked ? <FontAwesomeIcon style={styles.navStyles.burgerMenu.icon} icon={faX}/> : <FontAwesomeIcon style={styles.navStyles.burgerMenu.icon} icon={faBars}/>}
                 </div>
                 <div style={styles.navStyles.nav.logo}>
                     <img style={styles.navStyles.nav.logo.img}
@@ -130,18 +130,18 @@ function Nav() {
                 
             </nav>
 
-            <div style={isMenuClicked? {...styles.navStyles.menu, ...styles.navStyles.hidden} : {...styles.navStyles.menu, ...styles.navStyles.visible}}>
-                <div style={styles.navStyles.menu.link} onClick={updateMenu}>
+            <div style={isMenuClicked? {...styles.navStyles.menu, ...styles.navStyles.visible} : {...styles.navStyles.menu, ...styles.navStyles.hidden}}>
+                <div style={styles.navStyles.menu.link}>
                     <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faHouseChimney}/>
-                    <Link to="/" style={styles.navStyles.menu.link.a}>HOME</Link>
+                    <Link to="/" style={styles.navStyles.menu.link.a} onClick={updateMenu}>HOME</Link>
                 </div>
-                <div style={styles.navStyles.menu.link} onClick={updateMenu}>
+                <div style={styles.navStyles.menu.link}>
                     <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faPeopleGroup}/>
-                    <Link to="/clientstrainer" style={styles.navStyles.menu.link.a}>CLIENTS</Link>
+                    <Link to="/clientstrainer" style={styles.navStyles.menu.link.a} onClick={updateMenu}>CLIENTS</Link>
                 </div>
-                <div style={styles.navStyles.menu.link} onClick={updateMenu}>
+                <div style={styles.navStyles.menu.link}>
                     <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faUser}/>
-                    <Link to="/profiletrainer" style={styles.navStyles.menu.link.a}>PROFILE</Link>
+                    <Link to="/profiletrainer" style={styles.navStyles.menu.link.a} onClick={updateMenu}>PROFILE</Link>
                 </div>
             </div>
         </div>

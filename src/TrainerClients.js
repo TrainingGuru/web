@@ -29,63 +29,66 @@ import { useMediaQuery } from "react-responsive";
 
 import { useRef } from 'react';
 
+import Nav from './Nav';
+
 const styles = {
     trainerClients: {
-        margin: "2rem",
-        height: "90vh",
+        // margin: "2rem",
+        height: "95vh",
         overflow: "hidden",
-        header: {
-            display: "flex",
-            width: "80%",
-            height: "10%",
-            float: "left",
-            justifyContent: "space-evenly",
-            logo: {
-                img: {
-                    width: "100%",
-                    height: "100%"
-                }
-            },
-            menu: {
-                icon: {
+        // header: {
+        //     display: "flex",
+        //     width: "80%",
+        //     height: "10%",
+        //     float: "left",
+        //     justifyContent: "space-evenly",
+        //     logo: {
+        //         img: {
+        //             width: "100%",
+        //             height: "100%"
+        //         }
+        //     },
+        //     menu: {
+        //         icon: {
                     
-                }
-            }
-        },
-        nav: {
-            display: "flex",
-            gap: "2rem",
-            flexDirection: "column",
-            height: "100%",
-            width: "20%",
-            float: "left",
-            link: {
-                fontSize: "1.5rem",
-                position: "relative",
-                top: "8%",
-                paddingRight: "2rem",
-                paddingLeft: "2rem",
-                icon: {
-                    paddingRight: "1rem"
-                },
-                a: {
-                    textDecoration: "none",
-                    color: "rgb(0, 0, 0)"
-                }
-            }
+        //         }
+        //     }
+        // },
+        // nav: {
+        //     display: "flex",
+        //     gap: "2rem",
+        //     flexDirection: "column",
+        //     height: "100%",
+        //     width: "20%",
+        //     float: "left",
+        //     link: {
+        //         fontSize: "1.5rem",
+        //         position: "relative",
+        //         top: "8%",
+        //         paddingRight: "2rem",
+        //         paddingLeft: "2rem",
+        //         icon: {
+        //             paddingRight: "1rem"
+        //         },
+        //         a: {
+        //             textDecoration: "none",
+        //             color: "rgb(0, 0, 0)"
+        //         }
+        //     }
             
-        },
+        // },
         container: {
             display: "grid",
             gap: "1rem",
             gridTemplateColumns: "1.5fr 1fr 1.5fr",
             gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
-            width: "75%",
+            width: "95%",
+            margin: "auto",
             overflow: "hidden",
-            height: "100%",
-            // height: "100%", 
-            margin: "1% 5% 5% 0",
-            float: "left",
+            // height: "100%",
+            height: "100%", 
+            // margin: "1% 5% 5% 0",
+            // float: "left",
             headers: {
                 textAlign: "center",
                 width: "60%",
@@ -408,7 +411,7 @@ function TrainerClients() {
 
     return (
     <div style={styles.trainerClients}>
-        <div style={styles.trainerClients.nav}>
+        {/* <div style={styles.trainerClients.nav}>
             <div style={styles.trainerClients.nav.link}>
                 <FontAwesomeIcon style={styles.trainerClients.nav.link.icon} icon={faHouseChimney}/>
                 <Link to="/" style={styles.trainerClients.nav.link.a}>HOME</Link>
@@ -426,10 +429,8 @@ function TrainerClients() {
             <div style={styles.trainerClients.header.logo}>
                 <img style={styles.trainerClients.header.logo.img} src={"https://assets.api.uizard.io/api/cdn/stream/9789bb7f-8141-48f9-87dd-f2ebdadcbec6.png"} alt="logo"/>
             </div>
-            {/* <div style={styles.trainerClients.header.menu}>
-                <FontAwesomeIcon style={styles.trainerClients.header.menu.icon} icon={faBars}/>
-            </div> */}
-        </div>
+        </div> */}
+        <Nav />
         <div style={styles.trainerClients.container}>
             <div style={styles.trainerClients.container.fitbitIcons}>
                 <div>
