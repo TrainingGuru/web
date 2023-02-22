@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faBars, faHouseChimney, faPeopleGroup, faUser, faX} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faHouseChimney, faPeopleGroup, faUser, faX, faClipboardList, faChartSimple} from "@fortawesome/free-solid-svg-icons";
 
 const styles = {
     navStyles: {
@@ -77,7 +77,25 @@ const styles = {
                     textDecoration: "none",
                     color: "rgb(0, 0, 0)"
                 }
+            },
+            submenu: {
+                link: {
+                    fontSize: "1.2rem",
+                    position: "relative",
+                    top: "8%",
+                    padding: "0.5rem 2rem",
+                    icon: {
+                        paddingRight: "1rem"
+                    },
+                    a: {
+                        textDecoration: "none",
+                        color: "grey",
+                    }
+                }
             }
+        },
+        button: {
+            boxShadow: "rgb(0 0 0 / 10%) 2px 2px 2px",
         },
         clicked: {
 
@@ -131,17 +149,27 @@ function Nav() {
             </nav>
 
             <div style={isMenuClicked? {...styles.navStyles.menu, ...styles.navStyles.visible} : {...styles.navStyles.menu, ...styles.navStyles.hidden}}>
-                <div style={styles.navStyles.menu.link}>
+                <div style={{...styles.navStyles.menu.link, ...styles.navStyles.button}}>
                     <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faHouseChimney}/>
                     <Link to="/" style={styles.navStyles.menu.link.a} onClick={updateMenu}>HOME</Link>
                 </div>
                 <div style={styles.navStyles.menu.link}>
                     <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faPeopleGroup}/>
-                    <Link to="/clientstrainer" style={styles.navStyles.menu.link.a} onClick={updateMenu}>CLIENTS</Link>
+                    <Link to="/clientscatchup" style={styles.navStyles.menu.link.a} onClick={updateMenu}>CLIENTS</Link>
+                    <div style={styles.navStyles.menu.submenu}>
+                        <div style={{...styles.navStyles.menu.submenu.link, ...styles.navStyles.button}}>
+                            <FontAwesomeIcon style={styles.navStyles.menu.submenu.link.icon} icon={faClipboardList}/>
+                            <Link to="/manageclients" style={styles.navStyles.menu.submenu.link.a} onClick={updateMenu}>MANAGE</Link>
+                        </div>
+                        <div style={{...styles.navStyles.menu.submenu.link, ...styles.navStyles.button}}>
+                            <FontAwesomeIcon style={styles.navStyles.menu.submenu.link.icon} icon={faChartSimple}/>
+                            <Link to="/clientscatchup" style={styles.navStyles.menu.submenu.link.a} onClick={updateMenu}>CATCH UP</Link>
+                        </div>
+                    </div>
                 </div>
-                <div style={styles.navStyles.menu.link}>
+                <div style={{...styles.navStyles.menu.link, ...styles.navStyles.button}}>
                     <FontAwesomeIcon style={styles.navStyles.menu.link.icon} icon={faUser}/>
-                    <Link to="/profiletrainer" style={styles.navStyles.menu.link.a} onClick={updateMenu}>PROFILE</Link>
+                    <Link to="/profile" style={styles.navStyles.menu.link.a} onClick={updateMenu}>PROFILE</Link>
                 </div>
             </div>
         </div>

@@ -50,8 +50,9 @@ export default function App() {
             {/*<Route path="/profile" render={props => <Profile {...props} />} />*/}
             {/*<Route exact path="/homeclient" render={props => <ClientHome {...props} />} />*/}
             {/* <Route path="/hometrainer" element={<TrainerHome />}  /> */}
-            <Route path="/clientstrainer" element={<TrainerClients />} />
-            <Route path="/profiletrainer" element={<TrainerProfile />} />
+            <Route path="/clientscatchup" element={<TrainerClients />} />
+            {/* <Route path="/manageclients" element={<TrainerManageClients />} /> */}
+            <Route path="/profile" element={<TrainerProfile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registertrainer" element={<RegisterTrainer />} />
             {/*<Route exact path="/login" render={props => <Login {...props} />} />*/}
