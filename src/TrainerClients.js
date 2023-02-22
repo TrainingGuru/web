@@ -122,7 +122,22 @@ const styles = {
                 textAlign: "center",
                 icon: {
                     height: "4em",
-                    width: "4em"
+                    width: "4em",
+                    calBurnt: {
+                        color: "rgb(196, 97, 3)"
+                    },
+                    waterIntake: {
+                        color: "rgb(2, 148, 186)"
+                    },
+                    floorsClimbed: {
+                        color: "rgb(141, 113, 1)"
+                    },
+                    activeMins: {
+                        color: "rgb(174, 234, 95)"
+                    },
+                    distTravelled: {
+                        color: "rgb(201, 99, 248)"
+                    }
                 }
             },
             assignWorkouts: {
@@ -434,27 +449,27 @@ function TrainerClients() {
         <div style={styles.trainerClients.container}>
             <div style={styles.trainerClients.container.fitbitIcons}>
                 <div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faFire}/>
+                    <FontAwesomeIcon style={{...styles.trainerClients.container.fitbitIcons.icon, ...styles.trainerClients.container.fitbitIcons.icon.calBurnt}} icon={faFire}/>
                     <div>Calories Burnt</div>
                     <div>4900kcl</div>
                 </div>
                 <div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faDroplet}/>
+                    <FontAwesomeIcon style={{...styles.trainerClients.container.fitbitIcons.icon, ...styles.trainerClients.container.fitbitIcons.icon.waterIntake}} icon={faDroplet}/>
                     <div>Water Intake</div>
                     <div>13.5L</div>
                 </div>
                 <div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faStairs}/>
+                    <FontAwesomeIcon style={{...styles.trainerClients.container.fitbitIcons.icon, ...styles.trainerClients.container.fitbitIcons.icon.floorsClimbed}} icon={faStairs}/>
                     <div>Floors Climbed</div>
                     <div>45 Floors</div>
                 </div>
                 <div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faBolt}/>
+                    <FontAwesomeIcon style={{...styles.trainerClients.container.fitbitIcons.icon, ...styles.trainerClients.container.fitbitIcons.icon.activeMins}} icon={faBolt}/>
                     <div>Active Minutes</div>
                     <div>420 Min</div>
                 </div>
                 <div>
-                    <FontAwesomeIcon style={styles.trainerClients.container.fitbitIcons.icon} icon={faRoad}/>
+                    <FontAwesomeIcon style={{...styles.trainerClients.container.fitbitIcons.icon, ...styles.trainerClients.container.fitbitIcons.icon.distTravelled}} icon={faRoad}/>
                     <div>Distance Travelled</div>
                     <div>27.1km</div>
                 </div>
