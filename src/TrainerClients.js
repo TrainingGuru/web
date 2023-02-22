@@ -33,55 +33,13 @@ import Nav from './Nav';
 
 const styles = {
     trainerClients: {
-        // margin: "2rem",
         height: "95vh",
         overflow: "hidden",
-        // header: {
-        //     display: "flex",
-        //     width: "80%",
-        //     height: "10%",
-        //     float: "left",
-        //     justifyContent: "space-evenly",
-        //     logo: {
-        //         img: {
-        //             width: "100%",
-        //             height: "100%"
-        //         }
-        //     },
-        //     menu: {
-        //         icon: {
-                    
-        //         }
-        //     }
-        // },
-        // nav: {
-        //     display: "flex",
-        //     gap: "2rem",
-        //     flexDirection: "column",
-        //     height: "100%",
-        //     width: "20%",
-        //     float: "left",
-        //     link: {
-        //         fontSize: "1.5rem",
-        //         position: "relative",
-        //         top: "8%",
-        //         paddingRight: "2rem",
-        //         paddingLeft: "2rem",
-        //         icon: {
-        //             paddingRight: "1rem"
-        //         },
-        //         a: {
-        //             textDecoration: "none",
-        //             color: "rgb(0, 0, 0)"
-        //         }
-        //     }
-            
-        // },
         container: {
             display: "grid",
             gap: "1rem",
-            gridTemplateColumns: "1.5fr 1fr 1.5fr",
-            gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            // gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
             width: "95%",
             margin: "auto",
             overflow: "hidden",
@@ -114,8 +72,7 @@ const styles = {
             },
             fitbitIcons: {
                 height: "100%",
-                gridColumnStart: "1",
-                gridColumnEnd: "4",
+                gridColumn: "span 5",
                 overflow: "hidden",
                 display: "flex",
                 justifyContent: "space-evenly",
@@ -137,96 +94,6 @@ const styles = {
                     },
                     distTravelled: {
                         color: "rgb(201, 99, 248)"
-                    }
-                }
-            },
-            assignWorkouts: {
-                gridRow: "span 3",
-                height: "100%",
-                overflow: "hidden",
-                name: {
-                    textAlign: "center",
-                    fontSize: "2em",
-                    borderBottom: "1px solid black"
-                },
-                content: {
-                    display: "grid",
-                    gap: "1.5rem",
-                    height: "75%",
-                    gridTemplateColumns: "repeat(2, 1fr)",
-                    width: "75%",
-                    margin: "5% auto",
-                    color: "rgb(0, 0, 0)",
-                    fontFamily: "Poppins",
-                    // fontWeight: "500",
-                    fontSize: "14px",
-                    letterSpacing: "0px",
-                    lineHeight: "26px",
-                    // textAlign: "center", 
-                    textTransform: "none",
-                    day: {
-
-                    },
-                    dropdown: {
-                        
-                    }
-                }
-            },
-            intake: {
-                height: "100%",
-                overflow: "hidden",
-                heading: {
-                    textAlign: "center",
-                    fontSize: "2em",
-                    borderBottom: "1px solid black",
-                    // marginBottom: "2%"
-                },
-                table: {
-                    display: "grid",
-                    gap: "1.5rem",
-                    gridTemplateColumns: "1.25fr 1.25fr 0.5fr",
-                    marginLeft: "2%"
-                }
-            },
-            personalBests: {
-                gridRow: "span 2",
-                height: "100%",
-                overflow: "hidden",
-                content: {
-                    entry: {
-                        margin: "7.5%",
-                        data: {
-                            display: "flex",
-                            margin: "5%",
-                            justifyContent: "space-evenly",
-                            icon: {
-                                color: "green"
-                            },
-                            previous: {
-                                fontWeight: "700"
-                            },
-                            new: {
-                                fontWeight: "700"
-                            }
-                        }
-                    }
-                }
-            },
-            calorieSummary: {
-                display: "grid",
-                // gap: "1rem",
-                gridTemplateColumns: "repeat(7, 1fr)",
-                height: "100%",
-                // overflow: "hidden",
-                icon: {
-                    check: {
-                        color: "green"
-                    },
-                    xmark: {
-                        color: "red"
-                    },
-                    dash: {
-                        color: "grey"
                     }
                 }
             },
@@ -259,7 +126,30 @@ const styles = {
                     
                 }
             },
+            intake: {
+                gridRow: "span 2",
+                gridColumn: "span 2",
+                height: "100%",
+                overflow: "hidden",
+                heading: {
+                    textAlign: "center",
+                    fontSize: "2em",
+                    borderBottom: "1px solid black",
+                    // marginBottom: "2%"
+                },
+                table: {
+                    display: "grid",
+                    gap: "1.5rem",
+                    gridTemplateColumns: "1.25fr 1.25fr 0.5fr",
+                    marginLeft: "2%"
+                }
+            },
+            progressChart: {
+                gridRow: "span 3",
+                gridColumn: "span 2"
+            },
             goals: {
+                gridRow: "span 2",
                 height: "100%",
                 overflow: "hidden",
                 entry: {
@@ -268,9 +158,30 @@ const styles = {
                     fontSize: "20px"
                 }
             },
+            calorieSummary: {
+                gridColumn: "span 2",
+                display: "grid",
+                // gap: "1rem",
+                gridTemplateColumns: "repeat(7, 1fr)",
+                height: "100%",
+                // overflow: "hidden",
+                icon: {
+                    check: {
+                        color: "green"
+                    },
+                    xmark: {
+                        color: "red"
+                    },
+                    dash: {
+                        color: "grey"
+                    }
+                }
+            },
+            catchUpNotes: {
+
+            },
             schedule: {
-                gridColumnStart: "1",
-                gridColumnEnd: "4",
+                gridColumn: "span 3",
                 height: "100%",
                 overflow: "hidden",
                 content: {
@@ -281,6 +192,29 @@ const styles = {
                     entry: {
                         day: {
                             fontWeight: "700"
+                        }
+                    }
+                }
+            },
+            personalBests: {
+                height: "100%",
+                overflow: "hidden",
+                content: {
+                    entry: {
+                        margin: "7.5%",
+                        data: {
+                            display: "flex",
+                            margin: "5%",
+                            justifyContent: "space-evenly",
+                            icon: {
+                                color: "green"
+                            },
+                            previous: {
+                                fontWeight: "700"
+                            },
+                            new: {
+                                fontWeight: "700"
+                            }
                         }
                     }
                 }
@@ -474,89 +408,19 @@ function TrainerClients() {
                     <div>27.1km</div>
                 </div>
             </div>
-            <div style={styles.trainerClients.container.assignWorkouts}>
-                <div style={styles.trainerClients.container.assignWorkouts.name}>
-                    <select id="clients">
-                        {/* { clients?.map((client) => {
-                                return <option value={`${client.ClientID}`}>{client.Name}</option>
-                            })
-                        } */}
-                    </select>
-                </div>
-                <div style={styles.trainerClients.container.assignWorkouts.content}>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Monday</div>
-                    <div>
-                        <select id="workouts">
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs Advanced</option>
-                            <option value={"Chest"}>Chest Beginner</option>
-                            <option value={"Cardio"}>Cardio Beginner</option>
-                        </select>
+            <div style={{...styles.trainerClients.container.steps, ...styles.trainerClients.container.sections}}>
+                <div style={styles.trainerClients.container.headers}>Steps</div>
+                <div style={styles.trainerClients.container.steps.content}>
+                    <div style={styles.trainerClients.container.steps.content.imgContainer}>
+                        <img style={styles.trainerClients.container.steps.content.imgContainer.img}
+                            src={barChart}
+                            alt="Bar Chart"/>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Tuesday</div>
-                    <div>
-                        <select id="workouts">
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs</option>
-                            <option value={"Chest"}>Chest</option>
-                            <option value={"Cardio"}>Cardio</option>
-                        </select>
+                    <div style={styles.trainerClients.container.steps.content.text}>
+                        <div style={styles.trainerClients.container.steps.content.text.label}>Goal:</div>
+                        <div style={styles.trainerClients.container.steps.content.text.data}>10,000</div>
+                        <div><FontAwesomeIcon style={styles.trainerClients.container.steps.content.text.editIcon} icon={faPenToSquare}/></div>
                     </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Wednesday</div>
-                    <div>
-                        <select id="workouts">
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs</option>
-                            <option value={"Chest"}>Chest</option>
-                            <option value={"Cardio"}>Cardio</option>
-                        </select>
-                    </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Thursday</div>
-                    <div>
-                        <select id="workouts">
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs</option>
-                            <option value={"Chest"}>Chest</option>
-                            <option value={"Cardio"}>Cardio</option>
-                        </select>
-                    </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Friday</div>
-                    <div>
-                        <select id="workouts">
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs</option>
-                            <option value={"Chest"}>Chest</option>
-                            <option value={"Cardio"}>Cardio</option>
-                        </select>
-                    </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Saturday</div>
-                    <div>
-                        <select id="workouts">
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs</option>
-                            <option value={"Chest"}>Chest</option>
-                            <option value={"Cardio"}>Cardio</option>
-                        </select>
-                    </div>
-                    <div style={styles.trainerClients.container.assignWorkouts.content.day}>Sunday</div>
-                    <div>
-                        <select id="workouts">
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"Legs"}>Legs</option>
-                            <option value={"Chest"}>Chest</option>
-                            <option value={"Cardio"}>Cardio</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <select id="weeks">
-                        <option value={"Mon30Jan"}>w/c Mon 30 Jan</option>
-                        <option value={"Mon06Feb"}>w/c Mon 06 Feb</option>
-                        <option value={"Mon13Feb"}>w/c Mon 13 Feb</option>
-                        <option value={"Mon20Feb"}>w/c Mon 20 Feb</option>
-                        <option value={"Mon27Feb"}>w/c Mon 27 Feb</option>
-                        <option value={"Mon06Mar"}>w/c Mon 06 Mar</option>
-                    </select>
                 </div>
             </div>
             <div style={styles.trainerClients.container.intake}>
@@ -578,22 +442,17 @@ function TrainerClients() {
                         
                     } */}
             </div>
-        
-            <div style={{...styles.trainerClients.container.personalBests, ...styles.trainerClients.container.sections}}>
-                <div style={styles.trainerClients.container.headers}>Personal Bests</div>
-                <div style={styles.trainerClients.container.personalBests.content}>
-                    {/* {   clientPBs?.map((PB) => {
-                            return <div style={styles.trainerClients.container.personalBests.content.entry}>
-                                <div style={styles.trainerClients.container.personalBests.content.entry.data}>
-                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>{PB.Exercise.Name}</div>
-                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>{PB.LastPB}</div>
-                                    <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
-                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>{PB.PersonalBest}</div>
+            <div style={styles.trainerClients.container.progressChart}>
+                Weight Progress Graph
+            </div>
+            <div style={{...styles.trainerClients.container.goals, ...styles.trainerClients.container.sections}}>
+                <div style={styles.trainerClients.container.headers}>Goals</div>
+                    {/* { clientGoals?.map((goal) => {
+                        return <div style={styles.trainerClients.container.goals.entry}>
+                                    {goal.Goal}
                                 </div>
-                            </div>
-                        })
+                        }) 
                     } */}
-                </div>
             </div>
             <div style={styles.trainerClients.container.calorieSummary}>
                 <div>M</div>
@@ -613,29 +472,8 @@ function TrainerClients() {
                 <FontAwesomeIcon style={styles.trainerClients.container.calorieSummary.icon.dash} icon={faMinus}/>
 
             </div>
-            <div style={{...styles.trainerClients.container.steps, ...styles.trainerClients.container.sections}}>
-                <div style={styles.trainerClients.container.headers}>Steps</div>
-                <div style={styles.trainerClients.container.steps.content}>
-                    <div style={styles.trainerClients.container.steps.content.imgContainer}>
-                        <img style={styles.trainerClients.container.steps.content.imgContainer.img}
-                            src={barChart}
-                            alt="Bar Chart"/>
-                    </div>
-                    <div style={styles.trainerClients.container.steps.content.text}>
-                        <div style={styles.trainerClients.container.steps.content.text.label}>Goal:</div>
-                        <div style={styles.trainerClients.container.steps.content.text.data}>10,000</div>
-                        <div><FontAwesomeIcon style={styles.trainerClients.container.steps.content.text.editIcon} icon={faPenToSquare}/></div>
-                    </div>
-                </div>
-            </div>
-            <div style={{...styles.trainerClients.container.goals, ...styles.trainerClients.container.sections}}>
-                <div style={styles.trainerClients.container.headers}>Goals</div>
-                    {/* { clientGoals?.map((goal) => {
-                        return <div style={styles.trainerClients.container.goals.entry}>
-                                    {goal.Goal}
-                                </div>
-                        }) 
-                    } */}
+            <div style={{...styles.trainerClients.container.catchUpNotes, ...styles.trainerClients.container.sections}}>
+            <div style={styles.trainerClients.container.headers}>CatchUp Notes</div>
             </div>
             <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
@@ -685,7 +523,23 @@ function TrainerClients() {
                 </div>
                 
             </div>
-
+            <div style={{...styles.trainerClients.container.personalBests, ...styles.trainerClients.container.sections}}>
+                <div style={styles.trainerClients.container.headers}>Personal Bests</div>
+                <div style={styles.trainerClients.container.personalBests.content}>
+                    {/* {   clientPBs?.map((PB) => {
+                            return <div style={styles.trainerClients.container.personalBests.content.entry}>
+                                <div style={styles.trainerClients.container.personalBests.content.entry.data}>
+                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>{PB.Exercise.Name}</div>
+                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.previous}>{PB.LastPB}</div>
+                                    <FontAwesomeIcon style={styles.trainerClients.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
+                                    <div style={styles.trainerClients.container.personalBests.content.entry.data.new}>{PB.PersonalBest}</div>
+                                </div>
+                            </div>
+                        })
+                    } */}
+                </div>
+            </div>
+            
         </div>
     </div>
     );
