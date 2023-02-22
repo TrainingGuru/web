@@ -6,6 +6,7 @@ import {Home} from "./Home";
 import TrainerHome from "./TrainerHome";
 import TrainerClients from "./TrainerClients";
 import TrainerProfile from "./TrainerProfile";
+import TrainerManageClients from "./TrainerManageClients";
 
 import Login from "./Login";
 import RegisterTrainer from "./RegisterTrainer";
@@ -51,7 +52,7 @@ export default function App() {
             {/*<Route exact path="/homeclient" render={props => <ClientHome {...props} />} />*/}
             {/* <Route path="/hometrainer" element={<TrainerHome />}  /> */}
             <Route path="/clientscatchup" element={<TrainerClients />} />
-            {/* <Route path="/manageclients" element={<TrainerManageClients />} /> */}
+            <Route path="/manageclients" element={<TrainerManageClients />} />
             <Route path="/profile" element={<TrainerProfile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registertrainer" element={<RegisterTrainer />} />
