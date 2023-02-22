@@ -13,25 +13,25 @@ import Nav from './Nav';
 
 const styles = {
     trainerHome: {
-        margin: "2rem",
+        // margin: "2rem",
         height: "90vh",
         overflow: "hidden",
-        header: {
-            display: "flex",
-            width: "100%",
-            height: "10%",
-            float: "left",
-            justifyContent: "space-evenly",
-            logo: {
-                img: {
-                    width: "100%",
-                    height: "100%"
-                }
-            },
-            menu: {
-                icon: {}
-            }
-        },
+        // header: {
+        //     display: "flex",
+        //     width: "100%",
+        //     height: "10%",
+        //     float: "left",
+        //     justifyContent: "space-evenly",
+        //     logo: {
+        //         img: {
+        //             width: "100%",
+        //             height: "100%"
+        //         }
+        //     },
+        //     menu: {
+        //         icon: {}
+        //     }
+        // },
         // nav: {
         //     display: "flex",
         //     gap: "2rem",
@@ -58,13 +58,14 @@ const styles = {
         container: {
             display: "grid",
             gap: "1.5rem",
-            width: "100%",
+            width: "95%",
+            margin: "auto",
             // height: "70vh",
             overflow: "hidden",
             height: "100%",
             // margin: "1% 5% 5% 0",
             // float: "left",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            // gridTemplateColumns: "repeat(3, 1fr)", ------- means that the columns aren't of equal width but works better for the steps graph
             gridTemplateRows: "1fr 1fr 3fr",
             headers: {
                 textAlign: "center",
@@ -285,16 +286,13 @@ function TrainerHome() {
                 </div>
             </div> */}
             <Nav />
-            <div style={styles.trainerHome.header}>
+            {/* <div style={styles.trainerHome.header}>
                 <div style={styles.trainerHome.header.logo}>
                     <img style={styles.trainerHome.header.logo.img}
                          src={"https://assets.api.uizard.io/api/cdn/stream/9789bb7f-8141-48f9-87dd-f2ebdadcbec6.png"}
                          alt="logo"/>
                 </div>
-                {/* <div style={styles.trainerHome.header.menu}>
-                <FontAwesomeIcon style={styles.trainerHome.header.menu.icon} icon={faBars}/>
             </div> */}
-            </div>
 
             <div style={styles.trainerHome.container}>
                 <div style={{...styles.trainerHome.container.clients, ...styles.trainerHome.container.sections}}>
