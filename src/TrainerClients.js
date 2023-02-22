@@ -25,6 +25,7 @@ import { Link } from "react-router-dom";
 import barChart from "./barChart.png";
 
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const styles = {
     trainerClients: {
@@ -256,28 +257,31 @@ const styles = {
                     }
                 }
             },
-            "@media (min-width: 750px)": {
-                container : {
-                    gridTemplateColumns: "1.5fr 1fr 1.5fr",
-                    gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
-                    fitbitIcons: {
-                        gridColumnStart: "1",
-                        gridColumnEnd: "4"
-                    },
-                    assignWorkouts: {
-                        gridRow: "span 3",
-                    },
-                    personalBests: {
-                        gridRow: "span 2",
-                    },
-                    schedule: {
-                        gridColumnStart: "1",
-                        gridColumnEnd: "4",
-                    }
-                }
+            // "@media (min-width: 750px)": {
+            //     container : {
+            //         gridTemplateColumns: "1.5fr 1fr 1.5fr",
+            //         gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
+            //         fitbitIcons: {
+            //             gridColumnStart: "1",
+            //             gridColumnEnd: "4"
+            //         },
+            //         assignWorkouts: {
+            //             gridRow: "span 3",
+            //         },
+            //         personalBests: {
+            //             gridRow: "span 2",
+            //         },
+            //         schedule: {
+            //             gridColumnStart: "1",
+            //             gridColumnEnd: "4",
+            //         }
+            //     }
                 
-            }
+            // }
         }
+
+    },
+    trainerClientsMobile: {
 
     }
 }
@@ -307,6 +311,19 @@ const styles = {
 
 
 function TrainerClients() {
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
+
+
+    // const [isDesktopOrLaptop, setIsDesktopOrLaptop] = useState(null);
+
+    // useEffect(() => {
+    //     setIsDesktopOrLaptop({
+    //         useMediaQuery({
+    //                 minWidth: 1224
+    //             });
+    //         })
+    // }, []);
+
     // const [clients, setClients] = useState(null);
 
     // useEffect(() => {
@@ -381,6 +398,9 @@ function TrainerClients() {
 
 
     // getFitBitData();
+
+   
+    
 
     return (<div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
