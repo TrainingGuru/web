@@ -39,7 +39,7 @@ const styles = {
             display: "grid",
             gap: "1rem",
             gridTemplateColumns: "repeat(5, 1fr)",
-            // gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
+            gridTemplateRows: "0.5fr 1fr 0.5fr 0.2fr 0.8fr",
             width: "95%",
             margin: "auto",
             overflow: "hidden",
