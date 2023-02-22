@@ -27,6 +27,8 @@ import barChart from "./barChart.png";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
+import { useRef } from 'react';
+
 const styles = {
     trainerClients: {
         margin: "2rem",
@@ -76,6 +78,8 @@ const styles = {
         container: {
             display: "grid",
             gap: "1rem",
+            gridTemplateColumns: "1.5fr 1fr 1.5fr",
+            gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
             width: "75%",
             overflow: "hidden",
             height: "100%",
@@ -107,6 +111,8 @@ const styles = {
             },
             fitbitIcons: {
                 height: "100%",
+                gridColumnStart: "1",
+                gridColumnEnd: "4",
                 overflow: "hidden",
                 display: "flex",
                 justifyContent: "space-evenly",
@@ -117,6 +123,7 @@ const styles = {
                 }
             },
             assignWorkouts: {
+                gridRow: "span 3",
                 height: "100%",
                 overflow: "hidden",
                 name: {
@@ -164,6 +171,7 @@ const styles = {
                 }
             },
             personalBests: {
+                gridRow: "span 2",
                 height: "100%",
                 overflow: "hidden",
                 content: {
@@ -243,6 +251,8 @@ const styles = {
                 }
             },
             schedule: {
+                gridColumnStart: "1",
+                gridColumnEnd: "4",
                 height: "100%",
                 overflow: "hidden",
                 content: {
@@ -256,28 +266,7 @@ const styles = {
                         }
                     }
                 }
-            },
-            // "@media (min-width: 750px)": {
-            //     container : {
-            //         gridTemplateColumns: "1.5fr 1fr 1.5fr",
-            //         gridTemplateRows: "0.8fr 1.5fr 0.25fr 1.5fr 2fr",
-            //         fitbitIcons: {
-            //             gridColumnStart: "1",
-            //             gridColumnEnd: "4"
-            //         },
-            //         assignWorkouts: {
-            //             gridRow: "span 3",
-            //         },
-            //         personalBests: {
-            //             gridRow: "span 2",
-            //         },
-            //         schedule: {
-            //             gridColumnStart: "1",
-            //             gridColumnEnd: "4",
-            //         }
-            //     }
-                
-            // }
+            }
         }
 
     },
@@ -311,8 +300,23 @@ const styles = {
 
 
 function TrainerClients() {
-    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
+    // const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
 
+    // const windowSize = useRef([window.innerWidth, window.innerHeight]);
+
+    // const [width, setWidth] = useState();
+
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setWidth(windowSize.current[0])
+    //     }
+        
+    //     window.addEventListener('resize', handleResize);
+    // });
+
+    // console.log("Width: " + windowSize.current[0] + ", Height: " + windowSize.current[1]);
+
+    // console.log("Width: " + width);
 
     // const [isDesktopOrLaptop, setIsDesktopOrLaptop] = useState(null);
 
@@ -402,7 +406,8 @@ function TrainerClients() {
    
     
 
-    return (<div style={styles.trainerClients}>
+    return (
+    <div style={styles.trainerClients}>
         <div style={styles.trainerClients.nav}>
             <div style={styles.trainerClients.nav.link}>
                 <FontAwesomeIcon style={styles.trainerClients.nav.link.icon} icon={faHouseChimney}/>
@@ -425,7 +430,6 @@ function TrainerClients() {
                 <FontAwesomeIcon style={styles.trainerClients.header.menu.icon} icon={faBars}/>
             </div> */}
         </div>
-
         <div style={styles.trainerClients.container}>
             <div style={styles.trainerClients.container.fitbitIcons}>
                 <div>
