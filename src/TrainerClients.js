@@ -178,7 +178,10 @@ const styles = {
                 }
             },
             catchUpNotes: {
-
+                textBox: {
+                    width: "100%",
+                    height: "75%"
+                }
             },
             schedule: {
                 gridColumn: "span 3",
@@ -473,7 +476,10 @@ function TrainerClients() {
 
             </div>
             <div style={{...styles.trainerClients.container.catchUpNotes, ...styles.trainerClients.container.sections}}>
-            <div style={styles.trainerClients.container.headers}>CatchUp Notes</div>
+                <div style={styles.trainerClients.container.headers}>CatchUp Notes</div>
+                <div style={styles.trainerClients.container.catchUpNotes.textBox}>
+                    <textarea></textarea>
+                </div>
             </div>
             <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Schedule</div>

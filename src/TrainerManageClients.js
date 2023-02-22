@@ -58,17 +58,18 @@ const styles = {
                 },
                 content: {
                     display: "grid",
-                    gap: "1.5rem",
-                    height: "75%",
+                    gap: "1rem",
+                    fontSize: "2em",
+                    height: "65%",
                     gridTemplateColumns: "repeat(2, 1fr)",
                     width: "75%",
-                    margin: "5% auto",
+                    margin: "2.5% auto",
                     color: "rgb(0, 0, 0)",
                     fontFamily: "Poppins",
                     // fontWeight: "500",
-                    fontSize: "14px",
+                    // fontSize: "14px",
                     letterSpacing: "0px",
-                    lineHeight: "26px",
+                    // lineHeight: "26px",
                     // textAlign: "center", 
                     textTransform: "none",
                     day: {
@@ -78,6 +79,15 @@ const styles = {
                         
                     }
                 }
+            },
+            catchUpNotes: {
+                textBox: {
+                    width: "100%",
+                    height: "75%"
+                }
+            },
+            clientDescription: {
+
             }
         }
 
@@ -174,6 +184,15 @@ function TrainerManageClients() {
                         <option value={"Mon06Mar"}>w/c Mon 06 Mar</option>
                     </select>
                 </div>
+            </div>
+            <div style={{...styles.trainerManageClients.container.catchUpNotes, ...styles.trainerManageClients.container.sections}}>
+                <div style={styles.trainerManageClients.container.headers}>CatchUp Notes</div>
+                <div style={styles.trainerManageClients.container.catchUpNotes.textBox}>
+                    <textarea></textarea>
+                </div>
+            </div>
+            <div style={{...styles.trainerManageClients.container.clientDescription, ...styles.trainerManageClients.container.sections}}>
+                <div style={styles.trainerManageClients.container.headers}>Client Description</div>
             </div>
         </div>
     </div>
