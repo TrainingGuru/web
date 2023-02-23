@@ -30,6 +30,7 @@ import { useMediaQuery } from "react-responsive";
 import { useRef } from 'react';
 
 import Nav from './Nav';
+import moment from 'moment';
 
 const styles = {
     trainerClients: {
@@ -39,7 +40,7 @@ const styles = {
             display: "grid",
             gap: "1rem",
             gridTemplateColumns: "repeat(5, 1fr)",
-            gridTemplateRows: "0.5fr 1fr 0.5fr 0.2fr 0.8fr",
+            gridTemplateRows: "0.5fr 0.7fr 0.3fr 0.2fr 0.8fr",
             width: "95%",
             margin: "auto",
             overflow: "hidden",
@@ -192,9 +193,39 @@ const styles = {
                     justifyContent: "space-evenly",
                     textAlign: "center",
                     // margin: "5%, auto",
-                    entry: {
-                        day: {
-                            fontWeight: "700"
+                    card: {
+                        lastWeek: {
+                            display: "flex",
+                            // justifyContent: "space-evenly",
+                            textAlign: "center",
+                            width: "100%",
+                            entry: {
+                                day: {
+                                    fontWeight: "700"
+                                }
+                            }
+                        },
+                        thisWeek: {
+                            display: "flex",
+                            justifyContent: "space-evenly",
+                            textAlign: "center",
+                            width: "100%",
+                            entry: {
+                                day: {
+                                    fontWeight: "700"
+                                }
+                            }
+                        },
+                        nextWeek: {
+                            display: "flex",
+                            justifyContent: "space-evenly",
+                            textAlign: "center",
+                            width: "100%",
+                            entry: {
+                                day: {
+                                    fontWeight: "700"
+                                }
+                            }
                         }
                     }
                 }
@@ -359,29 +390,146 @@ function TrainerClients() {
     // getFitBitData();
 
    
+    const today = moment().format('llll');
+    const beginningOfCurrentWeek = moment().startOf('isoweek').format('llll');
+    const beginningOfLastWeek = moment().startOf('isoweek').subtract(7, 'days').format('llll');
+    const beginningOfNextWeek = moment().startOf('isoweek').add(7, 'days').format('llll');
+
+    // console.log("Today: " + today.substring(0,3) + " " + today.substring(9,11));
+    // console.log("beginningOfCurrentWeek: " + beginningOfCurrentWeek.substring(0,3) + " " + beginningOfCurrentWeek.substring(9,11));
+    // console.log("beginningOfLastWeek: " + beginningOfLastWeek.substring(0,3) + " " + beginningOfLastWeek.substring(9,11));
+    // console.log("beginningOfNextWeek: " + beginningOfNextWeek.substring(0,3) + " " + beginningOfNextWeek.substring(9,11));
     
+    // console.log(moment().startOf('isoweek').add(12, 'days').format('llll'));
+
+    // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+
+    // console.log("-------------------------------------");
+    var date = "";
+    var dateNum = "";
+    var day = "";
+    
+    var scheduleDays = '{ "days" : [';
+    // console.log("------------- Last Week ------------");         0-6
+    for(var i = 7; i > 0; i--){
+        date = moment().startOf('isoweek').subtract(i, 'days').format('llll');
+        day = date.substring(0,3);
+        scheduleDays += '{ "day" : "' + day + '",';
+        if(date.substring(9,11).includes(",")){
+            dateNum = date.substring(9,10);
+            if(dateNum.localeCompare("1") === 0){
+                dateNum = dateNum.concat("st");
+            } else if(dateNum.localeCompare("2") === 0) {
+                dateNum = dateNum.concat("nd");
+            } else if(dateNum.localeCompare("3") === 0) {
+                dateNum = dateNum.concat("rd");
+            } else {
+                dateNum = dateNum.concat("th");
+            }
+        } else {
+            dateNum = date.substring(9,11);
+            if(dateNum.startsWith("1")){
+                dateNum = dateNum.concat("th");
+            } else {
+                if(dateNum.endsWith("1")){
+                    dateNum = dateNum.concat("st");
+                } else if(dateNum.endsWith("2")) {
+                    dateNum = dateNum.concat("nd");
+                } else if(dateNum.endsWith("3")) {
+                    dateNum = dateNum.concat("rd");
+                } else {
+                    dateNum = dateNum.concat("th");
+                }
+            }
+        }
+        scheduleDays += ' "date" : "' + dateNum + '"},';
+        
+        // console.log(day + " " + dateNum);
+    }
+    // console.log("------------- This Week ------------");         7-13
+    for(var i = 0; i < 7; i++){
+        date = moment().startOf('isoweek').add(i, 'days').format('llll');
+        day = date.substring(0,3);
+        scheduleDays += '{ "day" : "' + day + '",';
+        if(date.substring(9,11).includes(",")){
+            dateNum = date.substring(9,10);
+            if(dateNum.localeCompare("1") === 0){
+                dateNum = dateNum.concat("st");
+            } else if(dateNum.localeCompare("2") === 0) {
+                dateNum = dateNum.concat("nd");
+            } else if(dateNum.localeCompare("3") === 0) {
+                dateNum = dateNum.concat("rd");
+            } else {
+                dateNum = dateNum.concat("th");
+            }
+        } else {
+            dateNum = date.substring(9,11);
+            if(dateNum.startsWith("1")){
+                dateNum = dateNum.concat("th");
+            } else {
+                if(dateNum.endsWith("1")){
+                    dateNum = dateNum.concat("st");
+                } else if(dateNum.endsWith("2")) {
+                    dateNum = dateNum.concat("nd");
+                } else if(dateNum.endsWith("3")) {
+                    dateNum = dateNum.concat("rd");
+                } else {
+                    dateNum = dateNum.concat("th");
+                }
+            }
+            
+        }
+        scheduleDays += ' "date" : "' + dateNum + '"},';
+        
+        // console.log(day + " " + dateNum);
+    }
+    // console.log("------------- Next Week ------------");         14-20
+    for(var i = 7; i < 14; i++){
+        date = moment().startOf('isoweek').add(i, 'days').format('llll');
+        day = date.substring(0,3);
+        scheduleDays += '{ "day" : "' + day + '",';
+        if(date.substring(9,11).includes(",")){
+            dateNum = date.substring(9,10);
+            if(dateNum.localeCompare("1") === 0){
+                dateNum = dateNum.concat("st");
+            } else if(dateNum.localeCompare("2") === 0) {
+                dateNum = dateNum.concat("nd");
+            } else if(dateNum.localeCompare("3") === 0) {
+                dateNum = dateNum.concat("rd");
+            } else {
+                dateNum = dateNum.concat("th");
+            }
+        } else {
+            dateNum = date.substring(9,11);
+            if(dateNum.startsWith("1")){
+                dateNum = dateNum.concat("th");
+            } else {
+                if(dateNum.endsWith("1")){
+                    dateNum = dateNum.concat("st");
+                } else if(dateNum.endsWith("2")) {
+                    dateNum = dateNum.concat("nd");
+                } else if(dateNum.endsWith("3")) {
+                    dateNum = dateNum.concat("rd");
+                } else {
+                    dateNum = dateNum.concat("th");
+                }
+            }
+        }
+        scheduleDays += ' "date" : "' + dateNum + '"}';
+        if(i!=13){
+            scheduleDays += ',';
+        }
+        
+        // console.log(day + " " + dateNum);
+    }
+    
+    scheduleDays += ']}';
+    // console.log("-------------------------------------");
+    // console.log(JSON.parse(scheduleDays));
+    var schedule = JSON.parse(scheduleDays);
 
     return (
     <div style={styles.trainerClients}>
-        {/* <div style={styles.trainerClients.nav}>
-            <div style={styles.trainerClients.nav.link}>
-                <FontAwesomeIcon style={styles.trainerClients.nav.link.icon} icon={faHouseChimney}/>
-                <Link to="/" style={styles.trainerClients.nav.link.a}>HOME</Link>
-            </div>
-            <div style={styles.trainerClients.nav.link}>
-                <FontAwesomeIcon style={styles.trainerClients.nav.link.icon} icon={faPeopleGroup}/>
-                <Link to="/clientstrainer" style={styles.trainerClients.nav.link.a}>CLIENTS</Link>
-            </div>
-            <div style={styles.trainerClients.nav.link}>
-                <FontAwesomeIcon  style={styles.trainerClients.nav.link.icon} icon={faUser}/>
-                <Link to="/profiletrainer" style={styles.trainerClients.nav.link.a}>PROFILE</Link>
-            </div>
-        </div>
-        <div style={styles.trainerClients.header}>
-            <div style={styles.trainerClients.header.logo}>
-                <img style={styles.trainerClients.header.logo.img} src={"https://assets.api.uizard.io/api/cdn/stream/9789bb7f-8141-48f9-87dd-f2ebdadcbec6.png"} alt="logo"/>
-            </div>
-        </div> */}
         <Nav />
         <div style={styles.trainerClients.container}>
             <div style={styles.trainerClients.container.fitbitIcons}>
@@ -484,13 +632,40 @@ function TrainerClients() {
             <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
                 <div style={styles.trainerClients.container.schedule.content}>
-                    <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Mon</div>
-                        <div>6th</div>
-                        <div>Chest Beginner</div>
-                        <div>notes</div>
+                    <div style={styles.trainerClients.container.schedule.content.card.lastWeek}>
+                    {   schedule.days?.slice(0,7).map((day) => {
+                            return <div style={styles.trainerClients.container.schedule.content.card.lastWeek.entry}>
+                                <div style={styles.trainerClients.container.schedule.content.card.lastWeek.entry.day}>{day.day}</div>
+                                <div>{day.date}</div>
+                                <div>Chest Beginner</div>
+                                <div>notes</div>
+                            </div>
+                        })
+                    }
                     </div>
-                    <div style={styles.trainerClients.container.schedule.content.entry}>
+                    <div style={styles.trainerClients.container.schedule.content.card.thisWeek}>
+                    {   schedule.days?.slice(7,13).map((day) => {
+                            return <div style={styles.trainerClients.container.schedule.content.card.thisWeek.entry}>
+                                <div style={styles.trainerClients.container.schedule.content.card.thisWeek.entry.day}>{day.day}</div>
+                                <div>{day.date}</div>
+                                <div>Chest Beginner</div>
+                                <div>notes</div>
+                            </div>
+                        })
+                    }
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.card.nextWeek}>
+                    {   schedule.days?.slice(14,21).map((day) => {
+                            return <div style={styles.trainerClients.container.schedule.content.card.nextWeek.entry}>
+                                <div style={styles.trainerClients.container.schedule.content.card.nextWeek.entry.day}>{day.day}</div>
+                                <div>{day.date}</div>
+                                <div>Chest Beginner</div>
+                                <div>notes</div>
+                            </div>
+                        })
+                    }
+                    </div>
+                    {/* <div style={styles.trainerClients.container.schedule.content.entry}>
                         <div style={styles.trainerClients.container.schedule.content.entry.day}>Tues</div>
                         <div>7th</div>
                         <div></div>
@@ -525,7 +700,7 @@ function TrainerClients() {
                         <div>12th</div>
                         <div></div>
                         <div></div>
-                    </div>
+                    </div> */}
                 </div>
                 
             </div>
