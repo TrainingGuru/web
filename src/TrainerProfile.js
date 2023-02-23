@@ -6,6 +6,9 @@ import {faHouseChimney} from "@fortawesome/free-solid-svg-icons/faHouseChimney";
 import {faPeopleGroup} from "@fortawesome/free-solid-svg-icons/faPeopleGroup";
 import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 
+
+import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
+
 import { Link } from "react-router-dom";
 
 import Nav from './Nav';
@@ -15,49 +18,10 @@ const styles = {
         // margin: "2rem",
         height: "95vh",
         overflow: "hidden",
-        // header: {
-        //     display: "flex",
-        //     width: "80%",
-        //     height: "10%",
-        //     float: "left",
-        //     justifyContent: "space-evenly",
-        //     logo: {
-        //         img: {
-        //             width: "100%",
-        //             height: "100%"
-        //         }
-        //     },
-        //     menu: {
-        //         icon: {}
-        //     }
-        // },
-        // nav: {
-        //     display: "flex",
-        //     gap: "2rem",
-        //     flexDirection: "column",
-        //     height: "100%",
-        //     width: "20%",
-        //     float: "left",
-        //     link: {
-        //         fontSize: "1.5rem",
-        //         position: "relative",
-        //         top: "8%",
-        //         paddingRight: "2rem",
-        //         paddingLeft: "2rem",
-        //         icon: {
-        //             paddingRight: "1rem"
-        //         },
-        //         a: {
-        //             textDecoration: "none",
-        //             color: "rgb(0, 0, 0)"
-        //         }
-        //     }
-
-        // },
         container: {
             display: "grid",
-            gap: "1.5rem",
-            width: "95%",
+            gap: "2rem",
+            width: "90%",
             margin: "auto",
             // height: "70vh",
             overflow: "hidden",
@@ -91,20 +55,121 @@ const styles = {
                 // width: "25%",
                 // float: "left",
                 info: {
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    pic: {
+                        gridRow: "span 2",
+                        img: {
+
+                        }
+                    },
                     name: {
                         margin: "2%"
                     },
                     description: {
+                        gridRow: "span 2",
                         margin: "2%"
                     }
                 },
                 savedWorkouts: {
-                    height: "100%"
+                    height: "40%"
                 }
             }, 
             createWorkout: {
                 // width: "50%",
-                // float: "left", 
+                // float: "left",
+                card: {
+                    // width: "450px",
+                    backgroundColor: "white",
+                    // padding: "4rem",
+                    borderRadius: "10px",
+                    position: "relative",
+                    header: {
+                        textAlign: "center",
+                        marginBottom: "2rem",
+                        h1: {
+                            fontSize: "3rem",
+                            fontWeight: "600",
+                            marginBottom: ".5rem"
+                        }
+                    },
+                    line: {
+                        borderBottom: "2px solid rgb(0 0 0 / 10%)"
+                    },
+                    form: {
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "1.5rem",
+                        item: {
+                            position: "relative",
+                            // top: ".82rem",
+                            // left: "1.4rem",
+                            fontSize: "1.3rem",
+                            width: "100%",
+                            margin: "auto",
+                            padding: "5% 0",
+                            display: "flex",
+                            gap: "1rem",
+                            // opacity: ".4",
+                            label: {
+                                // boxSizing: "border-box",
+                                // padding: "0 1rem",
+                                // minWidth: "100%"
+                            },
+                            input: {
+                                // boxSizing: "border-box",
+                                border: "none",
+                                outline: "none",
+                                background: "rgba(245, 245, 245)",
+                                // padding: "0.5rem 1rem",
+                                // borderRadius: "100px",
+                                // width: "80%"
+                                flexGrow: "1",
+                                boxShadow: "rgb(0 0 0 / 10%) 0px 2px 1px"
+                            },
+                            exercises: {
+                                position: "relative",
+                                // top: ".82rem",
+                                // left: "1.4rem",
+                                fontSize: "1.3rem",
+                                width: "80%",
+                                margin: "auto",
+                                padding: "5% 0",
+                                display: "grid",
+                                gap: "1rem",
+                                gridTemplateColumns: "1fr 3fr",
+                                label: {
+                                    // boxSizing: "border-box",
+                                    // padding: "0 1rem",
+                                    // minWidth: "100%"
+                                },
+                                input: {
+                                    // boxSizing: "border-box",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "rgba(245, 245, 245)",
+                                    // padding: "0.5rem 1rem",
+                                    // borderRadius: "100px",
+                                    // width: "80%",
+                                    flexGrow: "1",
+                                    boxShadow: "rgb(0 0 0 / 20%) 2px 2px 1px"
+                                },
+                            }
+                        },
+                        button: {
+                            display: "block",
+                            background: "black",
+                            color: "white",
+                            padding: "0.2rem 1rem",
+                            borderRadius: "100px",
+                            textTransform: "uppercase",
+                            letterSpacing: "2px",
+                            textAlign: "center",
+                            width: "20%",
+                            margin: "auto"
+                        }
+                    }
+                } 
             }
         }
 
@@ -115,41 +180,72 @@ const styles = {
 function TrainerProfile() {
 
     return (<div style={styles.trainerProfile}>
-        {/* <div style={styles.trainerProfile.nav}>
-            <div style={styles.trainerProfile.nav.link}>
-                <FontAwesomeIcon style={styles.trainerProfile.nav.link.icon} icon={faHouseChimney}/>
-                <Link to="/" style={styles.trainerProfile.nav.link.a}>HOME</Link>
-            </div>
-            <div style={styles.trainerProfile.nav.link}>
-                <FontAwesomeIcon style={styles.trainerProfile.nav.link.icon} icon={faPeopleGroup}/>
-                <Link to="/clientstrainer" style={styles.trainerProfile.nav.link.a}>CLIENTS</Link>
-            </div>
-            <div style={styles.trainerProfile.nav.link}>
-                <FontAwesomeIcon  style={styles.trainerProfile.nav.link.icon} icon={faUser}/>
-                <Link to="/profiletrainer" style={styles.trainerProfile.nav.link.a}>PROFILE</Link>
-            </div>
-        </div>
-        <div style={styles.trainerProfile.header}>
-            <div style={styles.trainerProfile.header.logo}>
-                <img style={styles.trainerProfile.header.logo.img} src={"https://assets.api.uizard.io/api/cdn/stream/9789bb7f-8141-48f9-87dd-f2ebdadcbec6.png"} alt="logo"/>
-            </div>
-        </div> */}
         <Nav />
         <div style={styles.trainerProfile.container}>
             <div style={styles.trainerProfile.container.profile}>
                 <div style={styles.trainerProfile.container.profile.info}>
+                    <div style={styles.trainerProfile.container.profile.info.pic}>
+                        <img style={styles.trainerProfile.container.profile.info.pic.img}
+                            src={"https://assets.api.uizard.io/api/cdn/stream/9789bb7f-8141-48f9-87dd-f2ebdadcbec6.png"}
+                            alt="logo"/>
+                    </div>
                     <div style={styles.trainerProfile.container.profile.info.name}><b>Name:</b> Adam Hobbs</div>
                     <div style={{...styles.trainerProfile.container.profile.info.description, ...styles.trainerProfile.container.sections}}>
                         <div>1 to 1 personal trainer working out of DkIT Sport in Dundalk, County Louth. I am a certified Level 3 Personal Trainer and have a Level 7 Qualification in Nutrition.</div>
                         <div>I am currently open to taking on clients on a 1 to 1 or Online Basis.</div>
                     </div>
+                    <div>
+                        Edit
+                        <FontAwesomeIcon style={styles.trainerProfile.container.profile.savedWorkouts.editIcon} icon={faPenToSquare}/>
+                    </div>
                 </div>
                 <div style={{...styles.trainerProfile.container.profile.savedWorkouts, ...styles.trainerProfile.container.sections}}>
                     <div style={styles.trainerProfile.container.headers}>Saved Workouts</div>
                 </div>
+                <div>
+                    Edit
+                    <FontAwesomeIcon style={styles.trainerProfile.container.profile.savedWorkouts.editIcon} icon={faPenToSquare}/>
+                </div>
             </div>
+
             <div style={styles.trainerProfile.container.createWorkout}>
-                <div>Create Workout</div>
+                <div style={styles.trainerProfile.container.createWorkout.card}>
+                    <div style={styles.trainerProfile.container.createWorkout.card.header}>
+                        <h1 style={{...styles.trainerProfile.container.createWorkout.card.header.h1, ...styles.trainerProfile.container.createWorkout.card.line}}>Create Workout</h1>
+                    </div>
+                    <form style={styles.trainerProfile.container.createWorkout.card.form}>
+                        <div>
+                            <div style={{...styles.trainerProfile.container.createWorkout.card.form.item, ...styles.trainerProfile.container.createWorkout.card.line}}>
+                                <label style={styles.trainerProfile.container.createWorkout.card.form.item.label}>Name:</label>
+                                <input style={styles.trainerProfile.container.createWorkout.card.form.item.input} type="text" placeholder="Enter Name" required/>
+                            </div>
+                        </div>
+                        <div style={styles.trainerProfile.container.createWorkout.card.line}>
+                            <div style={styles.trainerProfile.container.createWorkout.card.form.item.exercises}>
+                                <label style={styles.trainerProfile.container.createWorkout.card.form.item.exercises.label}>Exercise:</label>
+                                <input style={styles.trainerProfile.container.createWorkout.card.form.item.exercises.input} type="text" placeholder="Enter Exercise Name" required/>
+                            </div>
+                            <div style={styles.trainerProfile.container.createWorkout.card.form.item.exercises}>
+                                <label style={styles.trainerProfile.container.createWorkout.card.form.item.exercises.label}>Sets:</label>
+                                <input style={styles.trainerProfile.container.createWorkout.card.form.item.exercises.input} type="text" placeholder="Enter Sets" required/>
+                            </div>
+                            <div style={styles.trainerProfile.container.createWorkout.card.form.item.exercises}>
+                                <label style={styles.trainerProfile.container.createWorkout.card.form.item.exercises.label}>Reps:</label>
+                                <input style={styles.trainerProfile.container.createWorkout.card.form.item.exercises.input} type="text" placeholder="Enter Reps" required/>
+                            </div>
+                        
+                            <button style={styles.trainerProfile.container.createWorkout.card.form.button} type="submit">ADD</button>
+                        </div>
+                        <div>
+                            <p>Name: Sets: Reps:</p>
+                            <p>Name: Sets: Reps:</p>
+                            <p>Name: Sets: Reps:</p>
+
+                            <button style={styles.trainerProfile.container.createWorkout.card.form.button} type="submit">DONE</button>
+                        </div>
+                        
+                    </form>
+                </div>
 
             </div>
         </div>
