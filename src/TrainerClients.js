@@ -19,6 +19,8 @@ import {faCircleXmark} from "@fortawesome/free-solid-svg-icons/faCircleXmark";
 import { faMinus } from "@fortawesome/free-solid-svg-icons/faMinus";
 
 import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
+import { faLessThan } from '@fortawesome/free-solid-svg-icons';
+import { faGreaterThan } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from "react-router-dom";
 
@@ -80,7 +82,7 @@ const styles = {
                 textAlign: "center",
                 icon: {
                     height: "4em",
-                    width: "4em",
+                    width: "100%",
                     calBurnt: {
                         color: "rgb(196, 97, 3)"
                     },
@@ -630,7 +632,9 @@ function TrainerClients() {
                 </div>
             </div>
             <div style={{...styles.trainerClients.container.schedule, ...styles.trainerClients.container.sections}}>
+                {/* <FontAwesomeIcon icon={faLessThan}/> */}
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
+                {/* <FontAwesomeIcon icon={faGreaterThan}/> */}
                 <div style={styles.trainerClients.container.schedule.content}>
                     <div style={styles.trainerClients.container.schedule.content.card.lastWeek}>
                     {   schedule.days?.slice(0,7).map((day) => {
