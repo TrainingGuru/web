@@ -53,6 +53,7 @@ const styles = {
             },
             profile: {
                 // width: "25%",
+                height: "100%",
                 // float: "left",
                 info: {
                     display: "grid",
@@ -77,10 +78,12 @@ const styles = {
             }, 
             createWorkout: {
                 // width: "50%",
+                height: "100%",
                 // float: "left",
                 card: {
                     // width: "450px",
                     backgroundColor: "white",
+                    height: "100%",
                     // padding: "4rem",
                     borderRadius: "10px",
                     position: "relative",
