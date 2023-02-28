@@ -131,11 +131,13 @@ function TrainerManageClients() {
         for (var i=0; i<7; i++) {
             var d = new Date();
             d.setDate(d.getDate() - i);
-            result.push( formatDate("YYYY-MM-DD") )
+            result.push( d.formatDate("YYYY-MM-DD") )
         }
 
         return(result.join(','));
     }
+
+    var result = Last7Days();
 
     const getFitbitData = async (authorizationCode) => {
         let accessToken = await getAccessToken(authorizationCode);
@@ -144,14 +146,14 @@ function TrainerManageClients() {
         
         
         // Steps data 
-        const stepsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/steps/date/result[6]/result[0].json`, {
+        const stepsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/steps/date/${result[6]}/${result[0]}.json`, {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
             
         })
         // calories
-        const calorieResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/calories/date/result[6]/result[0].json`, {
+        const calorieResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/calories/date/${result[6]}/${result[0]}.json`, {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
@@ -163,20 +165,20 @@ function TrainerManageClients() {
             }
         })
         // floors 
-        const floorsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/floors/date/result[6]/result[0].json`, {
+        const floorsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/floors/date/${result[6]}/${result[0]}.json`, {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
         })
         // active mintues 
-        const activeminsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/minutesLightlyActive/date/result[6]/result[0].json`, {
+        const activeminsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/minutesLightlyActive/date/${result[6]}/${result[0]}.json`, {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
         })
             
         // distance travelled
-        const distanceResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/distance/date/result[6]/result[0].json`, {
+        const distanceResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/distance/date/${result[6]}/${result[0]}.json`, {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
@@ -223,11 +225,15 @@ function TrainerManageClients() {
             // Get Steps Data
             // will return an array of data and value pairs
             
+            console.log("avgCals=" + avgCals + ", avgDist="+avgDist+",avgFloors=" +avgFloors+", avgMins="+ avgMins+", water="+ water);
+
             return avgCals, avgDist, avgFloors, avgMins, water, stepsData;
         } else {
             return {value: false};
         }
     };
+
+    const data = getFitbitData();
 
 
     return (<div style={styles.trainerManageClients}>
