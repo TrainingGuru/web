@@ -97,6 +97,139 @@ const styles = {
 
 function TrainerManageClients() {
 
+    const clientId = '2395P3';
+    const clientSecret = '9a7b2ea21730dc04d115cb52c799ecf1';
+    const redirectUri = 'http://localhost:3000/fitbit-callback';
+    const authorizationUri = 'https://www.fitbit.com/oauth2/authorize';
+    const tokenUri = 'https://api.fitbit.com/oauth2/token';
+    const getAccessToken = async (authorizationCode) => {
+        const fullCode = authorizationCode.split('#')[0];
+        const response = await  fetch("https://api.fitbit.com/oauth2/token", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body:
+                "client_id=2395P3" +
+                "&grant_type=authorization_code" +
+                "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Ffitbit-callback" +
+                "&code="+fullCode +
+                "&code_verifier=3e6g5o593s1u506n314c6j710x5d726r5p3k730x6r4i1j1t521h042g5y4r4u3z6c4w3q6v2f4z2k5m4k586y140r2s48362i4w5i0k5j5k2m670c4n0c1t3v1o4u25"
+        })
+
+        if(response.status === 200){
+            const json =  await response.json();
+            console.log(json)
+            return json["access_token"]
+        }
+
+    };
+
+    // workout dates for last 7 days 
+    function Last7Days () {
+        var result = [];
+        for (var i=0; i<7; i++) {
+            var d = new Date();
+            d.setDate(d.getDate() - i);
+            result.push( formatDate("YYYY-MM-DD") )
+        }
+
+        return(result.join(','));
+    }
+
+    const getFitbitData = async (authorizationCode) => {
+        let accessToken = await getAccessToken(authorizationCode);
+        // const date =  new Date(2023, 0, 29);
+        // const today = date.toISOString().substring(0, 10);			// may need
+        
+        
+        // Steps data 
+        const stepsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/steps/date/result[6]/result[0].json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+            
+        })
+        // calories
+        const calorieResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/calories/date/result[6]/result[0].json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        // water
+        const waterResponse = await fetch(`https://api.fitbit.com/1/user/-/foods/log/water/date/2023-02-03.json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        // floors 
+        const floorsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/floors/date/result[6]/result[0].json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        // active mintues 
+        const activeminsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/minutesLightlyActive/date/result[6]/result[0].json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+            
+        // distance travelled
+        const distanceResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/distance/date/result[6]/result[0].json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        
+        
+        
+        // Wait for all responses to finish
+        const [stepsData, calorieData, waterData,floorsData, activeminsData, distanceData] = await Promise.all([stepsResponse.json(), calorieResponse.json(), waterResponse.json(),floorsResponse.json(), activeminsResponse.json(),distanceResponse.json()]);
+        if (stepsResponse.status === 200 && calorieResponse.status === 200 && waterResponse.status === 200 && floorsResponse.status === 200 && activeminsResponse.status === 200 && distanceResponse.status === 200) {
+            
+            
+            // Get the avg calories
+            var avgCals = 0;
+            for (var i=0; i<7; i++) {
+                avgCals += calorieData["activities-calories"][i].value;
+            }
+            avgCals = avgCals/7.0;
+            
+            // Get the avg floors climbed
+            var avgFloors = 0;
+            for (var i=0; i<7; i++) {
+                avgFloors += floorsData["activities-floors"][i].value;
+            }
+            avgFloors = avgFloors/7.0;
+            
+            // Get the avg active minutes
+            var avgMins = 0;
+            for (var i=0; i<7; i++) {
+                avgMins += activeminsData["activities-minutesLightlyActive"][i].value;
+            }
+            avgMins = avgMins/7.0;
+            
+            // Get the avg distance
+            var avgDist = 0;
+            for (var i=0; i<7; i++) {
+                avgDist += distanceData["activities-distance"][i].value;
+            }
+            avgDist = avgDist/7.0;
+            
+            // Get water data
+            var water = waterData.summary.water;
+            
+            // Get Steps Data
+            // will return an array of data and value pairs
+            
+            return avgCals, avgDist, avgFloors, avgMins, water, stepsData;
+        } else {
+            return {value: false};
+        }
+    };
+
+
     return (<div style={styles.trainerManageClients}>
         <Nav />
         <div style={styles.trainerManageClients.container}>
@@ -185,15 +318,22 @@ function TrainerManageClients() {
                     </select>
                 </div>
             </div>
+            <div style={{...styles.trainerManageClients.container.clientDescription, ...styles.trainerManageClients.container.sections}}>
+                <div style={styles.trainerManageClients.container.headers}>Client Description</div>
+            </div>
+            <div>
+                Intake - Goals edit
+            </div>
+            <div>
+                Steps Goal - Edit
+            </div>
             <div style={{...styles.trainerManageClients.container.catchUpNotes, ...styles.trainerManageClients.container.sections}}>
                 <div style={styles.trainerManageClients.container.headers}>CatchUp Notes</div>
                 <div style={styles.trainerManageClients.container.catchUpNotes.textBox}>
                     <textarea></textarea>
                 </div>
             </div>
-            <div style={{...styles.trainerManageClients.container.clientDescription, ...styles.trainerManageClients.container.sections}}>
-                <div style={styles.trainerManageClients.container.headers}>Client Description</div>
-            </div>
+            
         </div>
     </div>
     );

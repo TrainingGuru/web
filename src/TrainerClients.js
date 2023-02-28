@@ -194,11 +194,14 @@ const styles = {
                     display: "flex",
                     justifyContent: "space-evenly",
                     textAlign: "center",
+                    width: "300%",
+                    height: "40%",
                     // margin: "5%, auto",
                     card: {
                         lastWeek: {
                             display: "flex",
-                            // justifyContent: "space-evenly",
+                            justifyContent: "space-evenly",
+                            alignItems: "center",
                             textAlign: "center",
                             width: "100%",
                             entry: {
@@ -292,6 +295,9 @@ function TrainerClients() {
 
     // const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
+    // ---------------------------- Use THIS!!!!!!!!!!!!!!!!! ---------------------------
+    // on refresh
+
     // const [width, setWidth] = useState();
 
     // useEffect(() => {
@@ -301,6 +307,9 @@ function TrainerClients() {
         
     //     window.addEventListener('resize', handleResize);
     // });
+
+    // in html
+    // { width > 700px ?}
 
     // console.log("Width: " + windowSize.current[0] + ", Height: " + windowSize.current[1]);
 
@@ -648,7 +657,7 @@ function TrainerClients() {
                     }
                     </div>
                     <div style={styles.trainerClients.container.schedule.content.card.thisWeek}>
-                    {   schedule.days?.slice(7,13).map((day) => {
+                    {   schedule.days?.slice(7,14).map((day) => {
                             return <div style={styles.trainerClients.container.schedule.content.card.thisWeek.entry}>
                                 <div style={styles.trainerClients.container.schedule.content.card.thisWeek.entry.day}>{day.day}</div>
                                 <div>{day.date}</div>
