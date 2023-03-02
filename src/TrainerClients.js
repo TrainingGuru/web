@@ -191,44 +191,77 @@ const styles = {
                 height: "100%",
                 overflow: "hidden",
                 content: {
-                    display: "flex",
-                    justifyContent: "space-evenly",
-                    textAlign: "center",
-                    width: "300%",
-                    height: "40%",
+                    // display: "flex",
+                    // justifyContent: "space-evenly",
+                    // textAlign: "center",
+                    // width: "300%",
+                    // height: "40%",
                     // margin: "5%, auto",
-                    card: {
-                        lastWeek: {
-                            display: "flex",
-                            justifyContent: "space-evenly",
-                            alignItems: "center",
-                            textAlign: "center",
-                            width: "100%",
-                            entry: {
-                                day: {
-                                    fontWeight: "700"
+                    carousel: {
+                        position: "relative",
+                        height: "50%",
+                        width: "80%",
+                        margin: "0 auto",
+                        button: {
+                            left: {
+                                background: "transparent",
+                                border: "0",
+                                position: "absolute",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                cursor: "pointer",
+                                left: "-25px"
+                            },
+                            right: {
+                                background: "transparent",
+                                border: "0",
+                                position: "absolute",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                cursor: "pointer",
+                                right: "-25px"
+                            }
+                        },
+                        trackContainer: {
+                            background: "lightgreen",
+                            // padding: "10px",
+                            height: "80%",
+                            position: "relative",
+                            track: {
+                                padding: "0",
+                                margin: "0",
+                                slide: {
+                                    display: "flex",
+                                    justifyContent: "space-evenly",
+                                    textAlign: "center",
+                                    position: "absolute",
+                                    top: "0",
+                                    bottom: "0",
+                                    width: "100%",
+                                    content: {
+                                        height: "80%",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "space-evenly"
+                                    }
                                 }
                             }
                         },
-                        thisWeek: {
+                        nav: {
+                            // background: "red",
                             display: "flex",
-                            justifyContent: "space-evenly",
-                            textAlign: "center",
-                            width: "100%",
-                            entry: {
-                                day: {
-                                    fontWeight: "700"
-                                }
-                            }
-                        },
-                        nextWeek: {
-                            display: "flex",
-                            justifyContent: "space-evenly",
-                            textAlign: "center",
-                            width: "100%",
-                            entry: {
-                                day: {
-                                    fontWeight: "700"
+                            justifyContent: "center",
+                            padding: "0",
+                            margin: "0 10px",
+                            indicator: {
+                                border: "0",
+                                borderRadius: "50%",
+                                width: "15px",
+                                height: "15px",
+                                background: "rgba(0, 0, 0, 0.3)",
+                                margin: "0 12px",
+                                currentSlide: {
+                                    background: "rgba(0, 0, 0, 0.75)"
                                 }
                             }
                         }
@@ -539,6 +572,13 @@ function TrainerClients() {
     // console.log(JSON.parse(scheduleDays));
     var schedule = JSON.parse(scheduleDays);
 
+
+    // const track = document.querySelector('.trackContainer.track');
+    // const slides = Array.from(track.children);
+
+    // console.log(track);
+
+
     return (
     <div style={styles.trainerClients}>
         <Nav />
@@ -644,76 +684,55 @@ function TrainerClients() {
                 {/* <FontAwesomeIcon icon={faLessThan}/> */}
                 <div style={styles.trainerClients.container.headers}>Schedule</div>
                 {/* <FontAwesomeIcon icon={faGreaterThan}/> */}
-                <div style={styles.trainerClients.container.schedule.content}>
-                    <div style={styles.trainerClients.container.schedule.content.card.lastWeek}>
-                    {   schedule.days?.slice(0,7).map((day) => {
-                            return <div style={styles.trainerClients.container.schedule.content.card.lastWeek.entry}>
-                                <div style={styles.trainerClients.container.schedule.content.card.lastWeek.entry.day}>{day.day}</div>
-                                <div>{day.date}</div>
-                                <div>Chest Beginner</div>
-                                <div>notes</div>
+                <div style={styles.trainerClients.container.schedule.content.carousel}>
+                    <div style={styles.trainerClients.container.schedule.content.carousel.button.left}>
+                        <FontAwesomeIcon icon={faLessThan}/>
+                    </div>
+                    <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer}>
+                        <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer.track}>
+                            <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer.track.slide}>
+                                {   schedule.days?.slice(0,7).map((day) => {
+                                        return <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer.track.slide.content}>
+                                            <div>{day.day}</div>
+                                            <div>{day.date}</div>
+                                            <div>Chest Beginner</div>
+                                            <div>notes</div>
+                                        </div>
+                                    })
+                                }
                             </div>
-                        })
-                    }
-                    </div>
-                    <div style={styles.trainerClients.container.schedule.content.card.thisWeek}>
-                    {   schedule.days?.slice(7,14).map((day) => {
-                            return <div style={styles.trainerClients.container.schedule.content.card.thisWeek.entry}>
-                                <div style={styles.trainerClients.container.schedule.content.card.thisWeek.entry.day}>{day.day}</div>
-                                <div>{day.date}</div>
-                                <div>Chest Beginner</div>
-                                <div>notes</div>
+                            <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer.track.slide}>
+                                {   schedule.days?.slice(7,14).map((day) => {
+                                        return <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer.track.slide.content}>
+                                            <div>{day.day}</div>
+                                            <div>{day.date}</div>
+                                            <div>Chest Beginner</div>
+                                            <div>notes</div>
+                                        </div>
+                                    })
+                                }
                             </div>
-                        })
-                    }
-                    </div>
-                    <div style={styles.trainerClients.container.schedule.content.card.nextWeek}>
-                    {   schedule.days?.slice(14,21).map((day) => {
-                            return <div style={styles.trainerClients.container.schedule.content.card.nextWeek.entry}>
-                                <div style={styles.trainerClients.container.schedule.content.card.nextWeek.entry.day}>{day.day}</div>
-                                <div>{day.date}</div>
-                                <div>Chest Beginner</div>
-                                <div>notes</div>
+                            <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer.track.slide}>
+                                {   schedule.days?.slice(14,21).map((day) => {
+                                        return <div style={styles.trainerClients.container.schedule.content.carousel.trackContainer.track.slide.content}>
+                                            <div>{day.day}</div>
+                                            <div>{day.date}</div>
+                                            <div>Chest Beginner</div>
+                                            <div>notes</div>
+                                        </div>
+                                    })
+                                }
                             </div>
-                        })
-                    }
+                        </div>
                     </div>
-                    {/* <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Tues</div>
-                        <div>7th</div>
-                        <div></div>
-                        <div></div>
+                    <div style={styles.trainerClients.container.schedule.content.carousel.button.right}>
+                        <FontAwesomeIcon icon={faGreaterThan}/>
                     </div>
-                    <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Wed</div>
-                        <div>8th</div>
-                        <div>Legs Advanced</div>
-                        <div>notes</div>
+                    <div style={styles.trainerClients.container.schedule.content.carousel.nav}>
+                        <div style={styles.trainerClients.container.schedule.content.carousel.nav.indicator}></div>
+                        <div style={styles.trainerClients.container.schedule.content.carousel.nav.indicator}></div>
+                        <div style={styles.trainerClients.container.schedule.content.carousel.nav.indicator}></div>
                     </div>
-                    <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Thurs</div>
-                        <div>9th</div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Fri</div>
-                        <div>10th</div>
-                        <div>Cardio Beginner</div>
-                        <div>notes</div>
-                    </div>
-                    <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Sat</div>
-                        <div>11th</div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div style={styles.trainerClients.container.schedule.content.entry}>
-                        <div style={styles.trainerClients.container.schedule.content.entry.day}>Sun</div>
-                        <div>12th</div>
-                        <div></div>
-                        <div></div>
-                    </div> */}
                 </div>
                 
             </div>
