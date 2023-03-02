@@ -265,6 +265,23 @@ const styles = {
                                 }
                             }
                         }
+                    },
+                    popup: {
+                        position: "absolute",
+                        top: "0",
+                        right: "0",
+                        bottom: "0",
+                        left: "0",
+                        zIndex: "1",
+                        background: "rgba(0, 0, 0, 0.2)",
+                        color: "white",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    },
+                    hidden: {
+                        display: "none"
                     }
                 }
             },
@@ -578,6 +595,12 @@ function TrainerClients() {
 
     // console.log(track);
 
+    const [isPopupClicked, setIsPopupClicked] = useState(false);
+
+    const togglePopup = () => {
+        setIsPopupClicked(!isPopupClicked);
+    }
+
 
     return (
     <div style={styles.trainerClients}>
@@ -696,7 +719,11 @@ function TrainerClients() {
                                             <div>{day.day}</div>
                                             <div>{day.date}</div>
                                             <div>Chest Beginner</div>
-                                            <div>notes</div>
+                                            <div onClick={togglePopup}>notes</div>
+                                            <div style={isPopupClicked ? styles.trainerClients.container.schedule.content.popup : styles.trainerClients.container.schedule.content.hidden}>
+                                                This is the notes popup!
+                                                <div onClick={togglePopup}>Close</div>
+                                            </div>
                                         </div>
                                     })
                                 }
@@ -707,7 +734,7 @@ function TrainerClients() {
                                             <div>{day.day}</div>
                                             <div>{day.date}</div>
                                             <div>Chest Beginner</div>
-                                            <div>notes</div>
+                                            <div onClick={togglePopup}>notes</div>
                                         </div>
                                     })
                                 }
@@ -718,7 +745,7 @@ function TrainerClients() {
                                             <div>{day.day}</div>
                                             <div>{day.date}</div>
                                             <div>Chest Beginner</div>
-                                            <div>notes</div>
+                                            <div onClick={togglePopup}>notes</div>
                                         </div>
                                     })
                                 }
