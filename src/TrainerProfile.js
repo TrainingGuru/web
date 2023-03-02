@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 
 import Nav from './Nav';
 
+import { useEffect, useState } from "react";
+
 const styles = {
     trainerProfile: {
         // margin: "2rem",
@@ -73,7 +75,22 @@ const styles = {
                     }
                 },
                 savedWorkouts: {
-                    height: "40%"
+                    height: "40%",
+                    popup: {
+                        position: "absolute",
+                        margin: "7.5%",
+                        top: "0",
+                        right: "0",
+                        bottom: "0",
+                        left: "0",
+                        zIndex: "1",
+                        // background: "rgba(0, 0, 0, 0.2)",
+                        // color: "white",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }
                 }
             }, 
             createWorkout: {
@@ -174,13 +191,21 @@ const styles = {
                     }
                 } 
             }
+        },
+        hidden: {
+            display: "none"
         }
-
     }
 }
 
 
 function TrainerProfile() {
+
+    const [isPopupClicked, setIsPopupClicked] = useState(false);
+
+    const togglePopup = () => {
+        setIsPopupClicked(!isPopupClicked);
+    }
 
     return (<div style={styles.trainerProfile}>
         <Nav />
@@ -204,8 +229,9 @@ function TrainerProfile() {
                 </div>
                 <div style={{...styles.trainerProfile.container.profile.savedWorkouts, ...styles.trainerProfile.container.sections}}>
                     <div style={styles.trainerProfile.container.headers}>Saved Workouts</div>
+
                 </div>
-                <div>
+                <div onClick={togglePopup}>
                     Edit
                     <FontAwesomeIcon style={styles.trainerProfile.container.profile.savedWorkouts.editIcon} icon={faPenToSquare}/>
                 </div>
@@ -251,6 +277,10 @@ function TrainerProfile() {
                 </div>
 
             </div>
+        </div>
+        <div style={isPopupClicked ? {...styles.trainerProfile.container.profile.savedWorkouts.popup, ...styles.trainerProfile.container.sections} : styles.trainerProfile.hidden}>
+            <div style={styles.trainerProfile.container.headers}>Saved Workouts</div>
+            <div onClick={togglePopup}>Close</div>
         </div>
     </div>
     );
