@@ -5,6 +5,7 @@ import {faBars} from "@fortawesome/free-solid-svg-icons/faBars";
 import {faHouseChimney} from "@fortawesome/free-solid-svg-icons/faHouseChimney";
 import {faPeopleGroup} from "@fortawesome/free-solid-svg-icons/faPeopleGroup";
 import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
+import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
 
 import { Link } from "react-router-dom";
 
@@ -48,7 +49,7 @@ const styles = {
                 boxShadow: "rgb(0 0 0 / 10%) 0px 2px 1px"
             },
             assignWorkouts: {
-                gridRow: "span 3",
+                gridRow: "span 4",
                 height: "100%",
                 overflow: "hidden",
                 name: {
@@ -80,14 +81,41 @@ const styles = {
                     }
                 }
             },
+            intake: {
+                // gridRow: "span 2",
+                // gridColumn: "span 2",
+                height: "100%",
+                overflow: "hidden",
+                heading: {
+                    textAlign: "center",
+                    fontSize: "2em",
+                    borderBottom: "1px solid black",
+                    // marginBottom: "2%"
+                },
+                table: {
+                    display: "grid",
+                    gap: "1.5rem",
+                    gridTemplateColumns: "1.25fr 1.25fr 0.5fr",
+                    marginLeft: "2%"
+                }
+            },
+            stepsGoal: {
+                editIcon: {
+                    
+                }
+            },
+            clientDescription: {
+                content: {
+                    editIcon: {
+
+                    }
+                }
+            },
             catchUpNotes: {
                 textBox: {
                     width: "100%",
                     height: "75%"
                 }
-            },
-            clientDescription: {
-
             }
         }
 
@@ -332,14 +360,34 @@ function TrainerManageClients() {
                     </select>
                 </div>
             </div>
+            <div style={styles.trainerManageClients.container.intake}>
+                <div style={styles.trainerManageClients.container.intake.heading}>Intake</div>
+                {/* { <div style={styles.trainerClients.container.intake.table}>
+                            <div>Calories</div>
+                            <div>{clientIntake?.CaloriesIntake}/{clientIntake?.TotalCalories}cal</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Protein</div>
+                            <div>{clientIntake?.ProteinIntake}/{clientIntake?.TotalProtein}g</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Fat</div>
+                            <div>{clientIntake?.FatsIntake}/{clientIntake?.TotalFats}g</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Carbs</div>
+                            <div>{clientIntake?.CarbohydratesIntake}/{clientIntake?.TotalCarbohydrates}g</div>
+                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                        </div>
+                        
+                    } */}
+            </div>
+            <div style={{...styles.trainerManageClients.container.stepsGoal, ...styles.trainerManageClients.container.sections}}>
+                <div style={styles.trainerManageClients.container.headers}>Steps Goal</div>
+                <FontAwesomeIcon style={styles.trainerManageClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+            </div>
             <div style={{...styles.trainerManageClients.container.clientDescription, ...styles.trainerManageClients.container.sections}}>
                 <div style={styles.trainerManageClients.container.headers}>Client Description</div>
-            </div>
-            <div>
-                Intake - Goals edit
-            </div>
-            <div>
-                Steps Goal - Edit
+                <div style={styles.trainerManageClients.container.clientDescription.content}>
+                    <FontAwesomeIcon style={styles.trainerManageClients.container.clientDescription.content.editIcon} icon={faPenToSquare}/>
+                </div>
             </div>
             <div style={{...styles.trainerManageClients.container.catchUpNotes, ...styles.trainerManageClients.container.sections}}>
                 <div style={styles.trainerManageClients.container.headers}>CatchUp Notes</div>
