@@ -89,7 +89,14 @@ const styles = {
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
-                        alignItems: "center"
+                        alignItems: "center",
+                        closeButton: {
+                            cursor: "pointer"
+                        }
+                    },
+                    editIcon: {
+                        cursor: "pointer",
+                        maxWidth: "fit-content"
                     }
                 }
             }, 
@@ -222,18 +229,18 @@ function TrainerProfile() {
                         <div>1 to 1 personal trainer working out of DkIT Sport in Dundalk, County Louth. I am a certified Level 3 Personal Trainer and have a Level 7 Qualification in Nutrition.</div>
                         <div>I am currently open to taking on clients on a 1 to 1 or Online Basis.</div>
                     </div>
-                    <div>
+                    <div style={styles.trainerProfile.container.profile.savedWorkouts.editIcon}>
                         Edit
-                        <FontAwesomeIcon style={styles.trainerProfile.container.profile.savedWorkouts.editIcon} icon={faPenToSquare}/>
+                        <FontAwesomeIcon icon={faPenToSquare}/>
                     </div>
                 </div>
                 <div style={{...styles.trainerProfile.container.profile.savedWorkouts, ...styles.trainerProfile.container.sections}}>
                     <div style={styles.trainerProfile.container.headers}>Saved Workouts</div>
 
                 </div>
-                <div onClick={togglePopup}>
+                <div onClick={togglePopup} style={styles.trainerProfile.container.profile.savedWorkouts.editIcon}>
                     Edit
-                    <FontAwesomeIcon style={styles.trainerProfile.container.profile.savedWorkouts.editIcon} icon={faPenToSquare}/>
+                    <FontAwesomeIcon icon={faPenToSquare}/>
                 </div>
             </div>
 
@@ -280,7 +287,7 @@ function TrainerProfile() {
         </div>
         <div style={isPopupClicked ? {...styles.trainerProfile.container.profile.savedWorkouts.popup, ...styles.trainerProfile.container.sections} : styles.trainerProfile.hidden}>
             <div style={styles.trainerProfile.container.headers}>Saved Workouts</div>
-            <div onClick={togglePopup}>Close</div>
+            <div onClick={togglePopup} style={styles.trainerProfile.container.profile.savedWorkouts.popup.closeButton}>Close</div>
         </div>
     </div>
     );

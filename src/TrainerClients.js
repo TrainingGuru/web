@@ -626,7 +626,7 @@ function TrainerClients() {
     useEffect(() => {
         function handleResize() {
             setWidth(windowSize.current[0])
-            console.log("width: " + width)
+            // console.log("width: " + width)
         }
         
         window.addEventListener('resize', handleResize);
@@ -648,6 +648,202 @@ function TrainerClients() {
     //             });
     //         })
     // }, []);
+
+
+    // ------------------------ FitBit Code -------------------------------------------------------
+    // const clientId = '2395P3';
+    // const clientSecret = '9a7b2ea21730dc04d115cb52c799ecf1';
+    // const redirectUri = 'http://localhost:3000/fitbit-callback';
+    // const authorizationUri = 'https://www.fitbit.com/oauth2/authorize';
+    // const tokenUri = 'https://api.fitbit.com/oauth2/token';
+    // const authorizationCode = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzk5NEwiLCJzdWIiOiI5VDNRVkQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcm94eSBybnV0IHJwcm8gcnNsZSByYWN0IHJyZXMgcmxvYyByd2VpIHJociBydGVtIiwiZXhwIjoxNjc3NjIyMTM0LCJpYXQiOjE2Nzc1OTMzMzR9.YXBePKdARU9RTgZcLPl17cJ4tGk2PUhTbu6a1Hw75NY";
+    // const getAccessToken = async (authorizationCode) => {
+    //     // console.log("authCode: " + authorizationCode);
+    //     const fullCode = authorizationCode.split('#')[0];
+    //     const response = await  fetch("https://api.fitbit.com/oauth2/token", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/x-www-form-urlencoded"
+    //         },
+    //         body:
+    //             "client_id=2395P3" +
+    //             "&grant_type=authorization_code" +
+    //             "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Ffitbit-callback" +
+    //             "&code="+fullCode +
+    //             "&code_verifier=3e6g5o593s1u506n314c6j710x5d726r5p3k730x6r4i1j1t521h042g5y4r4u3z6c4w3q6v2f4z2k5m4k586y140r2s48362i4w5i0k5j5k2m670c4n0c1t3v1o4u25"
+    //     })
+
+    //     if(response.status === 200){
+    //         const json =  await response.json();
+    //         console.log(json)
+    //         return json["access_token"]
+    //     }
+
+    // };
+
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Basic MjM5OTRMOjhjNGJiZjE1M2M4OTRiMjIyM2ZmODBmMGRiZmI3YmEy");
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append("Cookie", "JSESSIONID=0E7DFB9921C5414C1BFE58216ED818AD.fitbit1; fct=9db8e060df1748829e7113b43979bf81");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    
+    // const [fitbitResult, setResult] = useState(null);
+
+    // const [accessToken, setAccessToken] = useState(null);
+    // const [refreshToken, setRefreshToken] = useState("1916ed6ab1c9f415ef76ecc1c8ef5cf44563416b6f510f0e7fc3b56b0a650126");
+
+    // fetch(`https://api.fitbit.com/oauth2/token?grant_type=refresh_token&refresh_token=`+refreshToken, requestOptions)
+    //     .then(response => response.json())
+    //     // .then(result => console.log(result))
+    //     .then(result => {
+    //         setAccessToken(result["access_token"]);
+    //         setRefreshToken(result["refresh_token"]);
+    //     })
+    //     // .then(result => )
+    //     .catch(error => console.log('error', error));
+
+    let accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzk5NEwiLCJzdWIiOiI5VDNRVkQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcm94eSBybnV0IHJwcm8gcnNsZSByYWN0IHJsb2MgcnJlcyByd2VpIHJociBydGVtIiwiZXhwIjoxNjc4MTMzNzg2LCJpYXQiOjE2NzgxMDQ5ODZ9.jfuJ552hipqZMBRt7z7u6GmSDdBU2QMHvLAtAqnXANw";
+
+    // console.log("Access: " + accessToken);
+    // console.log("Refresh: " + refreshToken);
+
+    // workout dates for last 7 days 
+    // function Last7Days () {
+    //     var result = [];
+    //     for (var i=0; i<7; i++) {
+    //         var d = new Date();
+    //         d.setDate(d.getDate() - i);
+    //         result.push( d ); //.formatDate("YYYY-MM-DD")
+    //     }
+
+    //     // console.log(result)
+
+    //     return(result.join(','));
+    // }
+
+    // var result = Last7Days();
+
+    var sevenDaysAgo = moment().subtract(7, 'days').format();
+    sevenDaysAgo = sevenDaysAgo.substring(0, 10);
+    var today1 = moment().format();
+    today1 = today1.substring(0, 10);
+
+    // console.log("7:" + sevenDaysAgo)
+
+    const getFitbitData = async () => {
+    //     let accessToken = await getAccessToken(authorizationCode);
+    //     // const date =  new Date(2023, 0, 29);
+    //     // const today = date.toISOString().substring(0, 10);			// may need
+        
+        
+        // Steps data 
+        const stepsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/steps/date/${sevenDaysAgo}/${today1}.json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+            
+        })
+        // calories
+        const calorieResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/calories/date/${sevenDaysAgo}/${today1}.json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        // water
+        const waterResponse = await fetch(`https://api.fitbit.com/1/user/-/foods/log/water/date/2023-02-03.json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        // floors 
+        const floorsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/floors/date/${sevenDaysAgo}/${today1}.json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        // active mintues 
+        const activeminsResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/minutesLightlyActive/date/${sevenDaysAgo}/${today1}.json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+            
+        // distance travelled
+        const distanceResponse = await fetch(`https://api.fitbit.com/1/user/-/activities/distance/date/${sevenDaysAgo}/${today1}.json`, {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        
+        
+        
+        // Wait for all responses to finish
+        const [stepsData, calorieData, waterData,floorsData, activeminsData, distanceData] = await Promise.all([stepsResponse.json(), calorieResponse.json(), waterResponse.json(),floorsResponse.json(), activeminsResponse.json(),distanceResponse.json()]);
+        if (stepsResponse.status === 200 && calorieResponse.status === 200 && waterResponse.status === 200 && floorsResponse.status === 200 && activeminsResponse.status === 200 && distanceResponse.status === 200) {
+            
+            // console.log("Cal first value: " +JSON.stringify(calorieData["activities-calories"][0].value))
+            
+            // Get the avg calories
+            var avgCals = 0;
+            for (var i=0; i<7; i++) {
+                // console.log(i+":" + calorieData["activities-calories"][i].value);
+                avgCals = avgCals + parseFloat(calorieData["activities-calories"][i].value);
+            }
+            // console.log("totCals: " + avgCals)
+            avgCals = avgCals/7.0;
+            
+            // Get the avg floors climbed
+            var avgFloors = 0;
+            for (var i=0; i<7; i++) {
+                avgFloors += parseFloat(floorsData["activities-floors"][i].value);
+            }
+            avgFloors = avgFloors/7.0;
+            
+            // Get the avg active minutes
+            var avgMins = 0;
+            for (var i=0; i<7; i++) {
+                avgMins += parseFloat(activeminsData["activities-minutesLightlyActive"][i].value);
+            }
+            avgMins = avgMins/7.0;
+            
+            // Get the avg distance
+            var avgDist = 0;
+            for (var i=0; i<7; i++) {
+                avgDist += parseFloat(distanceData["activities-distance"][i].value);
+            }
+            avgDist = avgDist/7.0;
+            
+            // Get water data
+            var water = waterData.summary.water;
+            
+            // Get Steps Data
+            // will return an array of data and value pairs
+            
+            // console.log("avgCals=" + avgCals.toFixed(2) + ", avgDist="+avgDist.toFixed(2)+",avgFloors=" +avgFloors.toFixed(2)+", avgMins="+ avgMins.toFixed(2)+", water="+ water.toFixed(2));
+
+            return avgCals, avgDist, avgFloors, avgMins, water, stepsData;
+        } else {
+            // console.log(stepsResponse.status+", "+ calorieResponse.status+", "+ waterResponse.status +", "+ floorsResponse.status+", "+activeminsResponse.status +", "+ distanceResponse.status)
+            // console.log("HEELOO")
+            return {value: false};
+        }
+    };
+
+    
+    // const data = getFitbitData();
+
+
+
+    // console.log("After fitbit call");
+    // console.log(data);
+
+    // ------------------------ FitBit Code - End -------------------------------------------------------
 
     // const [clients, setClients] = useState(null);
 
