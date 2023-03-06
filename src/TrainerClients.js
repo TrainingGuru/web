@@ -312,7 +312,279 @@ const styles = {
 
     },
     trainerClientsMobile: {
-
+        // height: "95vh",
+        // overflow: "hidden",
+        container: {
+            display: "grid",
+            gap: "1rem",
+            gridTemplateColumns: "1fr",
+            // gridTemplateRows: "0.5fr 0.7fr 0.3fr 0.2fr 0.8fr",
+            width: "95%",
+            margin: "auto",
+            overflow: "hidden",
+            // height: "100%",
+            height: "100%", 
+            // margin: "1% 5% 5% 0",
+            // float: "left",
+            headers: {
+                textAlign: "center",
+                width: "60%",
+                margin: "1% auto 0.5% auto",
+                backgroundColor: "rgb(0, 0, 0)",
+                color: "rgb(255, 255, 255)",
+                fontFamily: "Roboto",
+                fontWeight: "500",
+                fontSize: "10px",
+                letterSpacing: "1.3px",
+                textTransform: "Uppercase",
+                lineHeight: "18px",
+                border: "0px",
+                borderRadius: "4px",
+                boxShadow: "rgb(0 0 0 / 10%) 0px 3px 1px",
+                padding: "1%"
+            },
+            sections: {
+                background: "rgb(245, 245, 245)",
+                border: "1px solid rgb(236, 239, 241)",
+                borderRadius: "4px",
+                boxShadow: "rgb(0 0 0 / 10%) 0px 2px 1px"
+            },
+            fitbitIcons: {
+                height: "100%",
+                // gridColumn: "span 5",
+                overflow: "hidden",
+                display: "flex",
+                justifyContent: "space-evenly",
+                textAlign: "center",
+                icon: {
+                    height: "4em",
+                    width: "100%",
+                    calBurnt: {
+                        color: "rgb(196, 97, 3)"
+                    },
+                    waterIntake: {
+                        color: "rgb(2, 148, 186)"
+                    },
+                    floorsClimbed: {
+                        color: "rgb(141, 113, 1)"
+                    },
+                    activeMins: {
+                        color: "rgb(174, 234, 95)"
+                    },
+                    distTravelled: {
+                        color: "rgb(201, 99, 248)"
+                    }
+                }
+            },
+            steps: {
+                height: "100%",
+                overflow: "hidden",
+                content: {
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
+                    textAlign: "center",
+                    width: "80%",
+                    height: "80%",
+                    margin: "auto",
+                    imgContainer: {
+                        height: "100%",
+                        width: "100%",
+                        img: {
+                            height: "100%",
+                            width: "100%"
+                        }
+                    },
+                    text: {
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                        label: {},
+                        data: {},
+                        editIcon: {}
+                    }
+                    
+                }
+            },
+            intake: {
+                // gridRow: "span 2",
+                // gridColumn: "span 2",
+                height: "100%",
+                overflow: "hidden",
+                heading: {
+                    textAlign: "center",
+                    fontSize: "2em",
+                    borderBottom: "1px solid black",
+                    // marginBottom: "2%"
+                },
+                table: {
+                    display: "grid",
+                    gap: "1.5rem",
+                    gridTemplateColumns: "1.25fr 1.25fr 0.5fr",
+                    marginLeft: "2%"
+                }
+            },
+            progressChart: {
+                // gridRow: "span 3",
+                // gridColumn: "span 2"
+            },
+            goals: {
+                // gridRow: "span 2",
+                height: "100%",
+                overflow: "hidden",
+                entry: {
+                    textAlign: "center",
+                    margin: "5%",
+                    fontSize: "20px"
+                }
+            },
+            calorieSummary: {
+                // gridColumn: "span 2",
+                display: "grid",
+                // gap: "1rem",
+                gridTemplateColumns: "repeat(7, 1fr)",
+                height: "100%",
+                // overflow: "hidden",
+                icon: {
+                    check: {
+                        color: "green"
+                    },
+                    xmark: {
+                        color: "red"
+                    },
+                    dash: {
+                        color: "grey"
+                    }
+                }
+            },
+            catchUpNotes: {
+                textBox: {
+                    width: "100%",
+                    height: "75%"
+                }
+            },
+            schedule: {
+                // gridColumn: "span 3",
+                height: "100%",
+                overflow: "hidden",
+                content: {
+                    // display: "flex",
+                    // justifyContent: "space-evenly",
+                    // textAlign: "center",
+                    // width: "300%",
+                    // height: "40%",
+                    // margin: "5%, auto",
+                    carousel: {
+                        position: "relative",
+                        height: "50%",
+                        width: "80%",
+                        margin: "0 auto",
+                        button: {
+                            left: {
+                                background: "transparent",
+                                border: "0",
+                                position: "absolute",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                cursor: "pointer",
+                                left: "-25px"
+                            },
+                            right: {
+                                background: "transparent",
+                                border: "0",
+                                position: "absolute",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                cursor: "pointer",
+                                right: "-25px"
+                            }
+                        },
+                        trackContainer: {
+                            background: "lightgreen",
+                            // padding: "10px",
+                            height: "80%",
+                            position: "relative",
+                            track: {
+                                padding: "0",
+                                margin: "0",
+                                slide: {
+                                    display: "flex",
+                                    justifyContent: "space-evenly",
+                                    textAlign: "center",
+                                    position: "absolute",
+                                    top: "0",
+                                    bottom: "0",
+                                    width: "100%",
+                                    content: {
+                                        height: "80%",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "space-evenly"
+                                    }
+                                }
+                            }
+                        },
+                        nav: {
+                            // background: "red",
+                            display: "flex",
+                            justifyContent: "center",
+                            padding: "0",
+                            margin: "0 10px",
+                            indicator: {
+                                border: "0",
+                                borderRadius: "50%",
+                                width: "15px",
+                                height: "15px",
+                                background: "rgba(0, 0, 0, 0.3)",
+                                margin: "0 12px",
+                                currentSlide: {
+                                    background: "rgba(0, 0, 0, 0.75)"
+                                }
+                            }
+                        }
+                    },
+                    popup: {
+                        position: "absolute",
+                        top: "0",
+                        right: "0",
+                        bottom: "0",
+                        left: "0",
+                        zIndex: "1",
+                        background: "rgba(0, 0, 0, 0.2)",
+                        color: "white",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    },
+                    hidden: {
+                        display: "none"
+                    }
+                }
+            },
+            personalBests: {
+                height: "100%",
+                overflow: "hidden",
+                content: {
+                    entry: {
+                        margin: "7.5%",
+                        data: {
+                            display: "flex",
+                            margin: "5%",
+                            justifyContent: "space-evenly",
+                            icon: {
+                                color: "green"
+                            },
+                            previous: {
+                                fontWeight: "700"
+                            },
+                            new: {
+                                fontWeight: "700"
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 // var called = false;
@@ -782,7 +1054,182 @@ function TrainerClients() {
                 </div>
             </div>
             
-        </div> : <p>hello</p> }
+        </div> : <div style={styles.trainerClientsMobile.container}>
+            <div style={styles.trainerClientsMobile.container.fitbitIcons}>
+                <div>
+                    <FontAwesomeIcon style={{...styles.trainerClientsMobile.container.fitbitIcons.icon, ...styles.trainerClientsMobile.container.fitbitIcons.icon.calBurnt}} icon={faFire}/>
+                    <div>Calories Burnt</div>
+                    <div>4900kcl</div>
+                </div>
+                <div>
+                    <FontAwesomeIcon style={{...styles.trainerClientsMobile.container.fitbitIcons.icon, ...styles.trainerClientsMobile.container.fitbitIcons.icon.waterIntake}} icon={faDroplet}/>
+                    <div>Water Intake</div>
+                    <div>13.5L</div>
+                </div>
+                <div>
+                    <FontAwesomeIcon style={{...styles.trainerClientsMobile.container.fitbitIcons.icon, ...styles.trainerClientsMobile.container.fitbitIcons.icon.floorsClimbed}} icon={faStairs}/>
+                    <div>Floors Climbed</div>
+                    <div>45 Floors</div>
+                </div>
+                <div>
+                    <FontAwesomeIcon style={{...styles.trainerClientsMobile.container.fitbitIcons.icon, ...styles.trainerClientsMobile.container.fitbitIcons.icon.activeMins}} icon={faBolt}/>
+                    <div>Active Minutes</div>
+                    <div>420 Min</div>
+                </div>
+                <div>
+                    <FontAwesomeIcon style={{...styles.trainerClientsMobile.container.fitbitIcons.icon, ...styles.trainerClientsMobile.container.fitbitIcons.icon.distTravelled}} icon={faRoad}/>
+                    <div>Distance Travelled</div>
+                    <div>27.1km</div>
+                </div>
+            </div>
+            <div style={{...styles.trainerClientsMobile.container.steps, ...styles.trainerClientsMobile.container.sections}}>
+                <div style={styles.trainerClientsMobile.container.headers}>Steps</div>
+                <div style={styles.trainerClientsMobile.container.steps.content}>
+                    <div style={styles.trainerClientsMobile.container.steps.content.imgContainer}>
+                        <img style={styles.trainerClientsMobile.container.steps.content.imgContainer.img}
+                            src={barChart}
+                            alt="Bar Chart"/>
+                    </div>
+                    <div style={styles.trainerClientsMobile.container.steps.content.text}>
+                        <div style={styles.trainerClientsMobile.container.steps.content.text.label}>Goal:</div>
+                        <div style={styles.trainerClientsMobile.container.steps.content.text.data}>10,000</div>
+                        <div><FontAwesomeIcon style={styles.trainerClientsMobile.container.steps.content.text.editIcon} icon={faPenToSquare}/></div>
+                    </div>
+                </div>
+            </div>
+            <div style={styles.trainerClientsMobile.container.intake}>
+                <div style={styles.trainerClientsMobile.container.intake.heading}>Intake</div>
+                {/* { <div style={styles.trainerClientsMobile.container.intake.table}>
+                            <div>Calories</div>
+                            <div>{clientIntake?.CaloriesIntake}/{clientIntake?.TotalCalories}cal</div>
+                            <FontAwesomeIcon style={styles.trainerClientsMobile.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Protein</div>
+                            <div>{clientIntake?.ProteinIntake}/{clientIntake?.TotalProtein}g</div>
+                            <FontAwesomeIcon style={styles.trainerClientsMobile.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Fat</div>
+                            <div>{clientIntake?.FatsIntake}/{clientIntake?.TotalFats}g</div>
+                            <FontAwesomeIcon style={styles.trainerClientsMobile.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <div>Carbs</div>
+                            <div>{clientIntake?.CarbohydratesIntake}/{clientIntake?.TotalCarbohydrates}g</div>
+                            <FontAwesomeIcon style={styles.trainerClientsMobile.container.intake.table.editIcon} icon={faPenToSquare}/>
+                        </div>
+                        
+                    } */}
+            </div>
+            <div style={styles.trainerClientsMobile.container.progressChart}>
+                Weight Progress Graph
+            </div>
+            <div style={{...styles.trainerClientsMobile.container.goals, ...styles.trainerClientsMobile.container.sections}}>
+                <div style={styles.trainerClientsMobile.container.headers}>Goals</div>
+                    {/* { clientGoals?.map((goal) => {
+                        return <div style={styles.trainerClientsMobile.container.goals.entry}>
+                                    {goal.Goal}
+                                </div>
+                        }) 
+                    } */}
+            </div>
+            <div style={styles.trainerClientsMobile.container.calorieSummary}>
+                <div>M</div>
+                <div>T</div>
+                <div>W</div>
+                <div>T</div>
+                <div>F</div>
+                <div>S</div>
+                <div>S</div>
+
+                <FontAwesomeIcon style={styles.trainerClientsMobile.container.calorieSummary.icon.check} icon={faCircleCheck}/>
+                <FontAwesomeIcon style={styles.trainerClientsMobile.container.calorieSummary.icon.xmark} icon={faCircleXmark}/>
+                <FontAwesomeIcon style={styles.trainerClientsMobile.container.calorieSummary.icon.check} icon={faCircleCheck}/>
+                <FontAwesomeIcon style={styles.trainerClientsMobile.container.calorieSummary.icon.check} icon={faCircleCheck}/>
+                <FontAwesomeIcon style={styles.trainerClientsMobile.container.calorieSummary.icon.check} icon={faCircleCheck}/>
+                <FontAwesomeIcon style={styles.trainerClientsMobile.container.calorieSummary.icon.check} icon={faCircleCheck}/>
+                <FontAwesomeIcon style={styles.trainerClientsMobile.container.calorieSummary.icon.dash} icon={faMinus}/>
+
+            </div>
+            <div style={{...styles.trainerClientsMobile.container.catchUpNotes, ...styles.trainerClientsMobile.container.sections}}>
+                <div style={styles.trainerClientsMobile.container.headers}>CatchUp Notes</div>
+                <div style={styles.trainerClientsMobile.container.catchUpNotes.textBox}>
+                    <textarea></textarea>
+                </div>
+            </div>
+            <div style={{...styles.trainerClientsMobile.container.schedule, ...styles.trainerClientsMobile.container.sections}}>
+                {/* <FontAwesomeIcon icon={faLessThan}/> */}
+                <div style={styles.trainerClientsMobile.container.headers}>Schedule</div>
+                {/* <FontAwesomeIcon icon={faGreaterThan}/> */}
+                <div style={styles.trainerClientsMobile.container.schedule.content.carousel}>
+                    <div style={styles.trainerClientsMobile.container.schedule.content.carousel.button.left}>
+                        <FontAwesomeIcon icon={faLessThan}/>
+                    </div>
+                    <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer}>
+                        <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer.track}>
+                            <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer.track.slide}>
+                                {   schedule.days?.slice(0,7).map((day) => {
+                                        return <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer.track.slide.content}>
+                                            <div>{day.day}</div>
+                                            <div>{day.date}</div>
+                                            <div>Chest Beginner</div>
+                                            <div onClick={togglePopup}>notes</div>
+                                            <div style={isPopupClicked ? styles.trainerClientsMobile.container.schedule.content.popup : styles.trainerClientsMobile.container.schedule.content.hidden}>
+                                                This is the notes popup!
+                                                <div onClick={togglePopup}>Close</div>
+                                            </div>
+                                        </div>
+                                    })
+                                }
+                            </div>
+                            <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer.track.slide}>
+                                {   schedule.days?.slice(7,14).map((day) => {
+                                        return <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer.track.slide.content}>
+                                            <div>{day.day}</div>
+                                            <div>{day.date}</div>
+                                            <div>Chest Beginner</div>
+                                            <div onClick={togglePopup}>notes</div>
+                                        </div>
+                                    })
+                                }
+                            </div>
+                            <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer.track.slide}>
+                                {   schedule.days?.slice(14,21).map((day) => {
+                                        return <div style={styles.trainerClientsMobile.container.schedule.content.carousel.trackContainer.track.slide.content}>
+                                            <div>{day.day}</div>
+                                            <div>{day.date}</div>
+                                            <div>Chest Beginner</div>
+                                            <div onClick={togglePopup}>notes</div>
+                                        </div>
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div style={styles.trainerClientsMobile.container.schedule.content.carousel.button.right}>
+                        <FontAwesomeIcon icon={faGreaterThan}/>
+                    </div>
+                    <div style={styles.trainerClientsMobile.container.schedule.content.carousel.nav}>
+                        <div style={styles.trainerClientsMobile.container.schedule.content.carousel.nav.indicator}></div>
+                        <div style={styles.trainerClientsMobile.container.schedule.content.carousel.nav.indicator}></div>
+                        <div style={styles.trainerClientsMobile.container.schedule.content.carousel.nav.indicator}></div>
+                    </div>
+                </div>
+                
+            </div>
+            <div style={{...styles.trainerClientsMobile.container.personalBests, ...styles.trainerClientsMobile.container.sections}}>
+                <div style={styles.trainerClientsMobile.container.headers}>Personal Bests</div>
+                <div style={styles.trainerClientsMobile.container.personalBests.content}>
+                    {/* {   clientPBs?.map((PB) => {
+                            return <div style={styles.trainerClientsMobile.container.personalBests.content.entry}>
+                                <div style={styles.trainerClientsMobile.container.personalBests.content.entry.data}>
+                                    <div style={styles.trainerClientsMobile.container.personalBests.content.entry.data.exercise}>{PB.Exercise.Name}</div>
+                                    <div style={styles.trainerClientsMobile.container.personalBests.content.entry.data.previous}>{PB.LastPB}</div>
+                                    <FontAwesomeIcon style={styles.trainerClientsMobile.container.personalBests.content.entry.data.icon} icon={faChevronUp}/>
+                                    <div style={styles.trainerClientsMobile.container.personalBests.content.entry.data.new}>{PB.PersonalBest}</div>
+                                </div>
+                            </div>
+                        })
+                    } */}
+                </div>
+            </div>
+            
+        </div> }
     </div>
     );
 }
