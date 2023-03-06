@@ -343,20 +343,22 @@ const styles = {
 function TrainerClients() {
     // const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
 
-    // const windowSize = useRef([window.innerWidth, window.innerHeight]);
+    const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
     // ---------------------------- Use THIS!!!!!!!!!!!!!!!!! ---------------------------
     // on refresh
+    // the initialising value on line 352 doesn't allow the resize function to overrite it therefore only works on refresh
 
-    // const [width, setWidth] = useState();
+    const [width, setWidth] = useState(windowSize.current[0]);
 
-    // useEffect(() => {
-    //     function handleResize() {
-    //         setWidth(windowSize.current[0])
-    //     }
+    useEffect(() => {
+        function handleResize() {
+            setWidth(windowSize.current[0])
+            console.log("width: " + width)
+        }
         
-    //     window.addEventListener('resize', handleResize);
-    // });
+        window.addEventListener('resize', handleResize);
+    });
 
     // in html
     // { width > 700px ?}
@@ -605,7 +607,7 @@ function TrainerClients() {
     return (
     <div style={styles.trainerClients}>
         <Nav />
-        <div style={styles.trainerClients.container}>
+        { width > 700 ? <div style={styles.trainerClients.container}>
             <div style={styles.trainerClients.container.fitbitIcons}>
                 <div>
                     <FontAwesomeIcon style={{...styles.trainerClients.container.fitbitIcons.icon, ...styles.trainerClients.container.fitbitIcons.icon.calBurnt}} icon={faFire}/>
@@ -780,7 +782,7 @@ function TrainerClients() {
                 </div>
             </div>
             
-        </div>
+        </div> : <p>hello</p> }
     </div>
     );
 }
