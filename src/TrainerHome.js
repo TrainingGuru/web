@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faHouseChimney, faPeopleGroup, faUser, faChevronUp} from "@fortawesome/free-solid-svg-icons";
 
@@ -241,14 +241,14 @@ const styles = {
 
 function TrainerHome() {
 
-    // const [clients, setClients] = useState(null);
+    const [clients, setClients] = useState(null);
 
-    // useEffect(() => {
-    //     fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
-    //         .then((response) => response.json())
-    //         // .then((actualData) => console.log(actualData[0]))
-    //         .then((actualData) => setClients(actualData));
-    // }, []);
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setClients(actualData));
+    }, []);
 
     // const [clientIntakes, setIntakeData] = useState(null);
 
@@ -298,12 +298,12 @@ function TrainerHome() {
                 <div style={{...styles.trainerHome.container.clients, ...styles.trainerHome.container.sections}}>
                     <div style={styles.trainerHome.container.headers}>Clients</div>
                     <div style={styles.trainerHome.container.clients.content}>
-                        {/* { clients?.map((client) => {
+                        { clients?.map((client) => {
                             return <div style={styles.trainerHome.container.clients.content.entry}>
                                 <div style={styles.trainerHome.container.clients.content.entry.name}>{client.Name}</div>
-                                <Link to="/clientstrainer/${client.ID}">{client.Name}</Link>
+                                <Link to="/clientscatchup">{client.Name}</Link>
                             </div>
-                        }) } */}
+                        }) }
                     </div>
                 </div>
                 <div style={styles.trainerHome.container.activeToday}>

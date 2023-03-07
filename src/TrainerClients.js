@@ -22,7 +22,7 @@ import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
 import { faLessThan } from '@fortawesome/free-solid-svg-icons';
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons';
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import barChart from "./barChart.png";
 
@@ -613,6 +613,7 @@ const styles = {
 
 
 function TrainerClients() {
+
     // const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
 
     const windowSize = useRef([window.innerWidth, window.innerHeight]);
@@ -845,54 +846,54 @@ function TrainerClients() {
 
     // ------------------------ FitBit Code - End -------------------------------------------------------
 
-    // const [clients, setClients] = useState(null);
+    const [clients, setClients] = useState(null);
 
-    // useEffect(() => {
-    //     fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
-    //         .then((response) => response.json())
-    //         // .then((actualData) => console.log(actualData[0]))
-    //         .then((actualData) => setClients(actualData));
-    // }, []);
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setClients(actualData));
+    }, []);
     
-
+    const [clientGoals, setGoals] = useState(null);
+    const [currentClientID, setCurrentClientID] = useState(1);
     
-    // const clientSelect = document?.getElementById("clients");
-    // clientSelect?.addEventListener('change', function handleChange(event) {
-    //     // console.log("Select Value (ID): " + event.target.value);
-    //     setCurrentClientID(event.target.value);
-    //     setGoals(clientGoals);
-    //     setIntake(clientIntake);
-    //     // setWorkouts(clientWorkouts);
-    //     // TrainerClients();
-    // })
+    const clientSelect = document?.getElementById("clients");
+    clientSelect?.addEventListener('change', function handleChange(event) {
+        // console.log("Select Value (ID): " + event.target.value);
+        setCurrentClientID(event.target.value);
+        setGoals(clientGoals);
+        setIntake(clientIntake);
+        // setWorkouts(clientWorkouts);
+        // TrainerClients();
+    })
 
-    // const [clientGoals, setGoals] = useState(null);
-    // const [currentClientID, setCurrentClientID] = useState(1);
+   
 
-    // useEffect(() => {
-    //     fetch(`https://traininggurubackend.onrender.com/Goals/${currentClientID}`)
-    //         .then((response) => response.json())
-    //         // .then((actualData) => console.log(actualData))
-    //         .then((actualData) => setGoals(actualData));
-    // }, [clientGoals]);
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Goals/${currentClientID}`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setGoals(actualData));
+    }, [clientGoals]);
 
-    // const [clientIntake, setIntake] = useState(null);
+    const [clientIntake, setIntake] = useState(null);
 
-    // useEffect(() => {
-    //     fetch(`https://traininggurubackend.onrender.com/Client/${currentClientID}/NutritionValue`)
-    //         .then((response) => response.json())
-    //         // .then((actualData) => console.log(actualData))
-    //         .then((actualData) => setIntake(actualData));
-    // }, [clientIntake]);
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Client/${currentClientID}/NutritionValue`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setIntake(actualData));
+    }, [clientIntake]);
 
-    // const [clientPBs, setPBs] = useState(null);
+    const [clientPBs, setPBs] = useState(null);
 
-    // useEffect(() => {
-    //     fetch(`https://traininggurubackend.onrender.com/PB/Client/${currentClientID}`)
-    //         .then((response) => response.json())
-    //         // .then((actualData) => console.log(actualData))
-    //         .then((actualData) => setPBs(actualData));
-    // }, [clientPBs]);
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/PB/Client/${currentClientID}`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setPBs(actualData));
+    }, [clientPBs]);
 
     // --------------------- end of work commented for offline db ------------------------------
     // ---------------------     work below hasnt been tested     --------------------------------------
@@ -1076,6 +1077,12 @@ function TrainerClients() {
     <div style={styles.trainerClients}>
         <Nav />
         { width > 700 ? <div style={styles.trainerClients.container}>
+            <select id="clients">
+                { clients?.map((client) => {
+                        return <option value={`${client.ClientID}`}>{client.Name}</option>
+                    })
+                }
+            </select>
             <div style={styles.trainerClients.container.fitbitIcons}>
                 <div>
                     <FontAwesomeIcon style={{...styles.trainerClients.container.fitbitIcons.icon, ...styles.trainerClients.container.fitbitIcons.icon.calBurnt}} icon={faFire}/>
@@ -1120,7 +1127,7 @@ function TrainerClients() {
             </div>
             <div style={styles.trainerClients.container.intake}>
                 <div style={styles.trainerClients.container.intake.heading}>Intake</div>
-                {/* { <div style={styles.trainerClients.container.intake.table}>
+                { <div style={styles.trainerClients.container.intake.table}>
                             <div>Calories</div>
                             <div>{clientIntake?.CaloriesIntake}/{clientIntake?.TotalCalories}cal</div>
                             <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
@@ -1135,19 +1142,19 @@ function TrainerClients() {
                             <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
                         </div>
                         
-                    } */}
+                    }
             </div>
             <div style={styles.trainerClients.container.progressChart}>
                 Weight Progress Graph
             </div>
             <div style={{...styles.trainerClients.container.goals, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Goals</div>
-                    {/* { clientGoals?.map((goal) => {
+                    { clientGoals?.map((goal) => {
                         return <div style={styles.trainerClients.container.goals.entry}>
                                     {goal.Goal}
                                 </div>
                         }) 
-                    } */}
+                    }
             </div>
             <div style={styles.trainerClients.container.calorieSummary}>
                 <div>M</div>
@@ -1236,7 +1243,7 @@ function TrainerClients() {
             <div style={{...styles.trainerClients.container.personalBests, ...styles.trainerClients.container.sections}}>
                 <div style={styles.trainerClients.container.headers}>Personal Bests</div>
                 <div style={styles.trainerClients.container.personalBests.content}>
-                    {/* {   clientPBs?.map((PB) => {
+                    {   clientPBs?.map((PB) => {
                             return <div style={styles.trainerClients.container.personalBests.content.entry}>
                                 <div style={styles.trainerClients.container.personalBests.content.entry.data}>
                                     <div style={styles.trainerClients.container.personalBests.content.entry.data.exercise}>{PB.Exercise.Name}</div>
@@ -1246,7 +1253,7 @@ function TrainerClients() {
                                 </div>
                             </div>
                         })
-                    } */}
+                    }
                 </div>
             </div>
             
@@ -1295,7 +1302,7 @@ function TrainerClients() {
             </div>
             <div style={styles.trainerClientsMobile.container.intake}>
                 <div style={styles.trainerClientsMobile.container.intake.heading}>Intake</div>
-                {/* { <div style={styles.trainerClientsMobile.container.intake.table}>
+                { <div style={styles.trainerClientsMobile.container.intake.table}>
                             <div>Calories</div>
                             <div>{clientIntake?.CaloriesIntake}/{clientIntake?.TotalCalories}cal</div>
                             <FontAwesomeIcon style={styles.trainerClientsMobile.container.intake.table.editIcon} icon={faPenToSquare}/>
@@ -1310,19 +1317,19 @@ function TrainerClients() {
                             <FontAwesomeIcon style={styles.trainerClientsMobile.container.intake.table.editIcon} icon={faPenToSquare}/>
                         </div>
                         
-                    } */}
+                    }
             </div>
             <div style={styles.trainerClientsMobile.container.progressChart}>
                 Weight Progress Graph
             </div>
             <div style={{...styles.trainerClientsMobile.container.goals, ...styles.trainerClientsMobile.container.sections}}>
                 <div style={styles.trainerClientsMobile.container.headers}>Goals</div>
-                    {/* { clientGoals?.map((goal) => {
+                    { clientGoals?.map((goal) => {
                         return <div style={styles.trainerClientsMobile.container.goals.entry}>
                                     {goal.Goal}
                                 </div>
                         }) 
-                    } */}
+                    }
             </div>
             <div style={styles.trainerClientsMobile.container.calorieSummary}>
                 <div>M</div>
@@ -1411,7 +1418,7 @@ function TrainerClients() {
             <div style={{...styles.trainerClientsMobile.container.personalBests, ...styles.trainerClientsMobile.container.sections}}>
                 <div style={styles.trainerClientsMobile.container.headers}>Personal Bests</div>
                 <div style={styles.trainerClientsMobile.container.personalBests.content}>
-                    {/* {   clientPBs?.map((PB) => {
+                    {   clientPBs?.map((PB) => {
                             return <div style={styles.trainerClientsMobile.container.personalBests.content.entry}>
                                 <div style={styles.trainerClientsMobile.container.personalBests.content.entry.data}>
                                     <div style={styles.trainerClientsMobile.container.personalBests.content.entry.data.exercise}>{PB.Exercise.Name}</div>
@@ -1421,7 +1428,7 @@ function TrainerClients() {
                                 </div>
                             </div>
                         })
-                    } */}
+                    }
                 </div>
             </div>
             

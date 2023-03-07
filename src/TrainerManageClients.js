@@ -9,6 +9,7 @@ import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
 
 import { Link } from "react-router-dom";
 
+import { useEffect, useState } from "react";
 import Nav from './Nav';
 
 const styles = {
@@ -271,6 +272,37 @@ function TrainerManageClients() {
 
     // ------------------------ FitBit Code - End -------------------------------------------------------
 
+    const [clients, setClients] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Trainer/1/Clients`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData[0]))
+            .then((actualData) => setClients(actualData));
+    }, []);
+
+    const [clientIntake, setIntake] = useState(null);
+
+    const [clientGoals, setGoals] = useState(null);
+    const [currentClientID, setCurrentClientID] = useState(1);
+    
+    const clientSelect = document?.getElementById("clients");
+    clientSelect?.addEventListener('change', function handleChange(event) {
+        // console.log("Select Value (ID): " + event.target.value);
+        setCurrentClientID(event.target.value);
+        setGoals(clientGoals);
+        setIntake(clientIntake);
+        // setWorkouts(clientWorkouts);
+        // trainerManageClients();
+    })
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Client/${currentClientID}/NutritionValue`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setIntake(actualData));
+    }, [clientIntake]);
+
 
     return (<div style={styles.trainerManageClients}>
         <Nav />
@@ -278,10 +310,10 @@ function TrainerManageClients() {
             <div style={styles.trainerManageClients.container.assignWorkouts}>
                 <div style={styles.trainerManageClients.container.assignWorkouts.name}>
                     <select id="clients">
-                        {/* { clients?.map((client) => {
+                        { clients?.map((client) => {
                                 return <option value={`${client.ClientID}`}>{client.Name}</option>
                             })
-                        } */}
+                        }
                     </select>
                 </div>
                 <div style={styles.trainerManageClients.container.assignWorkouts.content}>
@@ -362,22 +394,22 @@ function TrainerManageClients() {
             </div>
             <div style={styles.trainerManageClients.container.intake}>
                 <div style={styles.trainerManageClients.container.intake.heading}>Intake</div>
-                {/* { <div style={styles.trainerClients.container.intake.table}>
+                { <div style={styles.trainerManageClients.container.intake.table}>
                             <div>Calories</div>
                             <div>{clientIntake?.CaloriesIntake}/{clientIntake?.TotalCalories}cal</div>
-                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <FontAwesomeIcon style={styles.trainerManageClients.container.intake.table.editIcon} icon={faPenToSquare}/>
                             <div>Protein</div>
                             <div>{clientIntake?.ProteinIntake}/{clientIntake?.TotalProtein}g</div>
-                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <FontAwesomeIcon style={styles.trainerManageClients.container.intake.table.editIcon} icon={faPenToSquare}/>
                             <div>Fat</div>
                             <div>{clientIntake?.FatsIntake}/{clientIntake?.TotalFats}g</div>
-                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <FontAwesomeIcon style={styles.trainerManageClients.container.intake.table.editIcon} icon={faPenToSquare}/>
                             <div>Carbs</div>
                             <div>{clientIntake?.CarbohydratesIntake}/{clientIntake?.TotalCarbohydrates}g</div>
-                            <FontAwesomeIcon style={styles.trainerClients.container.intake.table.editIcon} icon={faPenToSquare}/>
+                            <FontAwesomeIcon style={styles.trainerManageClients.container.intake.table.editIcon} icon={faPenToSquare}/>
                         </div>
                         
-                    } */}
+                    }
             </div>
             <div style={{...styles.trainerManageClients.container.stepsGoal, ...styles.trainerManageClients.container.sections}}>
                 <div style={styles.trainerManageClients.container.headers}>Steps Goal</div>

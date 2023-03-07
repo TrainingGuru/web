@@ -97,6 +97,13 @@ const styles = {
                     editIcon: {
                         cursor: "pointer",
                         maxWidth: "fit-content"
+                    },
+                    content: {
+                        entry: {
+                            name: {
+
+                            }
+                        }
                     }
                 }
             }, 
@@ -214,6 +221,15 @@ function TrainerProfile() {
         setIsPopupClicked(!isPopupClicked);
     }
 
+    const [workouts, setWorkouts] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://traininggurubackend.onrender.com/Trainer/1/AllWorkouts`)
+            .then((response) => response.json())
+            // .then((actualData) => console.log(actualData))
+            .then((actualData) => setWorkouts(actualData));
+    }, []);
+
     return (<div style={styles.trainerProfile}>
         <Nav />
         <div style={styles.trainerProfile.container}>
@@ -236,6 +252,11 @@ function TrainerProfile() {
                 </div>
                 <div style={{...styles.trainerProfile.container.profile.savedWorkouts, ...styles.trainerProfile.container.sections}}>
                     <div style={styles.trainerProfile.container.headers}>Saved Workouts</div>
+                    { workouts?.map((workout) => {
+                        return <div style={styles.trainerProfile.container.profile.savedWorkouts.content.entry}>
+                                <div style={styles.trainerProfile.container.profile.savedWorkouts.content.entry.name}>{workout.WorkoutName}</div>
+                            </div>
+                    }) }
 
                 </div>
                 <div onClick={togglePopup} style={styles.trainerProfile.container.profile.savedWorkouts.editIcon}>
